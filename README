@@ -1,0 +1,17 @@
+Series:
+
+i) constant specified density, viscosity, no temperature
+ii) constant specified temperature, EOS for density, viscosity
+iii) adds energy equation, but with no flux bcs, constant initial temp (nearly isothermal)
+iv) variation on (iii) which sets a surface rel perm to mimic the coupled surf/subsurf without surf
+v) fully coupled surf/subsurf cases
+
+
+test0: steady state, water only
+test0b: same as test0, but higher water table
+test1: water source, water only (ic = test0)
+test2: freeze from below, subsurface only (ic = test0)
+test3: cyclic temperature, constant gas saturation BC, subsurface only (ic = test2)
+test4: coupled surface/subsurface, (subsurf ic = test2, surf ic is ponded ice layer), heat surface, melting surface ice, infiltrate into subsurf
+test5: coupled surface/subsurface, (subsurf ic = test2, surf ic is ponded ice layer), heat surface with mass source (snowmelt), melting surface ice, infiltrate into subsurf
+test6: coupled surface/subsurface + SEB
