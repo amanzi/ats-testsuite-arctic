@@ -87,6 +87,7 @@ for i,time in enumerate(times):
 
 axs[1].set_xlabel('head [m]')
 axs[1].set_ylabel('z-coordinate [m]')
+axs[1].ticklabel_format(style='sci', axis='x', scilimits=(0,0))
 
 if inset:
     pd = parse_xmf.getSurfaceData(keys, sdat, 'ponded_depth.cell.0')
