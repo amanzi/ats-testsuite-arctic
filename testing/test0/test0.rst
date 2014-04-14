@@ -29,9 +29,9 @@ Problem Specification
 
 Links to download models files:
 
-Input XML: :download:`test0-i.xml <../../testing/test0/test0-i.xml>`
+Input XML: :download:`test0-i.xml <test0-i.xml>`
 
-Exodus mesh: :download:`mesh_fsets.exo <../../mesh/mesh_fsets.exo>`
+Exodus mesh: :download:`mesh_fsets.exo <mesh_fsets.exo>`
 
 Schematic
 ---------

@@ -4,7 +4,7 @@
    <ParameterList id="6" name="Mesh">
      <Parameter  id="2" name="Framework" type="string" value="MSTK"/>
      <ParameterList id="5" name="Read Mesh File">
-       <Parameter  id="3" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+       <Parameter  id="3" name="File" type="string" value="../mesh_fsets.exo"/>
        <Parameter  id="4" name="Format" type="string" value="Exodus II"/>
      </ParameterList>
    </ParameterList>
@@ -21,7 +21,7 @@
      <ParameterList id="18" name="computational domain moss">
        <ParameterList id="17" name="Region: Labeled Set">
          <Parameter  id="13" name="Label" type="string" value="10000"/>
-         <Parameter  id="14" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="14" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="15" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="16" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -29,7 +29,7 @@
      <ParameterList id="24" name="computational domain peat">
        <ParameterList id="23" name="Region: Labeled Set">
          <Parameter  id="19" name="Label" type="string" value="20000"/>
-         <Parameter  id="20" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="20" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="21" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="22" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -37,7 +37,7 @@
      <ParameterList id="30" name="computational domain upper mineral">
        <ParameterList id="29" name="Region: Labeled Set">
          <Parameter  id="25" name="Label" type="string" value="30000"/>
-         <Parameter  id="26" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="26" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="27" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="28" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -45,7 +45,7 @@
      <ParameterList id="36" name="computational domain lower organic">
        <ParameterList id="35" name="Region: Labeled Set">
          <Parameter  id="31" name="Label" type="string" value="40000"/>
-         <Parameter  id="32" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="32" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="33" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="34" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -53,7 +53,7 @@
      <ParameterList id="42" name="computational domain lower mineral">
        <ParameterList id="41" name="Region: Labeled Set">
          <Parameter  id="37" name="Label" type="string" value="50000"/>
-         <Parameter  id="38" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="38" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="39" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="40" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -61,7 +61,7 @@
      <ParameterList id="48" name="computational domain deep mineral">
        <ParameterList id="47" name="Region: Labeled Set">
          <Parameter  id="43" name="Label" type="string" value="60000"/>
-         <Parameter  id="44" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="44" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="45" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="46" name="Entity" type="string" value="Cell"/>
        </ParameterList>
@@ -69,7 +69,7 @@
      <ParameterList id="54" name="surface">
        <ParameterList id="53" name="Region: Labeled Set">
          <Parameter  id="49" name="Label" type="string" value="2"/>
-         <Parameter  id="50" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="50" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="51" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="52" name="Entity" type="string" value="Face"/>
        </ParameterList>
@@ -77,7 +77,7 @@
      <ParameterList id="60" name="bottom face">
        <ParameterList id="59" name="Region: Labeled Set">
          <Parameter  id="55" name="Label" type="string" value="1"/>
-         <Parameter  id="56" name="File" type="string" value="../../../mesh/mesh_fsets.exo"/>
+         <Parameter  id="56" name="File" type="string" value="../mesh_fsets.exo"/>
          <Parameter  id="57" name="Format" type="string" value="Exodus II"/>
          <Parameter  id="58" name="Entity" type="string" value="Face"/>
        </ParameterList>
