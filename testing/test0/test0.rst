@@ -36,7 +36,7 @@ Exodus mesh: :download:`mesh_fsets.exo <../../mesh/mesh_fsets.exo>`
 Schematic
 ---------
 
-.. figure:: test0.png
+.. figure:: schematic/test0.png
     :figclass: align-center
     :width: 1200 px
 

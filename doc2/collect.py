@@ -41,7 +41,7 @@ verification['1D']={'index_entry': '1D/index.rst',
 #p.add_option('--mycase', help='Build the "mycase" test', default=False, dest='mycase', action='store_true')
 #p.add_option('--verification', default=False, dest='verification', action='store_true')
 
-(opts,args) = p.parse_args()
+#(opts,args) = p.parse_args()
 
 #
 #  Create dictionary for sections
