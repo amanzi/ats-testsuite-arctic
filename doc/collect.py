@@ -15,19 +15,19 @@ import optparse
 #
 verification={}
 verification['index']={'index_title':'Verification Testing',
-                       'index_file':'ats-testsuite-doc/doc2/verification/index.rst',
+                       'index_file':'ats-testsuite-doc/doc/verification/index.rst',
                        'index_list':['1D'],
 }
 
 verification['1D']={'index_entry': '1D/index.rst',
                                  'index' : 
                                  {'index_title' : '1D Column',
-                                  'index_file' : 'ats-testsuite-doc/doc2/verification/index.rst',
+                                  'index_file' : 'ats-testsuite-doc/doc/verification/index.rst',
                                   'index_list' : ['1D'], 
                                   },
                                  '1D':
                                      {'from_dir' : 'ats-testsuite-doc/testing/test0',
-                                      'dest_dir' : 'ats-testsuite-doc/doc2/verification/test0',
+                                      'dest_dir' : 'ats-testsuite-doc/doc/verification/test0',
                                       'index_entry' : 'test0/test0.rst'
                                       },
                                  }
