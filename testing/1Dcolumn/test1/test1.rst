@@ -1,55 +1,21 @@
-Water Source
-============
-
-Capabilties Tested
-------------------
-Two cases are tested:
-
-i) constant specified density, viscosity, no temperature
-
-ii) constant specified temperature, EOS for density, viscosity
-
-iii) adds energy equation, but with no flux bcs, constant initial temp (nearly isothermal)
-
-Background
-----------
-This file documents ATS code verification of flow simulations 
-These codes were compiled using the gfortran compiler on the
-Linux environment. 
+Water Source - Water Only (IC=Steady Steady - Water Only)
+=========================================================
 
 Model
 -----
-Boundary Conditions:
 
-1. Constant pressure of 6.21025e+05 Pa along bottome face (z=-45m)
+XML Files
+---------
 
-Initial Conditions:
 
-1. Uniform pressure of 6.21025e+05 Pa
+Case i: :download:`test1-i.xml <../../testing/1Dcolumn/test1/test1-i.xml>`
 
-Water Retention Model: van Genuchten
+Case ii: :download:`test1-ii.xml <../../testing/1Dcolumn/test1/test1-ii.xml>`
 
-Problem Specification
----------------------
-
-Links to download models files:
-
-Input XML case i: :download:`test1-i.xml <test1-i.xml>`
-
-Input XML case ii: :download:`test1-ii.xml <test1-ii.xml>`
-
-Input XML case ii: :download:`test1-ii.xml <test1-ii.xml>`
-
-Exodus mesh: :download:`mesh_fsets.exo <mesh_fsets.exo>`
+Case iii: :download:`test1-iii.xml <../../testing/1Dcolumn/test1/test1-iii.xml>`
 
 Schematic
 ---------
-
-.. figure:: schematic/test1-i.png
-    :figclass: align-center
-    :width: 1200 px
-
-.. centered:: **Saturation, head, and temperature along column**
 
 Variables
 ---------
@@ -58,6 +24,11 @@ Variables
 Results and Comparison
 ----------------------
 
+.. figure:: ../../testing/1Dcolumn/test1/schematic/test1-i.png
+    :figclass: align-center
+    :width: 1200 px
+
+.. centered:: **Saturation and head along column**
 
 References
 ----------
@@ -71,8 +42,6 @@ About
 * Authors:  Ethan Coon and Dylan Harp
 
 * Maintainer(s): 
-
-* Input Files:
 
 Status
 ------

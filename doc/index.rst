@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   verification/index.rst
+   verification/1Dcolumn
 
 
 Indices and tables

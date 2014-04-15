@@ -1,49 +1,18 @@
-Steady State
-============
+Steady State - Water Only
+=========================
 
-Capabilties Tested
-------------------
-Two cases are tested:
+Description
+-----------
 
-i) constant specified density, viscosity, no temperature
+XML Files
+---------
 
-ii) constant specified temperature, EOS for density, viscosity
+Case i: :download:`test0-i.xml <../../testing/1Dcolumn/test0/test0-i.xml>`
 
-Background
-----------
-This file documents ATS code verification of flow simulations 
-These codes were compiled using the gfortran compiler on the
-Linux environment. 
-
-Model
------
-Boundary Conditions:
-
-1. Constant pressure of 6.21025e+05 Pa along bottome face (z=-45m)
-
-Initial Conditions:
-
-1. Uniform pressure of 6.21025e+05 Pa
-
-Water Retention Model: van Genuchten
-
-Problem Specification
----------------------
-
-Links to download models files:
-
-Input XML case i: :download:`test0-i.xml <test0-i.xml>`
-
-Input XML case ii: :download:`test0-ii.xml <test0-ii.xml>`
+Case ii: :download:`test0-ii.xml <../../testing/1Dcolumn/test0/test0-ii.xml>`
 
 Schematic
 ---------
-
-.. figure:: schematic/test0-i.png
-    :figclass: align-center
-    :width: 1200 px
-
-.. centered:: **Saturation, head, and temperature along column**
 
 Variables
 ---------
@@ -52,6 +21,11 @@ Variables
 Results and Comparison
 ----------------------
 
+.. figure:: ../../testing/1Dcolumn/test0/schematic/test0-i.png
+    :figclass: align-center
+    :width: 1200 px
+
+.. centered:: **Saturation, head, and temperature along column**
 
 References
 ----------
@@ -65,8 +39,6 @@ About
 * Authors:  Ethan Coon and Dylan Harp
 
 * Maintainer(s): 
-
-* Input Files:
 
 Status
 ------
