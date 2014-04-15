@@ -1,4 +1,4 @@
-Steady State
+Water Source
 ============
 
 Capabilties Tested
@@ -8,6 +8,8 @@ Two cases are tested:
 i) constant specified density, viscosity, no temperature
 
 ii) constant specified temperature, EOS for density, viscosity
+
+iii) adds energy equation, but with no flux bcs, constant initial temp (nearly isothermal)
 
 Background
 ----------
@@ -32,14 +34,18 @@ Problem Specification
 
 Links to download models files:
 
-Input XML case i: :download:`test0-i.xml <test0-i.xml>`
+Input XML case i: :download:`test1-i.xml <test1-i.xml>`
 
-Input XML case ii: :download:`test0-ii.xml <test0-ii.xml>`
+Input XML case ii: :download:`test1-ii.xml <test1-ii.xml>`
+
+Input XML case ii: :download:`test1-ii.xml <test1-ii.xml>`
+
+Exodus mesh: :download:`mesh_fsets.exo <mesh_fsets.exo>`
 
 Schematic
 ---------
 
-.. figure:: schematic/test0-i.png
+.. figure:: schematic/test1-i.png
     :figclass: align-center
     :width: 1200 px
 
