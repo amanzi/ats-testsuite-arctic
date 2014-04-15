@@ -1,10 +1,13 @@
-Steady State 1D Column
-======================
+Steady State
+============
 
 Capabilties Tested
 ------------------
-This tests a steady state solve with constant specified density, viscosity, no
-temperature.
+Two cases are tested:
+
+i) constant specified density, viscosity, no temperature
+
+ii) constant specified temperature, EOS for density, viscosity
 
 Background
 ----------
@@ -29,14 +32,16 @@ Problem Specification
 
 Links to download models files:
 
-Input XML: :download:`test0-i.xml <test0-i.xml>`
+Input XML case i: :download:`test0-i.xml <test0-i.xml>`
+
+Input XML case ii: :download:`test0-ii.xml <test0-ii.xml>`
 
 Exodus mesh: :download:`mesh_fsets.exo <mesh_fsets.exo>`
 
 Schematic
 ---------
 
-.. figure:: schematic/test0.png
+.. figure:: schematic/test0-i.png
     :figclass: align-center
     :width: 1200 px
 

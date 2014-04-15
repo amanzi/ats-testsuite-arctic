@@ -5,7 +5,7 @@
   <ParameterList name="Mesh" type="ParameterList">
     <Parameter isUsed="true" name="Framework" type="string" value="MSTK" />
     <ParameterList name="Read Mesh File" type="ParameterList">
-      <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+      <Parameter name="File" type="string" value="../mesh_fsets.exo" />
       <Parameter name="Format" type="string" value="Exodus II" />
     </ParameterList>
     <ParameterList name="Surface Mesh" type="ParameterList">
@@ -31,7 +31,7 @@
     <ParameterList name="computational domain moss" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="10000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -40,7 +40,7 @@
     <ParameterList name="computational domain peat" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="20000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -49,7 +49,7 @@
     <ParameterList name="computational domain upper mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="30000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -58,7 +58,7 @@
     <ParameterList name="computational domain lower organic" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="40000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -67,7 +67,7 @@
     <ParameterList name="computational domain lower mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="50000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -76,7 +76,7 @@
     <ParameterList name="computational domain deep mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="60000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
@@ -92,7 +92,7 @@
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="2" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
@@ -101,7 +101,7 @@
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="1" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
@@ -110,7 +110,7 @@
     <ParameterList name="left face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="3" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
@@ -119,7 +119,7 @@
     <ParameterList name="right face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="4" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
@@ -258,7 +258,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test0/test0-i/checkpoint00001.h5" />
+			  <Parameter name="restart file" type="string" value="../../test0/amanzi-output/checkpoint00001.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">

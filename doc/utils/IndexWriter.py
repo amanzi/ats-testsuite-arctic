@@ -68,7 +68,7 @@ def IndexCreate(amanzi_home,data,logfile):
     # Table of Contents
     #
     f.write('%s\n' % ('.. toctree::') )
-    f.write('   %s\n\n' % (':maxdepth: 2'))
+    f.write('   %s\n\n' % (':maxdepth: 1'))
 
     #
     # Add entries from index_list
