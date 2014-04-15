@@ -23,12 +23,17 @@ verification['1d_column']={'index_entry': '1d_column/index.rst',
                                  'index' : 
                                  {'index_title' : '1D Column',
                                   'index_file' : 'ats-testsuite-doc/doc/verification/index.rst',
-                                  'index_list' : ['steady_state',], 
+                                  'index_list' : ['steady_state','water_source'], 
                                   },
                                  'steady_state':
                                      {'from_dir' : 'ats-testsuite-doc/testing/test0',
                                       'dest_dir' : 'ats-testsuite-doc/doc/verification/test0',
                                       'index_entry' : 'test0/test0.rst'
+                                      },
+                                 'water_source':
+                                     {'from_dir' : 'ats-testsuite-doc/testing/test1',
+                                      'dest_dir' : 'ats-testsuite-doc/doc/verification/test1',
+                                      'index_entry' : 'test1/test1.rst'
                                       },
                                  }
 

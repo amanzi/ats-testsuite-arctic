@@ -5,3 +5,4 @@ schur_0.txt
 dependency_graph.txt
 *.log
 *.pyc
+doc/_build/*
