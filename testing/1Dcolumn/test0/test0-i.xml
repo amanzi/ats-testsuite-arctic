@@ -137,7 +137,7 @@
        <Parameter  id="106" name="permeability rescaling" type="double" value="1.00000000000000000e+07"/>
        <Parameter  id="107" name="debug cells" type="Array(int)" value="{0, 99}"/>
        <ParameterList id="114" name="Diffusion">
-         <Parameter  id="108" name="MFD method" type="string" value="two point flux"/>
+         <Parameter  id="108" name="MFD method" type="string" value="two point flux approximation"/>
          <Parameter  id="109" name="scaled constraint equation" type="bool" value="false"/>
          <ParameterList id="113" name="consistent face solver">
            <Parameter  id="110" name="iterative method" type="string" value="nka"/>
@@ -147,7 +147,7 @@
          </ParameterList>
        </ParameterList>
        <ParameterList id="123" name="Diffusion PC">
-         <Parameter  id="115" name="MFD method" type="string" value="two point flux"/>
+         <Parameter  id="115" name="MFD method" type="string" value="two point flux approximation"/>
          <ParameterList id="122" name="preconditioner">
            <Parameter  id="116" name="preconditioner type" type="string" value="boomer amg"/>
            <ParameterList id="121" name="boomer amg parameters">
@@ -334,12 +334,19 @@
            <Parameter  id="246" name="Verbosity Level" type="string" value="low"/>
          </ParameterList>
        </ParameterList>
-       <ParameterList id="252" name="porosity">
-         <Parameter  id="249" name="field evaluator type" type="string" value="compressible porosity"/>
-         <ParameterList id="251" name="compressible porosity model parameters">
-           <Parameter  id="250" name="pore compressibility" type="double" value="1.00000000000000006e-09"/>
+
+       <ParameterList name="porosity">
+         <Parameter name="field evaluator type" type="string" value="compressible porosity"/>
+         <ParameterList name="compressible porosity model parameters">
+           <ParameterList name="domain">
+             <Parameter name="region" type="string" value="computational domain"/>
+             <Parameter name="pore compressibility" type="double" value="1.00000000000000006e-09"/>
+           </ParameterList>
          </ParameterList>
        </ParameterList>
+
+
+
        <ParameterList id="275" name="permeability">
          <Parameter  id="253" name="field evaluator type" type="string" value="independent variable"/>
          <ParameterList id="272" name="function">
