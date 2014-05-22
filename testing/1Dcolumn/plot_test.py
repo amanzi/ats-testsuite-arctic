@@ -1,10 +1,8 @@
-import sys
+import sys,os
 import matplotlib
-#matplotlib.use('PDF')
-#sys.path.append('/home/ecoon/research/arctic/ats-tests/utils')
-sys.path.append('/lclscratch/ecoon/ats/ats-tests/utils')
+sys.path.append(os.path.join(os.environ['ATS_SRC_DIR'],'tools', 'utils'))
 import parse_xmf
-import process_and_sort1D
+import column_data
 import colors
 import numpy as np
 from matplotlib import pyplot as plt
@@ -47,7 +45,7 @@ to_get.append("saturation_liquid")
 if is_ice:
     to_get.append("saturation_ice")
 to_get.append("saturation_gas")
-dat = process_and_sort1D.sort(to_get)
+dat = column_data.sort(to_get)
 
 # convert times to days
 times = [time*365.25 for time in times]

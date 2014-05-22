@@ -1,11 +1,10 @@
 <ParameterList name="Main" type="ParameterList">
   <Parameter name="Native Unstructured Input" type="bool" value="true" />
   <Parameter name="grid_option" type="string" value="Unstructured" />
-
   <ParameterList name="Mesh" type="ParameterList">
     <Parameter isUsed="true" name="Framework" type="string" value="MSTK" />
     <ParameterList name="Read Mesh File" type="ParameterList">
-      <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+      <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
       <Parameter name="Format" type="string" value="Exodus II" />
     </ParameterList>
     <ParameterList name="Surface Mesh" type="ParameterList">
@@ -27,104 +26,92 @@
         <Parameter name="High Coordinate" type="Array(double)" value="{1000.0,1000.0,10.0}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain moss" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="10000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain peat" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="20000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain upper mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="30000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain lower organic" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="40000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain lower mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="50000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="computational domain deep mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="60000" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="Region: Box" type="ParameterList">
         <Parameter name="Low Coordinate" type="Array(double)" value="{-1000.0,-1000.0}" />
         <Parameter name="High Coordinate" type="Array(double)" value="{1000.0,1000.0}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="2" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="1" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="left face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="3" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="right face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
         <Parameter name="Label" type="string" value="4" />
-        <Parameter name="File" type="string" value="../mesh_fsets.exo" />
+        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
         <Parameter name="Format" type="string" value="Exodus II" />
         <Parameter name="Entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
-
   </ParameterList>
 
   <ParameterList name="coordinator" type="ParameterList">
@@ -144,13 +131,12 @@
     <Parameter name="file name base" type="string" value="visdump_surface" />
     <Parameter name="times start period stop" type="Array(double)" value="{0.0,864000.0,-1.0}" />
   </ParameterList>
-
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="Top level MPC" type="ParameterList">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface flow,surface flow}" />
       <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
-
       <ParameterList name="VerboseObject" type="ParameterList">
         <Parameter name="Verbosity Level" type="string" value="extreme" />
       </ParameterList>
@@ -159,10 +145,10 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
+        <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="extreme" />
         </ParameterList>
-        <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
       </ParameterList>
 
       <ParameterList name="Coupled PC" type="ParameterList">
@@ -179,39 +165,44 @@
 
       <ParameterList name="Coupled Solver" type="ParameterList">
         <Parameter name="iterative method" type="string" value="nka" />
-        <Parameter name="tolerance" type="double" value="1e-06" />
-        <Parameter name="max iterations" type="int" value="100" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="medium" />
+        </ParameterList>
+        <ParameterList name="nka parameters" type="ParameterList">
+          <Parameter name="error tolerance" type="double" value="1e-06" />
+          <Parameter name="maximum number of iterations" type="int" value="20" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
-        <Parameter name="nonlinear solver" type="string" value="NKA BT" />
-        <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-        <Parameter name="convergence monitor" type="string" value="monitor residual" />
-        <Parameter name="limit iterations" type="int" value="21" />
-        <Parameter name="diverged tolerance" type="double" value="1000.0" />
-        <Parameter name="max error growth factor" type="double" value="1000.0" />
-        <Parameter name="max divergent interations" type="int" value="5" />
-        <Parameter name="max backtrack steps" type="int" value="5" />
-        <Parameter name="backtrack factor" type="double" value="0.5" />
-        <Parameter name="backtrack tolerance" type="double" value="1e-05" />
-        <Parameter name="backtrack lag" type="int" value="0" />
-        <Parameter name="nka lag iterations" type="int" value="2" />
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
+        <Parameter name="solver type" type="string" value="nka_bt_ats" />
         <Parameter name="timestep controller type" type="string" value="smarter" />
-        <Parameter name="max iterations" type="int" value="18" />
-        <Parameter name="min iterations" type="int" value="10" />
-        <Parameter name="time step reduction factor" type="double" value="0.5" />
-        <Parameter name="time step increase factor" type="double" value="1.25" />
-        <Parameter name="max time step" type="double" value="10000000000.0" />
-        <Parameter name="min time step" type="double" value="1e-10" />
-        <Parameter name="growth wait after fail" type="int" value="2" />
-        <Parameter name="count before increasing increase factor" type="int" value="2" />
-        <Parameter name="preconditioner lag iterations" type="int" value="0" />
+        <ParameterList name="nka_bt_ats parameters" type="ParameterList">
+          <Parameter name="nka lag iterations" type="int" value="2" />
+          <Parameter name="max backtrack steps" type="int" value="5" />
+          <Parameter name="backtrack lag" type="int" value="0" />
+          <Parameter name="backtrack factor" type="double" value="0.5" />
+          <Parameter name="backtrack tolerance" type="double" value="1e-05" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
+          <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="limit iterations" type="int" value="21" />
+          <ParameterList name="VerboseObject" type="ParameterList">
+            <Parameter name="Verbosity Level" type="string" value="extreme" />
+          </ParameterList>
+        </ParameterList>
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="extreme" />
+        </ParameterList>
+        <ParameterList name="timestep controller smarter parameters" type="ParameterList">
+          <Parameter name="max iterations" type="int" value="18" />
+          <Parameter name="min iterations" type="int" value="10" />
+          <Parameter name="time step reduction factor" type="double" value="0.5" />
+          <Parameter name="time step increase factor" type="double" value="1.25" />
+          <Parameter name="max time step" type="double" value="10000000000.0" />
+          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="growth wait after fail" type="int" value="2" />
+          <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
       </ParameterList>
 
@@ -228,29 +219,39 @@
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
           <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
-
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="extreme" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-            <Parameter name="MFD method" type="string" value="two point flux" />
             <Parameter name="scaled constraint equation" type="bool" value="false" />
+            <Parameter name="MFD method" type="string" value="two point flux approximation" />
             <ParameterList name="consistent face solver" type="ParameterList">
               <Parameter name="iterative method" type="string" value="nka" />
               <ParameterList name="preconditioner" type="ParameterList">
                 <Parameter name="preconditioner type" type="string" value="block ilu" />
+              </ParameterList>
+              <ParameterList name="nka parameters" type="ParameterList">
+                <Parameter name="error tolerance" type="double" value="1e-06" />
+                <Parameter name="maximum number of iterations" type="int" value="20" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
 
           <ParameterList name="Diffusion PC" type="ParameterList">
-            <Parameter name="MFD method" type="string" value="two point flux" />
+            <Parameter name="MFD method" type="string" value="two point flux approximation" />
             <ParameterList name="consistent face solver" type="ParameterList">
               <Parameter name="iterative method" type="string" value="nka" />
               <ParameterList name="preconditioner" type="ParameterList">
                 <Parameter name="preconditioner type" type="string" value="block ilu" />
               </ParameterList>
+              <ParameterList name="nka parameters" type="ParameterList">
+                <Parameter name="error tolerance" type="double" value="1e-06" />
+                <Parameter name="maximum number of iterations" type="int" value="20" />
+              </ParameterList>
+            </ParameterList>
+            <ParameterList name="preconditioner" type="ParameterList">
+              <Parameter name="preconditioner type" type="string" value="boomer amg" />
             </ParameterList>
           </ParameterList>
 
@@ -258,7 +259,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-			  <Parameter name="restart file" type="string" value="../../test0/amanzi-output/checkpoint00001.h5" />
+            <Parameter name="restart file" type="string" value="../../test0/test0-i/checkpoint00001.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -323,6 +324,7 @@
               <Parameter name="Verbosity Level" type="string" value="low" />
             </ParameterList>
           </ParameterList>
+
         </ParameterList>
 
         <ParameterList name="surface flow" type="ParameterList">
@@ -335,33 +337,43 @@
           <Parameter name="absolute error tolerance" type="double" value="1.0" />
           <Parameter name="relative error tolerance" type="double" value="1.0" />
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="extreme" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
             <Parameter name="TPFA" type="bool" value="true" />
-            <Parameter name="MFD method" type="string" value="two point flux" />
             <Parameter name="scaled constraint equation" type="bool" value="true" />
+            <Parameter name="MFD method" type="string" value="two point flux approximation" />
             <ParameterList name="consistent face solver" type="ParameterList">
               <Parameter name="iterative method" type="string" value="nka" />
               <ParameterList name="preconditioner" type="ParameterList">
                 <Parameter name="preconditioner type" type="string" value="block ilu" />
+              </ParameterList>
+              <ParameterList name="nka parameters" type="ParameterList">
+                <Parameter name="error tolerance" type="double" value="1e-06" />
+                <Parameter name="maximum number of iterations" type="int" value="20" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
 
           <ParameterList name="Diffusion PC" type="ParameterList">
-            <Parameter name="MFD method" type="string" value="two point flux" />
             <Parameter name="TPFA" type="bool" value="true" />
             <Parameter name="TPFA use full Jacobian" type="bool" value="false" />
             <Parameter name="scaled constraint equation" type="bool" value="true" />
+            <Parameter name="MFD method" type="string" value="two point flux approximation" />
             <ParameterList name="consistent face solver" type="ParameterList">
               <Parameter name="iterative method" type="string" value="nka" />
               <ParameterList name="preconditioner" type="ParameterList">
                 <Parameter name="preconditioner type" type="string" value="block ilu" />
               </ParameterList>
+              <ParameterList name="nka parameters" type="ParameterList">
+                <Parameter name="error tolerance" type="double" value="1e-06" />
+                <Parameter name="maximum number of iterations" type="int" value="20" />
+              </ParameterList>
+            </ParameterList>
+            <ParameterList name="preconditioner" type="ParameterList">
+              <Parameter name="preconditioner type" type="string" value="boomer amg" />
             </ParameterList>
           </ParameterList>
 
@@ -375,13 +387,16 @@
           <ParameterList name="overland conductivity evaluator" type="ParameterList">
             <ParameterList name="overland conductivity model" type="ParameterList">
               <Parameter name="Manning exponent" type="double" value="0.666666666667" />
-              <Parameter name="slope regularization epsilon" type="double" value="1e-02" />
+              <Parameter name="slope regularization epsilon" type="double" value="0.01" />
             </ParameterList>
           </ParameterList>
+
         </ParameterList>
 
       </ParameterList>
+
     </ParameterList>
+
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
@@ -393,7 +408,7 @@
 
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="richards water content" />
-        <Parameter name="include water vapor" type="bool" value="false"/>
+        <Parameter name="include water vapor" type="bool" value="false" />
       </ParameterList>
 
       <ParameterList name="surface_mass_source" type="ParameterList">
@@ -419,7 +434,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="55000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -438,7 +453,7 @@
             <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="55000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -453,7 +468,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="997" />
+                <Parameter name="value" type="double" value="997.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -468,7 +483,7 @@
             <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.7e-3" />
+                <Parameter name="value" type="double" value="0.0017" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -483,7 +498,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="55000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -498,7 +513,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="997" />
+                <Parameter name="value" type="double" value="997.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -513,7 +528,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1." />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -583,7 +598,10 @@
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
-          <Parameter name="pore compressibility" type="double" value="1e-09" />
+          <ParameterList name="computational domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="pore compressibility" type="double" value="1e-09" />
+          </ParameterList>
         </ParameterList>
       </ParameterList>
 
@@ -595,7 +613,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="2.e-13" />
+                <Parameter name="value" type="double" value="2e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
