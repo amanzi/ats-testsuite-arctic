@@ -169,6 +169,7 @@
           <Parameter name="preconditioner type" type="string" value="boomer amg" />
           <ParameterList name="boomer amg parameters" type="ParameterList">
             <Parameter name="number of cycles" type="int" value="10" />
+            <Parameter name="number of functions" type="int" value="2" />
             <Parameter name="number of smoothing iterations" type="int" value="2" />
             <Parameter name="strong threshold" type="double" value="0.5" />
             <Parameter name="tolerance" type="double" value="0.0" />
@@ -267,8 +268,6 @@
 
           <ParameterList name="water retention evaluator" type="ParameterList">
             <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
-            <Parameter name="permeability rescaling" type="double" value="10000000.0" />
-            <Parameter name="use surface rel perm" type="bool" value="true" />
             <ParameterList name="WRM parameters" type="ParameterList">
               <ParameterList name="moss" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain moss" />
@@ -281,10 +280,10 @@
               <ParameterList name="peat" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain peat" />
                 <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="8.2e-06" />
-                <Parameter name="van Genuchten m" type="double" value="0.473684211" />
-                <Parameter name="residual saturation" type="double" value="0.047058824" />
-                <Parameter name="smoothing interval width" type="double" value="0.0" />
+                <Parameter name="van Genuchten alpha" type="double" value="0.0006" />
+                <Parameter name="van Genuchten m" type="double" value="0.275" />
+                <Parameter name="residual saturation" type="double" value="0.05" />
+                <Parameter name="smoothing interval width" type="double" value="100.0" />
               </ParameterList>
               <ParameterList name="upper mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain upper mineral" />
@@ -319,12 +318,8 @@
                 <Parameter name="smoothing interval width" type="double" value="100.0" />
               </ParameterList>
             </ParameterList>
-            <ParameterList name="permafrost model parameters" type="ParameterList">
-              <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
-              <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
-            </ParameterList>
             <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="low" />
+              <Parameter name="Verbosity Level" type="string" value="high" />
             </ParameterList>
           </ParameterList>
 
