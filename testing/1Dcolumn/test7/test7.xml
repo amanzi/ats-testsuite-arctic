@@ -132,7 +132,7 @@
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="10" />
           <Parameter name="backtrack lag" type="int" value="0" />
-          <Parameter name="backtrack factor" type="double" value="0.5" />
+          <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="1e-05" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="1.e6" />
@@ -198,7 +198,7 @@
 
           <ParameterList name="subsurface ewc delegate" type="ParameterList">
             <Parameter name="predictor type" type="string" value="smart ewc" />
-            <Parameter name="debug cells" type="Array(int)" value="{1}" />
+            <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
             <ParameterList name="VerboseObject" type="ParameterList">
               <Parameter name="Verbosity Level" type="string" value="high" />
             </ParameterList>
@@ -249,7 +249,7 @@
               <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
               <Parameter name="permeability rescaling" type="double" value="10000000.0" />
 
-              <Parameter name="debug cells" type="Array(int)" value="{1}" />
+              <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
               <ParameterList name="VerboseObject" type="ParameterList">
                 <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
@@ -287,7 +287,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10540.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint01087.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -427,7 +427,7 @@
               <Parameter name="absolute error tolerance" type="double" value="1.0" />
               <Parameter name="relative error tolerance" type="double" value="1.0" />
               <Parameter name="flux tolerance" type="double" value="0.01" />
-              <Parameter name="debug cells" type="Array(int)" value="{1}" />
+              <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
               <ParameterList name="VerboseObject" type="ParameterList">
                 <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
@@ -478,7 +478,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10540.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint01087.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -1022,7 +1022,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="/QswIn" />
               </ParameterList>
@@ -1042,7 +1042,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="/Ta" />
               </ParameterList>
@@ -1062,7 +1062,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="/RH" />
               </ParameterList>
@@ -1082,7 +1082,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="/Us" />
               </ParameterList>
@@ -1102,7 +1102,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="Pr" />
               </ParameterList>
@@ -1122,7 +1122,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../Data/TESTCASE/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../Data/TESTCASE/10yr-MORESNOW.h5" />
                 <Parameter name="x header" type="string" value="/time" />
                 <Parameter name="y header" type="string" value="Ps" />
               </ParameterList>
