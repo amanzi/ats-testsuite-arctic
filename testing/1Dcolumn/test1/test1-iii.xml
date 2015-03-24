@@ -268,6 +268,7 @@
 
           <ParameterList name="water retention evaluator" type="ParameterList">
             <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
+            <Parameter name="use surface rel perm" type="bool" value="true" />
             <ParameterList name="WRM parameters" type="ParameterList">
               <ParameterList name="moss" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain moss" />
@@ -317,6 +318,10 @@
                 <Parameter name="residual saturation" type="double" value="0.1" />
                 <Parameter name="smoothing interval width" type="double" value="100.0" />
               </ParameterList>
+            </ParameterList>
+            <ParameterList name="permafrost model parameters" type="ParameterList">
+              <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+              <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
             </ParameterList>
             <ParameterList name="VerboseObject" type="ParameterList">
               <Parameter name="Verbosity Level" type="string" value="high" />

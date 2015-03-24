@@ -110,7 +110,6 @@
       <Parameter name="relative error tolerance" type="double" value="1.0" />
       <Parameter name="initial time step" type="double" value="1.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="modify predictor with consistent faces" type="bool" value="true" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
       <ParameterList name="VerboseObject" type="ParameterList">
@@ -147,39 +146,33 @@
         </ParameterList>
       </ParameterList>
 
+
       <ParameterList name="Diffusion" type="ParameterList">
-        <Parameter name="scaled constraint equation" type="bool" value="false" />
-        <Parameter name="MFD method" type="string" value="two point flux approximation" />
-        <ParameterList name="consistent face solver" type="ParameterList">
-          <Parameter name="iterative method" type="string" value="nka" />
-          <ParameterList name="preconditioner" type="ParameterList">
-            <Parameter name="preconditioner type" type="string" value="block ilu" />
-          </ParameterList>
-          <ParameterList name="nka parameters" type="ParameterList">
-            <Parameter name="error tolerance" type="double" value="1e-06" />
-            <Parameter name="maximum number of iterations" type="int" value="20" />
-          </ParameterList>
-        </ParameterList>
+	    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+	    <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
+	    <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
+	    <Parameter name="upwind method" type="string" value="standard"/>
+	    <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
       </ParameterList>
 
       <ParameterList name="Diffusion PC" type="ParameterList">
-        <Parameter name="MFD method" type="string" value="two point flux approximation" />
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="boomer amg" />
-          <ParameterList name="boomer amg parameters" type="ParameterList">
-            <Parameter name="number of cycles" type="int" value="10" />
-            <Parameter name="number of smoothing iterations" type="int" value="2" />
-            <Parameter name="strong threshold" type="double" value="0.5" />
-            <Parameter name="tolerance" type="double" value="0.0" />
+	    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+	    <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
+	    <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
+	    <Parameter name="upwind method" type="string" value="standard"/>
+	    <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
+        <ParameterList name="preconditioner">
+          <Parameter name="preconditioner type" type="string" value="boomer amg"/>
+          <ParameterList name="boomer amg parameters">
+            <Parameter name="cycle applications" type="int" value="2"/>
+            <Parameter name="smoother sweeps" type="int" value="3"/>
+            <Parameter name="strong threshold" type="double" value="0.5"/>
+            <Parameter name="tolerance" type="double" value="0.0"/>
+            <Parameter name="relaxation type" type="int" value="6"/>
+            <Parameter name="verbosity" type="int" value="0"/>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="consistent face solver" type="ParameterList">
-          <Parameter name="iterative method" type="string" value="nka" />
-          <ParameterList name="preconditioner" type="ParameterList">
-            <Parameter name="preconditioner type" type="string" value="block ilu" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
+      </ParameterList> 
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="pressure" type="ParameterList">
