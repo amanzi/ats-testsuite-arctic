@@ -136,7 +136,7 @@
     <ParameterList name="Top level MPC" type="ParameterList">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface flow,surface flow}" />
-      <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
+      <Parameter name="debug cells" type="Array(int)" value="{1}" />
       <ParameterList name="VerboseObject" type="ParameterList">
         <Parameter name="Verbosity Level" type="string" value="extreme" />
       </ParameterList>
@@ -145,25 +145,23 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
-        <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
+        <Parameter name="debug cells" type="Array(int)" value="{1}" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="extreme" />
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="Coupled PC" type="ParameterList">
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="boomer amg" />
-          <ParameterList name="boomer amg parameters" type="ParameterList">
-            <Parameter name="number of cycles" type="int" value="10" />
-            <Parameter name="number of smoothing iterations" type="int" value="2" />
-            <Parameter name="strong threshold" type="double" value="0.5" />
-            <Parameter name="tolerance" type="double" value="0.0" />
-          </ParameterList>
+      <ParameterList name="preconditioner" type="ParameterList">
+        <Parameter name="preconditioner type" type="string" value="boomer amg" />
+        <ParameterList name="boomer amg parameters" type="ParameterList">
+          <Parameter name="cycle applications" type="int" value="10" />
+          <Parameter name="smoother sweeps" type="int" value="2" />
+          <Parameter name="strong threshold" type="double" value="0.5" />
+          <Parameter name="tolerance" type="double" value="0.0" />
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="Coupled Solver" type="ParameterList">
+      <ParameterList name="linear solver" type="ParameterList">
         <Parameter name="iterative method" type="string" value="nka" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="medium" />
@@ -211,46 +209,32 @@
         <ParameterList name="subsurface flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow" />
           <Parameter name="primary variable" type="string" value="pressure" />
-          <Parameter name="modify predictor with consistent faces" type="bool" value="true" />
           <Parameter name="absolute error tolerance" type="double" value="1.0" />
           <Parameter name="relative error tolerance" type="double" value="1.0" />
           <Parameter name="flux tolerance" type="double" value="10.0" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
-          <Parameter name="debug cells" type="Array(int)" value="{111,112}" />
+          <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="extreme" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-            <Parameter name="scaled constraint equation" type="bool" value="false" />
-            <Parameter name="MFD method" type="string" value="two point flux approximation" />
-            <ParameterList name="consistent face solver" type="ParameterList">
-              <Parameter name="iterative method" type="string" value="nka" />
-              <ParameterList name="preconditioner" type="ParameterList">
-                <Parameter name="preconditioner type" type="string" value="block ilu" />
-              </ParameterList>
-              <ParameterList name="nka parameters" type="ParameterList">
-                <Parameter name="error tolerance" type="double" value="1e-06" />
-                <Parameter name="maximum number of iterations" type="int" value="20" />
-              </ParameterList>
-            </ParameterList>
+	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
+	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
+	        <Parameter name="upwind method" type="string" value="standard"/>
+	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
           </ParameterList>
 
           <ParameterList name="Diffusion PC" type="ParameterList">
-            <Parameter name="MFD method" type="string" value="two point flux approximation" />
-            <ParameterList name="consistent face solver" type="ParameterList">
-              <Parameter name="iterative method" type="string" value="nka" />
-              <ParameterList name="preconditioner" type="ParameterList">
-                <Parameter name="preconditioner type" type="string" value="block ilu" />
-              </ParameterList>
-              <ParameterList name="nka parameters" type="ParameterList">
-                <Parameter name="error tolerance" type="double" value="1e-06" />
-                <Parameter name="maximum number of iterations" type="int" value="20" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
+	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
+	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
+	        <Parameter name="upwind method" type="string" value="standard"/>
+	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
+          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
@@ -324,7 +308,6 @@
           <Parameter name="primary variable" type="string" value="surface_pressure" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
-          <Parameter name="modify predictor with consistent faces" type="bool" value="true" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="absolute error tolerance" type="double" value="1.0" />
           <Parameter name="relative error tolerance" type="double" value="1.0" />
@@ -334,37 +317,14 @@
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-            <Parameter name="TPFA" type="bool" value="true" />
-            <Parameter name="scaled constraint equation" type="bool" value="true" />
-            <Parameter name="MFD method" type="string" value="two point flux approximation" />
-            <ParameterList name="consistent face solver" type="ParameterList">
-              <Parameter name="iterative method" type="string" value="nka" />
-              <ParameterList name="preconditioner" type="ParameterList">
-                <Parameter name="preconditioner type" type="string" value="block ilu" />
-              </ParameterList>
-              <ParameterList name="nka parameters" type="ParameterList">
-                <Parameter name="error tolerance" type="double" value="1e-06" />
-                <Parameter name="maximum number of iterations" type="int" value="20" />
-              </ParameterList>
-            </ParameterList>
+	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
+	        <Parameter name="upwind method" type="string" value="standard"/>
           </ParameterList>
 
           <ParameterList name="Diffusion PC" type="ParameterList">
-            <Parameter name="TPFA" type="bool" value="true" />
-            <Parameter name="TPFA use full Jacobian" type="bool" value="false" />
-            <Parameter name="scaled constraint equation" type="bool" value="true" />
-            <Parameter name="MFD method" type="string" value="two point flux approximation" />
-            <ParameterList name="consistent face solver" type="ParameterList">
-              <Parameter name="iterative method" type="string" value="nka" />
-              <ParameterList name="preconditioner" type="ParameterList">
-                <Parameter name="preconditioner type" type="string" value="block ilu" />
-              </ParameterList>
-              <ParameterList name="nka parameters" type="ParameterList">
-                <Parameter name="error tolerance" type="double" value="1e-06" />
-                <Parameter name="maximum number of iterations" type="int" value="20" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
+	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
+	        <Parameter name="upwind method" type="string" value="standard"/>
+          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
@@ -481,7 +441,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="55000.0" />
@@ -527,15 +487,6 @@
           <ParameterList name="cells" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.15" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="faces" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="boundary_face" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="0.15" />
