@@ -161,9 +161,9 @@
       <ParameterList name="preconditioner" type="ParameterList">
         <Parameter name="preconditioner type" type="string" value="boomer amg" />
         <ParameterList name="boomer amg parameters" type="ParameterList">
-          <Parameter name="cycle applications" type="int" value="10" />
+          <Parameter name="cycle applications" type="int" value="1" />
           <Parameter name="smoother sweeps" type="int" value="2" />
-          <Parameter name="strong threshold" type="double" value="0.5" />
+          <Parameter name="strong threshold" type="double" value="0.25" />
           <Parameter name="tolerance" type="double" value="0.0" />
           <Parameter name="number of functions" type="int" value="2" />
         </ParameterList>
@@ -187,9 +187,9 @@
           <Parameter name="max backtrack steps" type="int" value="5" />
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
-          <Parameter name="backtrack tolerance" type="double" value="1e-05" />
+          <Parameter name="backtrack tolerance" type="double" value="1e-04" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="extreme" />
@@ -216,10 +216,6 @@
           <Parameter name="PK type" type="string" value="permafrost flow" />
           <Parameter name="primary variable" type="string" value="pressure" />
 
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
-          <Parameter name="flux tolerance" type="double" value="10.0" />
-
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
@@ -231,25 +227,13 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10540.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10552.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -318,12 +302,10 @@
 
         <ParameterList name="surface flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="overland flow with ice" />
-          <Parameter name="primary variable" type="string" value="surface_pressure" />
+          <Parameter name="primary variable" type="string" value="surface-pressure" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
           <Parameter name="initial time step" type="double" value="86400.0" />
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
 
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -332,15 +314,7 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="fv: default"/>
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="fv: default"/>
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
@@ -372,13 +346,8 @@
           <Parameter name="primary variable" type="string" value="temperature" />
 
           <Parameter name="source term" type="bool" value="false" />
-          <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="supress advective terms in preconditioner" type="bool" value="false"/>
-
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
-          <Parameter name="flux tolerance" type="double" value="0.01" />
 
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -387,19 +356,7 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
             <ParameterList name="temperature" type="ParameterList">
@@ -415,7 +372,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10540.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10552.h5" />
           </ParameterList>
 
           <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -423,50 +380,50 @@
               <ParameterList name="computational domain moss" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain moss" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="0.57" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.07" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="0.57" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.07" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain peat" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain peat" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="0.67" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.07" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="0.67" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.07" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain upper mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain upper mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain lower organic" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain lower organic" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain lower mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain lower mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain deep mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain deep mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -478,14 +435,13 @@
 
         <ParameterList name="surface energy" type="ParameterList">
           <Parameter name="PK type" type="string" value="surface energy" />
-          <Parameter name="primary variable" type="string" value="surface_temperature" />
+          <Parameter name="primary variable" type="string" value="surface-temperature" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
-          <Parameter name="flux key" type="string" value="surface_flux" />
+          <Parameter name="flux key" type="string" value="surface-flux" />
           <Parameter name="initial time step" type="double" value="86400.0" />
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
           <Parameter name="supress advective terms in preconditioner" type="bool" value="false"/>
+          <Parameter name="upwind conductivity method" type="string" value="arithmetic mean"/>
 
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -494,15 +450,7 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="fv: default"/>
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="fv: default"/>
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-          </ParameterList> 
 
           <ParameterList name="initial condition" type="ParameterList">
             <Parameter name="initialize surface temperature from subsurface" type="bool" value="true" />
@@ -513,9 +461,7 @@
 
           <ParameterList name="thermal conductivity evaluator" type="ParameterList">
             <ParameterList name="thermal conductivity parameters" type="ParameterList">
-              <Parameter name="minimum thermal conductivity" type="double" value="1e-30" />
-              <Parameter name="thermal conductivity of water" type="double" value="0.58" />
-              <Parameter name="thermal conductivity of ice" type="double" value="2.18" />
+              <Parameter name="minimum thermal conductivity" type="double" value="1e-15" />
             </ParameterList>
           </ParameterList>
 
@@ -531,11 +477,27 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="field evaluators" type="ParameterList">
 
+      <ParameterList name="water_content" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="permafrost water content" />
+      </ParameterList>
+
+      <ParameterList name="energy">
+        <Parameter name="field evaluator type" type="string" value="three phase energy" />
+      </ParameterList>
+
+      <ParameterList name="surface-water_content" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="overland pressure water content" />
+      </ParameterList>
+
+      <ParameterList name="surface-energy">
+        <Parameter name="field evaluator type" type="string" value="surface ice energy" />
+      </ParameterList>
+
       <ParameterList name="ponded_depth" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="icy ponded depth" />
       </ParameterList>
 
-      <ParameterList name="surface_mass_source" type="ParameterList">
+      <ParameterList name="surface-mass_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -550,7 +512,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_mass_source_temperature" type="ParameterList">
+      <ParameterList name="surface-mass_source_temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -565,7 +527,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_conducted_energy_source" type="ParameterList">
+      <ParameterList name="surface-conducted_energy_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -580,36 +542,36 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_total_energy_source" type="ParameterList">
+      <ParameterList name="surface-total_energy_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="advected energy source" />
         <Parameter name="domain" type="string" value="surface" />
         <Parameter name="include conduction" type="bool" value="true" />
-        <Parameter name="internal enthalpy key" type="string" value="surface_enthalpy" />
-        <Parameter name="external enthalpy key" type="string" value="surface_mass_source_enthalpy" />
-        <Parameter name="internal density key" type="string" value="surface_molar_density_liquid" />
-        <Parameter name="external density key" type="string" value="surface_source_molar_density" />
+        <Parameter name="internal enthalpy key" type="string" value="surface-enthalpy" />
+        <Parameter name="external enthalpy key" type="string" value="surface-mass_source_enthalpy" />
+        <Parameter name="internal density key" type="string" value="surface-molar_density_liquid" />
+        <Parameter name="external density key" type="string" value="surface-source_molar_density" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_mass_source_enthalpy" type="ParameterList">
+      <ParameterList name="surface-mass_source_enthalpy" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="enthalpy" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
-        <Parameter name="molar density key" type="string" value="surface_source_molar_density" />
-        <Parameter name="internal energy key" type="string" value="surface_source_internal_energy" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
+        <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
+        <Parameter name="internal energy key" type="string" value="surface-source_internal_energy" />
         <Parameter name="include work term" type="bool" value="false" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_source_molar_density" type="ParameterList">
+      <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
-        <Parameter name="molar density key" type="string" value="surface_source_molar_density" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
-        <Parameter name="temperature key" type="string" value="surface_mass_source_temperature" />
+        <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
+        <Parameter name="temperature key" type="string" value="surface-mass_source_temperature" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -618,10 +580,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_source_internal_energy" type="ParameterList">
+      <ParameterList name="surface-source_internal_energy" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="iem" />
-        <Parameter name="internal energy key" type="string" value="surface_source_internal_energy" />
-        <Parameter name="temperature key" type="string" value="surface_mass_source_temperature" />
+        <Parameter name="internal energy key" type="string" value="surface-source_internal_energy" />
+        <Parameter name="temperature key" type="string" value="surface-mass_source_temperature" />
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear" />
           <Parameter name="heat capacity [J/mol-K]" type="double" value="76.0" />
@@ -665,12 +627,12 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_molar_density_liquid" type="ParameterList">
+      <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface_molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="surface_mass_density_liquid" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
+        <Parameter name="molar density key" type="string" value="surface-molar_density_liquid" />
+        <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -684,7 +646,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_relative_permeability" type="ParameterList">
+      <ParameterList name="surface-relative_permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="surface rel perm" />
         <ParameterList name="surface rel perm model" type="ParameterList">
           <Parameter name="surface rel perm model type" type="string" value="unfrozen fraction rel perm, limit one" />
@@ -713,12 +675,12 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_mass_density_ice" type="ParameterList">
+      <ParameterList name="surface-mass_density_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface_molar_density_ice" />
-        <Parameter name="mass density key" type="string" value="surface_mass_density_ice" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
+        <Parameter name="molar density key" type="string" value="surface-molar_density_ice" />
+        <Parameter name="mass density key" type="string" value="surface-mass_density_ice" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="ice" />
         </ParameterList>
@@ -733,9 +695,9 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_internal_energy_liquid" type="ParameterList">
+      <ParameterList name="surface-internal_energy_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="iem" />
-        <Parameter name="internal energy key" type="string" value="surface_internal_energy_liquid" />
+        <Parameter name="internal energy key" type="string" value="surface-internal_energy_liquid" />
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear" />
           <Parameter name="heat capacity [J/mol-K]" type="double" value="76.0" />
@@ -767,9 +729,9 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_internal_energy_ice" type="ParameterList">
+      <ParameterList name="surface-internal_energy_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="iem" />
-        <Parameter name="internal energy key" type="string" value="surface_internal_energy_ice" />
+        <Parameter name="internal energy key" type="string" value="surface-internal_energy_ice" />
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="quadratic" />
           <Parameter name="quadratic u_0 [J/mol]" type="double" value="-6007.87" />
@@ -786,9 +748,9 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_vapor_pressure" type="ParameterList">
+      <ParameterList name="surface-vapor_pressure" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="surface top cell evaluator" />
-        <Parameter name="surface key" type="string" value="surface_vapor_pressure" />
+        <Parameter name="surface key" type="string" value="surface-vapor_pressure" />
         <Parameter name="subsurface key" type="string" value="mol_frac_gas" />
       </ParameterList>
 
@@ -943,7 +905,7 @@
         <Parameter name="field evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
 
-      <ParameterList name="surface_effective_pressure" type="ParameterList">
+      <ParameterList name="surface-effective_pressure" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
 

@@ -137,7 +137,7 @@
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface flow,surface flow}" />
       <ParameterList name="VerboseObject" type="ParameterList">
-        <Parameter name="Verbosity Level" type="string" value="extreme" />
+        <Parameter name="Verbosity Level" type="string" value="high" />
       </ParameterList>
 
       <ParameterList name="water delegate" type="ParameterList">
@@ -145,16 +145,16 @@
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
         <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="extreme" />
+          <Parameter name="Verbosity Level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="preconditioner" type="ParameterList">
         <Parameter name="preconditioner type" type="string" value="boomer amg" />
         <ParameterList name="boomer amg parameters" type="ParameterList">
-          <Parameter name="cycle applications" type="int" value="10" />
+          <Parameter name="cycle applications" type="int" value="1" />
           <Parameter name="smoother sweeps" type="int" value="2" />
-          <Parameter name="strong threshold" type="double" value="0.5" />
+          <Parameter name="strong threshold" type="double" value="0.25" />
           <Parameter name="tolerance" type="double" value="0.0" />
         </ParameterList>
       </ParameterList>
@@ -179,16 +179,16 @@
           <Parameter name="max backtrack steps" type="int" value="5" />
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
-          <Parameter name="backtrack tolerance" type="double" value="1e-05" />
+          <Parameter name="backtrack tolerance" type="double" value="1e-04" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="extreme" />
+            <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="extreme" />
+          <Parameter name="Verbosity Level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -207,32 +207,18 @@
         <ParameterList name="subsurface flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow" />
           <Parameter name="primary variable" type="string" value="pressure" />
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
-          <Parameter name="flux tolerance" type="double" value="10.0" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
+
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="extreme" />
+            <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
@@ -302,27 +288,20 @@
         </ParameterList>
 
         <ParameterList name="surface flow" type="ParameterList">
-          <Parameter name="PK type" type="string" value="overland flow, head basis" />
-          <Parameter name="primary variable" type="string" value="surface_pressure" />
+          <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
+          <Parameter name="primary variable" type="string" value="surface-pressure" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
           <Parameter name="initial time step" type="double" value="86400.0" />
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
+
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="extreme" />
+            <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
+	        <Parameter name="discretization primary" type="string" value="fv: default"/>
           </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="schema" type="Array(string)" value="{cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-          </ParameterList> 
 
           <ParameterList name="boundary conditions" type="ParameterList">
           </ParameterList>
@@ -354,11 +333,14 @@
       </ParameterList>
 
       <ParameterList name="water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="richards water content" />
-        <Parameter name="include water vapor" type="bool" value="false" />
+        <Parameter name="field evaluator type" type="string" value="richards water content with vapor" />
       </ParameterList>
 
-      <ParameterList name="surface_mass_source" type="ParameterList">
+      <ParameterList name="surface-water_content" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="overland pressure water content" />
+      </ParameterList>
+      
+      <ParameterList name="surface-mass_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -373,12 +355,12 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_source_molar_density" type="ParameterList">
+      <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
-        <Parameter name="molar density key" type="string" value="surface_source_molar_density" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
-        <Parameter name="temperature key" type="string" value="surface_mass_source_temperature" />
+        <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
+        <Parameter name="temperature key" type="string" value="surface-mass_source_temperature" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -387,7 +369,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_mass_source_temperature" type="ParameterList">
+      <ParameterList name="surface-mass_source_temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -416,12 +398,12 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_mass_density_liquid" type="ParameterList">
+      <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface_molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="surface_mass_density_liquid" />
-        <Parameter name="pressure key" type="string" value="surface_effective_pressure" />
+        <Parameter name="molar density key" type="string" value="surface-molar_density_liquid" />
+        <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
+        <Parameter name="pressure key" type="string" value="surface-effective_pressure" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -435,7 +417,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_relative_permeability" type="ParameterList">
+      <ParameterList name="surface-relative_permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -465,7 +447,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="mol_frac_gas" type="ParameterList">
+      <ParameterList name="mol_fraction_vapor_in_gas" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="molar fraction gas" />
         <Parameter name="molar fraction key" type="string" value="mol_frac_gas" />
         <ParameterList name="vapor pressure model parameters" type="ParameterList">
@@ -621,7 +603,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface_temperature" type="ParameterList">
+      <ParameterList name="surface-temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="temp on cells" type="ParameterList">
@@ -643,7 +625,7 @@
         <Parameter name="field evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
 
-      <ParameterList name="surface_effective_pressure" type="ParameterList">
+      <ParameterList name="surface-effective_pressure" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
 

@@ -103,7 +103,13 @@ if inset:
         axs[-1].set_ylim([-.1*snow.max(), snow.max()])
 
     if is_temp:
-        surf_T = parse_xmf.getSurfaceData(keys, sdat, 'surface_temperature.cell.0')
+        try:
+            sdat["surface_temperature.cell.0"]
+        except KeyError:
+            Tkey = "surface-temperature.cell.0"
+        else:
+            Tkey = "surface_temperature.cell.0"
+        surf_T = parse_xmf.getSurfaceData(keys, sdat, Tkey)
         twinax = axs[-1].twinx()
 
         twinax.plot(times, surf_T, 'r')

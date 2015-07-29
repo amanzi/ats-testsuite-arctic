@@ -106,12 +106,10 @@
     <ParameterList name="Richards" type="ParameterList">
       <Parameter name="PK type" type="string" value="richards steady state" />
       <Parameter name="primary variable" type="string" value="pressure" />
-      <Parameter name="absolute error tolerance" type="double" value="1.0" />
-      <Parameter name="relative error tolerance" type="double" value="1.0" />
       <Parameter name="initial time step" type="double" value="1.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
+      <Parameter name="debug cells" type="Array(int)" value="{1,55}" />
       <ParameterList name="VerboseObject" type="ParameterList">
         <Parameter name="Verbosity Level" type="string" value="high" />
       </ParameterList>
@@ -149,29 +147,15 @@
 
       <ParameterList name="Diffusion" type="ParameterList">
 	    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	    <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	    <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	    <Parameter name="upwind method" type="string" value="standard"/>
-	    <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
       </ParameterList>
-
-      <ParameterList name="Diffusion PC" type="ParameterList">
-	    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
-	    <Parameter name="discretization secondary" type="string" value="mfd: optimized for sparsity"/>
-	    <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	    <Parameter name="upwind method" type="string" value="standard"/>
-	    <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-      </ParameterList> 
 
       <ParameterList name="preconditioner">
         <Parameter name="preconditioner type" type="string" value="boomer amg"/>
         <ParameterList name="boomer amg parameters">
-          <Parameter name="cycle applications" type="int" value="2"/>
+          <Parameter name="cycle applications" type="int" value="1"/>
           <Parameter name="smoother sweeps" type="int" value="3"/>
-          <Parameter name="strong threshold" type="double" value="0.5"/>
+          <Parameter name="strong threshold" type="double" value="0.25"/>
           <Parameter name="tolerance" type="double" value="0.0"/>
-          <Parameter name="relaxation type" type="int" value="6"/>
-          <Parameter name="verbosity" type="int" value="0"/>
         </ParameterList>
       </ParameterList>
 

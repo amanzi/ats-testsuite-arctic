@@ -104,9 +104,9 @@
       <Parameter name="PK type" type="string" value="subsurface permafrost" />
       <Parameter name="PKs order" type="Array(string)" value="{flow,energy}" />
 
-      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false"/>
+      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true"/>
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: div hq / dp" type="bool" value="false"/>
+      <Parameter name="supress Jacobian terms: div hq / dp" type="bool" value="true"/>
       <Parameter name="dump preconditioner" type="bool" value="false"/>
 
       <Parameter name="predictor type" type="string" value="smart ewc" />
@@ -157,9 +157,9 @@
           <Parameter name="max backtrack steps" type="int" value="5" />
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
-          <Parameter name="backtrack tolerance" type="double" value="1e-05" />
+          <Parameter name="backtrack tolerance" type="double" value="1e-04" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
@@ -186,10 +186,6 @@
           <Parameter name="PK type" type="string" value="permafrost flow" />
           <Parameter name="primary variable" type="string" value="pressure" />
 
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
-          <Parameter name="flux tolerance" type="double" value="10.0" />
-
           <Parameter name="initial time step" type="double" value="1.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
@@ -201,19 +197,6 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-          </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="newton correction" type="string" value="approximate jacobian"/>
           </ParameterList>
 
           <ParameterList name="boundary conditions" type="ParameterList">
@@ -290,13 +273,10 @@
           <Parameter name="PK type" type="string" value="three-phase energy" />
           <Parameter name="primary variable" type="string" value="temperature" />
 
-          <Parameter name="supress advective terms in preconditioner" type="bool" value="false"/>
+          <Parameter name="supress advective terms in preconditioner" type="bool" value="true"/>
           <Parameter name="source term" type="bool" value="false" />
 
           <Parameter name="initial time step" type="double" value="1.0" />
-          <Parameter name="absolute error tolerance" type="double" value="1.0" />
-          <Parameter name="relative error tolerance" type="double" value="1.0" />
-          <Parameter name="flux tolerance" type="double" value="0.1" />
 
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -305,19 +285,6 @@
 
           <ParameterList name="Diffusion" type="ParameterList">
 	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-          </ParameterList>
-
-          <ParameterList name="Diffusion PC" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation"/>
-	        <Parameter name="schema" type="Array(string)" value="{face,cell}"/>
-	        <Parameter name="upwind method" type="string" value="standard"/>
-	        <Parameter name="preconditioner schema" type="Array(string)" value="{face,cell}"/>
-<!--	        <Parameter name="newton correction" type="string" value="approximate jacobian"/>-->
           </ParameterList>
 
           <ParameterList name="boundary conditions" type="ParameterList">
@@ -352,50 +319,50 @@
               <ParameterList name="computational domain moss" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain moss" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="0.57" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.07" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="0.57" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.07" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain peat" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain peat" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="0.67" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.07" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="0.67" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.07" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain upper mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain upper mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain lower organic" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain lower organic" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain lower mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain lower mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
               <ParameterList name="computational domain deep mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain deep mineral" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-                <Parameter name="thermal conductivity, saturated (unfrozen)" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry" type="double" value="0.29" />
-                <Parameter name="unsaturated alpha frozen" type="double" value="1.0" />
-                <Parameter name="unsaturated alpha unfrozen" type="double" value="0.5" />
+                <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
+                <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
             </ParameterList>
             <ParameterList name="VerboseObject" type="ParameterList">
@@ -417,6 +384,15 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="field evaluators" type="ParameterList">
+
+      <ParameterList name="water_content">
+        <Parameter name="field evaluator type" type="string" value="permafrost water content" />
+      </ParameterList>
+
+      <ParameterList name="energy">
+        <Parameter name="field evaluator type" type="string" value="three phase energy" />
+      </ParameterList>
+      
 
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
