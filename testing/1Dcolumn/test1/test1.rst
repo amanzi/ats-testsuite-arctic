@@ -28,7 +28,7 @@ Results and Comparison
     :figclass: align-center
     :width: 1200 px
 
-.. centered:: **Saturation and head along column**
+.. centered:: **Coupled surface and subsurface water**
 
 References
 ----------
