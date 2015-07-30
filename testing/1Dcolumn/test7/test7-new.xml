@@ -152,8 +152,8 @@
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.909090909091" />
-          <Parameter name="time step increase factor" type="double" value="1.1" />
+          <Parameter name="time step reduction factor" type="double" value="0.5" />
+          <Parameter name="time step increase factor" type="double" value="1.5" />
           <Parameter name="max time step" type="double" value="100000000.0" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
@@ -166,9 +166,11 @@
         <ParameterList name="SEB" type="ParameterList">
           <Parameter name="PK type" type="string" value="surface balance implicit" />
           <Parameter name="primary variable" type="string" value="snow_depth" />
+          <Parameter name="conserved quantity key" type="string" value="snow_depth" />
           <Parameter name="domain name" type="string" value="surface" />
-          <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <Parameter name="max time step" type="double" value="86400.0" />
+
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
