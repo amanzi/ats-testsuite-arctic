@@ -114,7 +114,7 @@
 
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
-        <Parameter name="preconditioner type" type="string" value="picard" />
+        <Parameter name="preconditioner type" type="string" value="none" />
         <Parameter name="debug cells" type="Array(int)" value="{1}" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="high" />
@@ -167,6 +167,9 @@
         </ParameterList>
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="high" />
+        </ParameterList>
+        <ParameterList name="ResidualDebugger" type="ParameterList">
+	  <Parameter name="cycles" type="Array(int)" value="{14}" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
