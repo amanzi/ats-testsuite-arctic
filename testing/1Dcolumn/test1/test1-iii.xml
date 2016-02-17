@@ -139,7 +139,7 @@
       <Parameter name="preconditioner type" type="string" value="picard" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true"/>
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: div hq / dp" type="bool" value="true"/>
+      <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true"/>
       <Parameter name="dump preconditioner" type="bool" value="false"/>
 
       <ParameterList name="VerboseObject" type="ParameterList">
@@ -164,7 +164,7 @@
       <ParameterList name="water delegate" type="ParameterList">
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
-        <Parameter name="cap over atmospheric" type="double" value="0.0001" />
+        <Parameter name="cap over atmospheric" type="double" value="0.1" />
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="extreme" />
         </ParameterList>
@@ -216,7 +216,7 @@
 
         <ParameterList name="subsurface flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="permafrost flow" />
-          <Parameter name="primary variable" type="string" value="pressure_kilopascal" />
+          <Parameter name="primary variable" type="string" value="pressure" />
 
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
@@ -303,7 +303,7 @@
 
         <ParameterList name="surface flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="overland flow with ice" />
-          <Parameter name="primary variable" type="string" value="surface-pressure_kilopascal" />
+          <Parameter name="primary variable" type="string" value="surface-pressure" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
           <Parameter name="initial time step" type="double" value="86400.0" />
@@ -880,18 +880,6 @@
         <Parameter name="field evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
 
-      <ParameterList name="pressure">
-        <Parameter name="field evaluator type" type="string" value="additive evaluator"/>
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{pressure_kilopascal}"/>
-        <Parameter name="pressure_kilopascal coefficient" type="double" value="1000."/>
-      </ParameterList>
-
-      <ParameterList name="surface-pressure">
-        <Parameter name="field evaluator type" type="string" value="additive evaluator"/>
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-pressure_kilopascal}"/>
-        <Parameter name="surface-pressure_kilopascal coefficient" type="double" value="1000."/>
-      </ParameterList>
-      
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
