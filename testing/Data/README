@@ -1,0 +1,15 @@
+Datasets provided here:
+
+
+Met Data:
+===================
+
+
+10yr-MORESNOW.h5:
+-----------------
+
+(Joel Rowland)
+- 10 years (1 year data repeated 10 times)
+- CESM data for Barrow, window average (average all Jan 1 across 10 years, for all days)
+
+NOTE: Check with Adam on wind speed height for this data set!

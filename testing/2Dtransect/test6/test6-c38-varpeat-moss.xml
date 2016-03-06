@@ -797,7 +797,7 @@
       <ParameterList name="unfrozen_fraction" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="unfrozen fraction" />
         <ParameterList name="unfrozen fraction model" type="ParameterList">
-          <Parameter name="transition width" type="double" value="1.0" />
+          <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
       </ParameterList>
 
@@ -999,6 +999,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />

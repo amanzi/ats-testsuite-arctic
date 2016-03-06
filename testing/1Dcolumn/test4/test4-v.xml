@@ -126,7 +126,7 @@
       <Parameter name="preconditioner type" type="string" value="picard" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true"/>
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: div hq / dp" type="bool" value="true"/>
+      <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true"/>
       <Parameter name="dump preconditioner" type="bool" value="false"/>
 
       <ParameterList name="VerboseObject" type="ParameterList">
@@ -233,7 +233,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10552.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint07083.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -320,6 +320,10 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
+            <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+          </ParameterList>
+<!--
+          <ParameterList name="initial condition" type="ParameterList">
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="initial pressure cells" type="ParameterList">
                 <Parameter name="region" type="string" value="surface domain" />
@@ -332,7 +336,7 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-
+-->
           <ParameterList name="overland conductivity evaluator" type="ParameterList">
             <ParameterList name="overland conductivity model" type="ParameterList">
               <Parameter name="Manning exponent" type="double" value="0.666666666667" />
@@ -364,7 +368,7 @@
                 <Parameter name="regions" type="Array(string)" value="{bottom face}" />
                 <ParameterList name="boundary temperature" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="267.15" />
+                    <Parameter name="value" type="double" value="263.45" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -372,7 +376,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii/checkpoint10552.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint07083.h5" />
           </ParameterList>
 
           <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -438,7 +442,7 @@
           <Parameter name="primary variable" type="string" value="surface-temperature" />
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="source term" type="bool" value="true" />
-          <Parameter name="flux key" type="string" value="surface-flux" />
+          <Parameter name="flux key" type="string" value="surface-mass_flux" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="supress advective terms in preconditioner" type="bool" value="false"/>
           <Parameter name="upwind conductivity method" type="string" value="arithmetic mean"/>
@@ -449,7 +453,7 @@
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="fv: default"/>
+	    <Parameter name="discretization primary" type="string" value="fv: default"/>
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
@@ -600,6 +604,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />
@@ -609,7 +614,7 @@
       <ParameterList name="unfrozen_fraction" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="unfrozen fraction" />
         <ParameterList name="unfrozen fraction model" type="ParameterList">
-          <Parameter name="transition width" type="double" value="1.0" />
+          <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
       </ParameterList>
 

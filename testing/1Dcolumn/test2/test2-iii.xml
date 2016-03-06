@@ -106,7 +106,7 @@
 
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true"/>
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: div hq / dp" type="bool" value="true"/>
+      <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true"/>
       <Parameter name="dump preconditioner" type="bool" value="false"/>
 
       <Parameter name="predictor type" type="string" value="smart ewc" />
@@ -176,7 +176,7 @@
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.909090909091" />
           <Parameter name="time step increase factor" type="double" value="1.1" />
-          <Parameter name="max time step" type="double" value="3.e6" />
+          <Parameter name="max time step" type="double" value="3.e7" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -192,6 +192,7 @@
           <Parameter name="initial time step" type="double" value="1.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
+          <Parameter name="max valid change" type="double" value="50000.0" />
 
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -206,7 +207,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test0/test0-ii/checkpoint00001.h5" />
+            <Parameter name="restart file" type="string" value="../../test0/test0-ii.regression.gold/checkpoint00001.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -296,7 +297,7 @@
                 <Parameter name="regions" type="Array(string)" value="{bottom face}" />
                 <ParameterList name="boundary temperature" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="267.15" />
+                    <Parameter name="value" type="double" value="263.45" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -407,6 +408,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />

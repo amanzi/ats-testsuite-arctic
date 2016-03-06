@@ -45,7 +45,7 @@ to_get.append("saturation_liquid")
 if is_ice:
     to_get.append("saturation_ice")
 to_get.append("saturation_gas")
-dat = column_data.sort(to_get)
+dat = column_data.column_data(to_get)
 
 # convert times to days
 times = [time*365.25 for time in times]
