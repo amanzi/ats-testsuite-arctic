@@ -82,7 +82,7 @@ class RegressionTest(object):
     _DISCRETE = "discrete"
 
     # ways to measure what to compare
-    _NORM = 2
+    _NORM = numpy.inf
 
     def __init__(self):
         self._EXECUTABLE = "ats"
@@ -120,11 +120,11 @@ class RegressionTest(object):
 
         self._checkpoint = None
         
-        # gold standard lives on several domains
-        self._domains = [""]
-        # dictionary indexed by domain, each of which is a dictionary of key,tolerance pairs
+        # dictionary indexed by domain, each of which is a dictionary of
+        # (key, tolerance) pairs
         self._criteria = {}
-        self._file_format = "visdump_{0}data.h5"        
+        self._file_format_with_domain = "visdump_{0}_data.h5"        
+        self._file_format_no_domain = "visdump_data.h5"        
 
     def __str__(self):
         message = "  {0} :\n".format(self.name())
@@ -168,18 +168,35 @@ class RegressionTest(object):
         if checkpoint is not None: 
             self._checkpoint = checkpoint
         
-        # criteria defaults
-        if self._check_performance:
-            self._set_criteria(self._TIME, cfg_criteria, test_data)
+        # pop a default and/or default discrete
+        default = test_data.pop(self._DEFAULT,
+                                cfg_criteria.pop(self._DEFAULT, None))
+        if default is not None:
+            tol = self._validate_tolerance(self._DEFAULT, self._DEFAULT, default)
+            self._default_tolerance[self._DEFAULT] = tol
 
-        if self._checkpoint is None:
-            self._set_criteria(self._TIMESTEPS, cfg_criteria, test_data)
-
-        # requested criteria
+        discrete = test_data.pop(self._DISCRETE,
+                                cfg_criteria.pop(self._DISCRETE, None))
+        if discrete is not None:
+            tol = self._validate_tolerance(self._DISCRETE, self._DISCRETE, discrete)
+            self._default_tolerance[self._DISCRETE] = tol
+            
+        # requested criteria, skipping time and timesteps
         for key in set(cfg_criteria.keys() + test_data.keys()):
-            if key != self._DEFAULT:
+            if key != self._TIME and key != self._TIMESTEPS:
                 self._set_criteria(key, cfg_criteria, test_data)
-        
+
+        # criteria defaults
+        # - time exists on all domains, but must make sure it is on a valid one
+        if self._check_performance:
+            self._set_criteria("({0})".format(self._criteria.keys()[0])+self._TIME,
+                               cfg_criteria, test_data)
+
+        # - timestep exists on all domains, but must make sure it is on a valid one
+        if self._checkpoint is None:
+            self._set_criteria("({0})".format(self._criteria.keys()[0])+self._TIMESTEPS,
+                               cfg_criteria, test_data)
+                
     def name(self):
         return self._test_name
 
@@ -194,8 +211,12 @@ class RegressionTest(object):
             return os.path.join(self.dirname(gold),
                             self._checkpoint)
         else:
-            return os.path.join(self.dirname(gold),
-                            self._file_format.format(domain))
+            if domain == "":
+                return os.path.join(self.dirname(gold),
+                                    self._file_format_no_domain)
+            else:
+                return os.path.join(self.dirname(gold),
+                                    self._file_format_with_domain.format(domain))
 
     def run(self, mpiexec, executable, dry_run, status, testlog):
         """
@@ -298,7 +319,7 @@ class RegressionTest(object):
         Check the test results against the gold standard
         """
 
-        for domain in self._domains:
+        for domain in self._criteria.keys():
             self._check_gold(status, domain, testlog)
 
     def update(self, status, testlog):
@@ -326,17 +347,18 @@ class RegressionTest(object):
             status.error = 1
 
         # check that the regression file was created in the regression directory
-        for domain in self._domains:
-            reg_name = self.filename(domain, False)
+        if (not status.error and not status.fail):
+            for domain in self._criteria.keys():
+                reg_name = self.filename(domain, False)
 
-            if not os.path.isfile(reg_name):
-                print("ERROR: run for "
-                      "test '{0}' did not create the needed regression file "
-                      "'{1}', not updating!".format(self.name(),
-                                                    gold_name), file=testlog)
-                status.error = 1
+                if not os.path.isfile(reg_name):
+                    print("ERROR: run for "
+                          "test '{0}' did not create the needed regression file "
+                          "'{1}', not updating!".format(self.name(),
+                                                        reg_name), file=testlog)
+                    status.fail = 1
 
-        if not status.error:
+        if not status.error and not status.fail:
             # remove old-old gold
             if os.path.isdir(old_gold_dir):
                 try:
@@ -349,8 +371,8 @@ class RegressionTest(object):
                     print(message, file=testlog)
                     status.fail = 1
 
+            # move gold -> old_gold
             if not status.fail:
-                # move gold -> old_gold
                 try:
                     os.rename(gold_dir, old_gold_dir)
                 except Exception as error:
@@ -387,33 +409,46 @@ class RegressionTest(object):
         gold_dir = self.dirname(True)
         run_dir = self.dirname(False)
 
+        # verify that the gold file does not exisit
         if os.path.isdir(gold_dir) or os.path.isfile(gold_dir):
-            raise RuntimeError("ERROR: test '{0}' was classified as new, "
+            print("ERROR: test '{0}' was classified as new, "
                                "but a gold file already "
-                               "exists!".format(self.name()))
+                               "exists!".format(self.name()), file=testlog)
+            status.error = 1
 
-        print("  creating gold directory '{0}'... ".format(self.name()),
-              file=testlog)
-        try:
-            os.rename(run_dir, gold_dir)
-        except Exception as error:
-            message = str(error)
-            message += "\nFAIL : Could not move '{0}' to '{1}'. ".format(
-                run_dir, gold_dir)
-            message += "Please rename the directory manually!"
-            message += "    mv {0} {1}".format(run_dir, gold_dir)
-            print(message, file=testlog)
-            status.fail = 1
+        # verify that the run directory exists
+        if not os.path.isdir(run_dir):
+            print("ERROR: test '{0}' results cannot be new "
+                  "because no run directory "
+                  "exists!".format(self.name()), file=testlog)
+            status.error = 1
+        
+        # verify that the run directory created good files
+        if (not status.error and not status.fail):
+            for domain in self._criteria.keys():
+                reg_name = self.filename(domain, False)
 
-        # check that the regression file was created.
-        for domain in self._domains:
-            gold_name = self.filename(domain, True)
+                if not os.path.isfile(reg_name):
+                    print("ERROR: run for "
+                          "test '{0}' did not create the needed regression file "
+                          "'{1}', not making new gold!".format(self.name(),
+                                                    reg_name), file=testlog)
+                    status.fail = 1
 
-            if not os.path.isfile(gold_name):
-                print("ERROR: gold run for "
-                      "test '{0}' did not create the needed regression file "
-                      "'{1}'!".format(self.name(), gold_name), file=testlog)
-                status.error = 1
+        # move the run to gold
+        if not status.error and not status.fail:
+            print("  creating gold directory '{0}'... ".format(self.name()),
+                  file=testlog)
+            try:
+                os.rename(run_dir, gold_dir)
+            except Exception as error:
+                message = str(error)
+                message += "\nFAIL : Could not move '{0}' to '{1}'. ".format(
+                    run_dir, gold_dir)
+                message += "Please rename the directory manually!"
+                message += "    mv {0} {1}".format(run_dir, gold_dir)
+                print(message, file=testlog)
+                status.fail = 1
 
         print("done", file=testlog)
 
@@ -516,7 +551,17 @@ class RegressionTest(object):
                                               h5_gold[k][i_gold][:],
                                               key, tolerance,
                                               status, testlog)
-        
+
+    def _norm(self, diff):
+        """
+        Determine the difference between two values
+        """
+        if type(diff) is numpy.ndarray:
+            delta = numpy.linalg.norm(diff.flatten(), self._NORM)
+        else:
+            delta = abs(diff)
+        return delta
+                
     def _check_tolerance(self, current, gold, key, tolerance, status, testlog):
         """
         Compare the values using the appropriate tolerance and criteria.
@@ -527,22 +572,26 @@ class RegressionTest(object):
         tol, tol_type, min_threshold, max_threshold = tuple(tolerance)
 
         if tol_type == self._ABSOLUTE:
-            delta = numpy.linalg.norm(current - gold, self._NORM)
+            delta = self._norm(current-gold)
+
         elif (tol_type == self._RELATIVE or
               tol_type == self._PERCENT):
 
-            rel_to = numpy.where(gold > self._eps, gold, current)
-            filter = numpy.where(rel_to > self._eps)[0]            
-
             if type(gold) is numpy.ndarray:
-                delta = numpy.linalg.norm(
-                    numpy.abs(gold[filter] - current[filter])/rel_to[filter],
-                    self._NORM)
-            else:
+                rel_to = numpy.where(gold > self._eps, gold, current)
+                filter = numpy.where(rel_to > self._eps)[0]            
                 if filter.shape[0] == 0:
-                    delta = 0.
+                    delta = 0
                 else:
-                    delta = abs((gold - current) / rel_to)
+                    delta = self._norm((gold[filter] - current[filter]) / rel_to[filter])
+
+            else:
+                if gold > self._eps:
+                    delta = self._norm((gold - current) / gold)
+                elif current > self._eps:
+                    delta = self._norm((gold - current) / current)
+                else:
+                    delta = 0
                 
             if tol_type == self._PERCENT:
                 delta *= 100.0
@@ -577,9 +626,8 @@ class RegressionTest(object):
         else:
             domain = ""
             varname = key
-        # if ("." not in varname) and (varname not in self._RESERVED):
-        #     varname = varname+".cell.0"
 
+        # parse the criteria
         if key in test_data:
             criteria = domain, varname, self._validate_tolerance(key, varname, test_data[key])
         elif key in cfg_criteria:
@@ -617,9 +665,9 @@ class RegressionTest(object):
         # deal with defaults first
         if test_data.lower() == "none" or test_data.lower() == "no" or test_data.lower() == "n":
             return None
-        if test_data == "" or test_data.lower() == "default":
-            return self._default_tolerance.setdefault(varname, self._default_tolerance[self._DEFAULT])
-        if test_data == "discrete":
+        if test_data == "" or test_data.lower() == self._DEFAULT:
+            return self._default_tolerance[self._DEFAULT]
+        if test_data == self._DISCRETE:
             return self._default_tolerance[self._DISCRETE]
 
         # if we get here, parse the string
@@ -1107,12 +1155,6 @@ def commandline_options():
                         help='show exception backtraces as extra debugging '
                         'output')
 
-    parser.add_argument('--advanced', action='store_true',
-                        help="enable advanced options for developers")
-
-    parser.add_argument('-c', '--config-files', nargs="+", default=None,
-                        help='test configuration file to use')
-
     parser.add_argument('--check-only', action='store_true', default=False,
                         help="diff the existing regression files without "
                         "running ATS again.")
@@ -1149,11 +1191,6 @@ def commandline_options():
                         help="indicate that there are new tests being run. "
                         "Skips the output check and creates a new gold file.")
 
-    parser.add_argument('-r', '--recursive-search', nargs='*', default=None,
-                        help='recursively search the current directory and '
-                        'all sub-directories, using any configuration files '
-                        'in those directories.')
-
     parser.add_argument('-s', '--suites', nargs="+", default=[],
                         help='space separated list of test suite names')
 
@@ -1170,9 +1207,22 @@ def commandline_options():
                         'option, with the current output becoming the new '
                         'gold standard')
 
+    parser.add_argument('configs', metavar='CONFIG_LOCATION', type=str,
+                        nargs='+', help='list of directories and/or configuration '
+                        'files to parse for suites and tests')
+    
     options = parser.parse_args()
     return options
 
+
+def config_list_includes_search(options):
+    """
+    Check if there are any directories in the config list.
+    """
+    for f in options.configs:
+        if (os.path.isdir(f)):
+            return True
+    return False
 
 def generate_config_file_list(options):
     """
@@ -1180,45 +1230,28 @@ def generate_config_file_list(options):
     options.
     """
     config_file_list = []
-    # add the explicitly listed config files
-    if options.config_files is not None:
-        for config_file in options.config_files:
-            if not os.path.isabs(config_file):
-                config_file = os.path.abspath(config_file)
-            if os.path.isfile(config_file):
-                config_file_list.append(config_file)
-            else:
-                raise RuntimeError("ERROR: specified config file '{0}' is not a "
-                                   "file!".format(config_file))
+    # loop through the list, adding files and searching through directories
+    for f in options.configs:
+        if not os.path.isabs(f):
+            f = os.path.abspath(f)
 
-    else:
-        # search for config files
-        if options.recursive_search == None or options.recursive_search == []:
-            options.recursive_search = []
-            # if we have an empty list, use the cwd as the starting point
-            options.recursive_search.append(os.getcwd())
-        for base_dir in options.recursive_search:
-            if not os.path.isabs(base_dir):
-                # if we received a relative path, make it absolute
-                base_dir = os.path.abspath(base_dir)
-
-            if os.path.isdir(base_dir):
-                search_for_config_files(base_dir, config_file_list)
-            else:
-                raise RuntimeError("ERROR: cannot search for config files "
-                                   "in '{0}' because it is not a "
-                                   "directory.".format(base_dir))
-
+        if os.path.isfile(f):
+            config_file_list.append(f)
+        elif os.path.isdir(f):
+            search_for_config_files(f, config_file_list)
+        else:
+            raise RuntimeError("ERROR: specified config file/search "
+                               "directory '{0}' does not "
+                               "exist!".format(f))
 
     if options.debug:
-        print("\nKnown config files:")
+        print("\nFound config files:")
         for config_file in config_file_list:
             print("    {0}".format(config_file))
 
     if len(config_file_list) == 0:
         raise RuntimeError("ERROR: no config files were found. Please specify a "
-                           "config file with '--config' or search for files "
-                           "with '--recursive-search'.")
+                           "config file or search directory containing config files.")
 
     return config_file_list
 
@@ -1238,17 +1271,16 @@ def check_options(options):
     """
     # prevent the user from updating regression output during a
     # recursive search for config files
-    if options.update and options.recursive_search is not None:
-        if not options.advanced:
-            raise RuntimeError("ERROR: cannot update gold regression files "
-                               "during a recursive search for config files.")
+    if options.update and config_list_includes_search(options):
+        raise RuntimeError("ERROR: cannot update gold regression files "
+                           "during a recursive search for config files.")
 
     if options.update and options.new_tests:
         raise RuntimeError("ERROR: cannot create new tests and update gold "
                            "regression files at the same time.")
 
 
-def check_for_executable(options):
+def check_for_executable(options, testlog):
     """
     Try to verify that we have something reasonable for the executable
     """
@@ -1262,7 +1294,7 @@ def check_for_executable(options):
         finally:
             if executable is None:
                 options.dry_run = True
-                executable = "/usr/bin/false"
+
     else:
         # absolute path to the executable
         executable = os.path.abspath(options.executable[0])
@@ -1270,6 +1302,14 @@ def check_for_executable(options):
         if not os.path.isfile(executable):
             raise RuntimeError("ERROR: executable is not a valid file: "
                                "'{0}'".format(executable))
+
+    if executable is None:
+        message = ("\n** WARNING ** : ATS executable was not provided on the command line\n"
+                   "               and was not found in the PATH.  Will run as 'dry run.'\n")
+        print(message, file=sys.stdout)
+        print(message, file=testlog)
+        executable = "/usr/bin/false"
+        
     return executable
 
 
@@ -1451,7 +1491,7 @@ def main(options):
     root_dir = os.getcwd()
 
     check_options(options)
-    executable = check_for_executable(options)
+    executable = check_for_executable(options, testlog)
     mpiexec = check_for_mpiexec(options, testlog)
     config_file_list = generate_config_file_list(options)
 
