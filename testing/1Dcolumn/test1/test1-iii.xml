@@ -607,7 +607,7 @@
       <ParameterList name="unfrozen_fraction" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="unfrozen fraction" />
         <ParameterList name="unfrozen fraction model" type="ParameterList">
-          <Parameter name="transition width" type="double" value="1.0" />
+          <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
       </ParameterList>
 

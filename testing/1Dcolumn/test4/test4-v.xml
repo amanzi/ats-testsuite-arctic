@@ -233,7 +233,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint07083.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -376,7 +376,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint07083.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
           </ParameterList>
 
           <ParameterList name="thermal conductivity evaluator" type="ParameterList">
