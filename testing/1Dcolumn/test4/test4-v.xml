@@ -219,6 +219,7 @@
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
+          <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
 
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -233,7 +234,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06736.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
@@ -376,7 +377,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
+            <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06736.h5" />
           </ParameterList>
 
           <ParameterList name="thermal conductivity evaluator" type="ParameterList">

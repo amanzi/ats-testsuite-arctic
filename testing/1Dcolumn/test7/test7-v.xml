@@ -154,7 +154,7 @@
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
           <Parameter name="time step increase factor" type="double" value="1.5" />
-          <Parameter name="max time step" type="double" value="1e7" />
+          <Parameter name="max time step" type="double" value="86400" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -168,7 +168,6 @@
           <Parameter name="primary variable" type="string" value="snow_depth" />
           <Parameter name="conserved quantity key" type="string" value="snow_depth" />
           <Parameter name="domain name" type="string" value="surface" />
-          <Parameter name="max time step" type="double" value="86400.0" />
 
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="VerboseObject" type="ParameterList">
@@ -259,11 +258,14 @@
               <Parameter name="primary variable" type="string" value="pressure" />
 
               <Parameter name="source term" type="bool" value="true" />
-              <Parameter name="clobber surface rel perm" type="bool" value="true" />
+
               <Parameter name="initial time step" type="double" value="86400.0" />
               <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
               <Parameter name="permeability rescaling" type="double" value="10000000.0" />
+<!--              <Parameter name="max valid change" type="double" value="50000.0" />-->
               <Parameter name="limit correction to pressure change [Pa]" type="double" value="10000.0" />
+              <Parameter name="clobber surface rel perm" type="bool" value="false" />
+              <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
 
               <Parameter name="debug cells" type="Array(int)" value="{1}" />
               <ParameterList name="VerboseObject" type="ParameterList">
@@ -278,7 +280,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06736.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -410,7 +412,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06588.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint06736.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
