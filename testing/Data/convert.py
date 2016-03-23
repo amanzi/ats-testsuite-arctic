@@ -1,0 +1,15 @@
+import h5py
+d = h5py.File("10yr-MORESNOW-heavystart.h5",'r')
+d2 = h5py.File("10yr-MORESNOW-heavystart-2.h5",'w')
+
+d2.create_dataset("precipitation rain [m s^-1]", data=d['Pr'][:])
+d2.create_dataset("precipitation snow [m SWE s^-1]", data=d['Ps'][:])
+d2.create_dataset(u"incoming longwave radiation [W m^-2]", data=d['QlwIn'][:])
+d2.create_dataset(u"incoming shortwave radiation [W m^-2]", data=d['QswIn'][:])
+d2.create_dataset(u"relative humidity [-]", data=d['RH'][:])
+d2.create_dataset(u"air temperature [K]", data=d['Ta'][:])
+d2.create_dataset(u"wind speed [m s^-1]", data=d['Us'][:])
+d2.create_dataset(u"time [s]", data=d['time'][:])
+d2.attrs.create("wind speed height [m]", data=2)
+d2.close()
+d.close()
