@@ -2,10 +2,10 @@
   <Parameter name="Native Unstructured Input" type="bool" value="true" />
   <Parameter name="grid_option" type="string" value="Unstructured" />
   <ParameterList name="Mesh" type="ParameterList">
-    <Parameter name="Framework" type="string" value="MSTK" />
+    <Parameter name="framework" type="string" value="MSTK" />
     <ParameterList name="Read Mesh File" type="ParameterList">
-      <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-      <Parameter name="Format" type="string" value="Exodus II" />
+      <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+      <Parameter name="format" type="string" value="Exodus II" />
     </ParameterList>
   </ParameterList>
 
@@ -16,72 +16,72 @@
   <ParameterList name="Regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
       <ParameterList name="Region: Box" type="ParameterList">
-        <Parameter name="Low Coordinate" type="Array(double)" value="{0.0,0.0,-45.0}" />
-        <Parameter name="High Coordinate" type="Array(double)" value="{1.0,0.7,5.0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0,-45.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1.0,0.7,5.0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain moss" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="10000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="10000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain peat" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="20000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="20000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain upper mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="30000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="30000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain lower organic" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="40000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="40000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain lower mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="50000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="50000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain deep mineral" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="60000" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Cell" />
+        <Parameter name="label" type="string" value="60000" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="2" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Face" />
+        <Parameter name="label" type="string" value="2" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="Region: Labeled Set" type="ParameterList">
-        <Parameter name="Label" type="string" value="1" />
-        <Parameter name="File" type="string" value="../../mesh/mesh_fsets.exo" />
-        <Parameter name="Format" type="string" value="Exodus II" />
-        <Parameter name="Entity" type="string" value="Face" />
+        <Parameter name="label" type="string" value="1" />
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -103,15 +103,13 @@
     <ParameterList name="Top level MPC" type="ParameterList">
       <Parameter name="PK type" type="string" value="subsurface permafrost" />
       <Parameter name="PKs order" type="Array(string)" value="{flow,energy}" />
-
-      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true"/>
-      <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true"/>
-      <Parameter name="dump preconditioner" type="bool" value="false"/>
-
+      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true" />
+      <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
+      <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true" />
+      <Parameter name="dump preconditioner" type="bool" value="false" />
       <Parameter name="predictor type" type="string" value="smart ewc" />
       <Parameter name="preconditioner type" type="string" value="picard" />
-
+      <Parameter name="debug cells" type="Array(int)" value="{1}" />
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <Parameter name="preconditioner type" type="string" value="none" />
@@ -121,9 +119,8 @@
         </ParameterList>
       </ParameterList>
 
-      <Parameter name="debug cells" type="Array(int)" value="{1}" />
-      <ParameterList name="VerboseObject">
-        <Parameter name="Verbosity Level" type="string" value="high"/>
+      <ParameterList name="VerboseObject" type="ParameterList">
+        <Parameter name="Verbosity Level" type="string" value="high" />
       </ParameterList>
 
       <ParameterList name="preconditioner" type="ParameterList">
@@ -157,7 +154,7 @@
           <Parameter name="max backtrack steps" type="int" value="5" />
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
-          <Parameter name="backtrack tolerance" type="double" value="1e-04" />
+          <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
@@ -168,15 +165,12 @@
         <ParameterList name="VerboseObject" type="ParameterList">
           <Parameter name="Verbosity Level" type="string" value="high" />
         </ParameterList>
-        <ParameterList name="ResidualDebugger" type="ParameterList">
-	  <Parameter name="cycles" type="Array(int)" value="{14}" />
-        </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.909090909091" />
           <Parameter name="time step increase factor" type="double" value="1.1" />
-          <Parameter name="max time step" type="double" value="3.e7" />
+          <Parameter name="max time step" type="double" value="1.e7" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -188,19 +182,17 @@
         <ParameterList name="flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="permafrost flow" />
           <Parameter name="primary variable" type="string" value="pressure" />
-
           <Parameter name="initial time step" type="double" value="1.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
           <Parameter name="max valid change" type="double" value="50000.0" />
-
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
+            <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
           </ParameterList>
 
           <ParameterList name="boundary conditions" type="ParameterList">
@@ -276,19 +268,16 @@
         <ParameterList name="energy" type="ParameterList">
           <Parameter name="PK type" type="string" value="three-phase energy" />
           <Parameter name="primary variable" type="string" value="temperature" />
-
-          <Parameter name="supress advective terms in preconditioner" type="bool" value="true"/>
+          <Parameter name="supress advective terms in preconditioner" type="bool" value="true" />
           <Parameter name="source term" type="bool" value="false" />
-
           <Parameter name="initial time step" type="double" value="1.0" />
-
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
-	        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
+            <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
           </ParameterList>
 
           <ParameterList name="boundary conditions" type="ParameterList">
@@ -389,14 +378,13 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="field evaluators" type="ParameterList">
 
-      <ParameterList name="water_content">
+      <ParameterList name="water_content" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="permafrost water content" />
       </ParameterList>
 
-      <ParameterList name="energy">
+      <ParameterList name="energy" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="three phase energy" />
       </ParameterList>
-      
 
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
@@ -562,32 +550,32 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="porosity">
-        <Parameter  name="field evaluator type" type="string" value="compressible porosity"/>
-        <ParameterList name="compressible porosity model parameters">
-          <ParameterList name="moss">
-            <Parameter  name="region" type="string" value="computational domain moss"/>
-            <Parameter  name="pore compressibility" type="double" value="5.e-07"/>
+      <ParameterList name="porosity" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="compressible porosity" />
+        <ParameterList name="compressible porosity model parameters" type="ParameterList">
+          <ParameterList name="moss" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain moss" />
+            <Parameter name="pore compressibility" type="double" value="5e-07" />
           </ParameterList>
-          <ParameterList name="peat">
-            <Parameter  name="region" type="string" value="computational domain peat"/>
-            <Parameter  name="pore compressibility" type="double" value="1.e-07"/>
+          <ParameterList name="peat" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain peat" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
-          <ParameterList name="upper mineral">
-            <Parameter  name="region" type="string" value="computational domain upper mineral"/>
-            <Parameter  name="pore compressibility" type="double" value="1.e-08"/>
+          <ParameterList name="upper mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain upper mineral" />
+            <Parameter name="pore compressibility" type="double" value="1e-08" />
           </ParameterList>
-          <ParameterList name="lower organic">
-            <Parameter  name="region" type="string" value="computational domain lower organic"/>
-            <Parameter  name="pore compressibility" type="double" value="1.e-09"/>
+          <ParameterList name="lower organic" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain lower organic" />
+            <Parameter name="pore compressibility" type="double" value="1e-09" />
           </ParameterList>
-          <ParameterList name="lower mineral">
-            <Parameter  name="region" type="string" value="computational domain lower mineral"/>
-            <Parameter  name="pore compressibility" type="double" value="1.e-09"/>
+          <ParameterList name="lower mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain lower mineral" />
+            <Parameter name="pore compressibility" type="double" value="1e-09" />
           </ParameterList>
-          <ParameterList name="deep mineral">
-            <Parameter  name="region" type="string" value="computational domain deep mineral"/>
-            <Parameter  name="pore compressibility" type="double" value="1.e-09"/>
+          <ParameterList name="deep mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain deep mineral" />
+            <Parameter name="pore compressibility" type="double" value="1e-09" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
