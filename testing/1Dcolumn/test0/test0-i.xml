@@ -165,10 +165,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="pressure" type="ParameterList">
           <ParameterList name="surface" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="boundary pressure" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="45000.0" />
+                <Parameter name="value" type="double" value="533000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -183,8 +183,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,5.0}" />
-                <Parameter name="y0" type="double" value="45000.0" />
+                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,-45.0}" />
+                <Parameter name="y0" type="double" value="533000.0" />
                 <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,0.0,-9806.65}" />
               </ParameterList>
             </ParameterList>
@@ -198,17 +198,17 @@
           <ParameterList name="moss" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain moss" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="0.00235" />
-            <Parameter name="van Genuchten m" type="double" value="0.275362319" />
-            <Parameter name="residual saturation" type="double" value="0.055555556" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
+            <Parameter name="van Genuchten m" type="double" value="0.212" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
             <Parameter name="smoothing interval width" type="double" value="100.0" />
           </ParameterList>
           <ParameterList name="peat" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain peat" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="0.0006" />
-            <Parameter name="van Genuchten m" type="double" value="0.275" />
-            <Parameter name="residual saturation" type="double" value="0.05" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
+            <Parameter name="van Genuchten m" type="double" value="0.212" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
             <Parameter name="smoothing interval width" type="double" value="100.0" />
           </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">

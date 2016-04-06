@@ -109,7 +109,6 @@
       <Parameter name="dump preconditioner" type="bool" value="false" />
       <Parameter name="predictor type" type="string" value="smart ewc" />
       <Parameter name="preconditioner type" type="string" value="picard" />
-      <Parameter name="debug cells" type="Array(int)" value="{1}" />
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <Parameter name="preconditioner type" type="string" value="none" />
@@ -168,9 +167,9 @@
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.909090909091" />
-          <Parameter name="time step increase factor" type="double" value="1.1" />
-          <Parameter name="max time step" type="double" value="1.e7" />
+          <Parameter name="time step reduction factor" type="double" value="0.5" />
+          <Parameter name="time step increase factor" type="double" value="1.5" />
+          <Parameter name="max time step" type="double" value="1.e8" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -185,8 +184,11 @@
           <Parameter name="initial time step" type="double" value="1.0" />
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
-          <Parameter name="max valid change" type="double" value="50000.0" />
-          <Parameter name="debug cells" type="Array(int)" value="{1}" />
+          <Parameter name="limit correction to pressure change [Pa]" type="double" value="40000.0" />
+          <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
+          <Parameter name="max valid change in ice saturation in a time step [-]" type="double" value="0.1" />
+
+          <Parameter name="debug cells" type="Array(int)" value="{1,46}" />
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
@@ -199,61 +201,61 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test0/test0-ii.regression.gold/checkpoint00001.h5" />
+            <Parameter name="restart file" type="string" value="../../test0/test0-ii.regression2/checkpoint00001.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">
             <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
-            <ParameterList name="WRM parameters" type="ParameterList">
-              <ParameterList name="moss" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain moss" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.00235" />
-                <Parameter name="van Genuchten m" type="double" value="0.275362319" />
-                <Parameter name="residual saturation" type="double" value="0.055555556" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-              <ParameterList name="peat" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain peat" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.0006" />
-                <Parameter name="van Genuchten m" type="double" value="0.275" />
-                <Parameter name="residual saturation" type="double" value="0.05" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-              <ParameterList name="upper mineral" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain upper mineral" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
-                <Parameter name="van Genuchten m" type="double" value="0.190938511" />
-                <Parameter name="residual saturation" type="double" value="0.1" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-              <ParameterList name="lower organic" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain lower organic" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
-                <Parameter name="van Genuchten m" type="double" value="0.190938511" />
-                <Parameter name="residual saturation" type="double" value="0.1" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-              <ParameterList name="lower mineral" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain lower mineral" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
-                <Parameter name="van Genuchten m" type="double" value="0.190938511" />
-                <Parameter name="residual saturation" type="double" value="0.1" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-              <ParameterList name="deep mineral" type="ParameterList">
-                <Parameter name="region" type="string" value="computational domain deep mineral" />
-                <Parameter name="WRM Type" type="string" value="van Genuchten" />
-                <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
-                <Parameter name="van Genuchten m" type="double" value="0.190938511" />
-                <Parameter name="residual saturation" type="double" value="0.1" />
-                <Parameter name="smoothing interval width" type="double" value="100.0" />
-              </ParameterList>
-            </ParameterList>
+        <ParameterList name="WRM parameters" type="ParameterList">
+          <ParameterList name="moss" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain moss" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
+            <Parameter name="van Genuchten m" type="double" value="0.212" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+          <ParameterList name="peat" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain peat" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
+            <Parameter name="van Genuchten m" type="double" value="0.212" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+          <ParameterList name="upper mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain upper mineral" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
+            <Parameter name="van Genuchten m" type="double" value="0.190938511" />
+            <Parameter name="residual saturation" type="double" value="0.1" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+          <ParameterList name="lower organic" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain lower organic" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
+            <Parameter name="van Genuchten m" type="double" value="0.190938511" />
+            <Parameter name="residual saturation" type="double" value="0.1" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+          <ParameterList name="lower mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain lower mineral" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
+            <Parameter name="van Genuchten m" type="double" value="0.190938511" />
+            <Parameter name="residual saturation" type="double" value="0.1" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+          <ParameterList name="deep mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain deep mineral" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
+            <Parameter name="van Genuchten m" type="double" value="0.190938511" />
+            <Parameter name="residual saturation" type="double" value="0.1" />
+            <Parameter name="smoothing interval width" type="double" value="100.0" />
+          </ParameterList>
+        </ParameterList>
             <ParameterList name="permafrost model parameters" type="ParameterList">
               <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
               <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
@@ -271,7 +273,8 @@
           <Parameter name="supress advective terms in preconditioner" type="bool" value="true" />
           <Parameter name="source term" type="bool" value="false" />
           <Parameter name="initial time step" type="double" value="1.0" />
-          <Parameter name="debug cells" type="Array(int)" value="{1}" />
+          <Parameter name="debug cells" type="Array(int)" value="{1,46}" />
+
           <ParameterList name="VerboseObject" type="ParameterList">
             <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
@@ -286,7 +289,7 @@
                 <Parameter name="regions" type="Array(string)" value="{bottom face}" />
                 <ParameterList name="boundary temperature" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="263.45" />
+                    <Parameter name="value" type="double" value="263.55" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>

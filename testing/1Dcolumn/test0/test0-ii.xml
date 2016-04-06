@@ -161,10 +161,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="pressure" type="ParameterList">
           <ParameterList name="surface" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="boundary pressure" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="45000.0" />
+                <Parameter name="value" type="double" value="535000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -179,8 +179,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,5.0}" />
-                <Parameter name="y0" type="double" value="45000.0" />
+                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,-45.0}" />
+                <Parameter name="y0" type="double" value="535000.0" />
                 <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,0.0,-9806.65}" />
               </ParameterList>
             </ParameterList>
