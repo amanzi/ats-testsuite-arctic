@@ -10,6 +10,7 @@ Met Data:
 
 (Joel Rowland)
 - 10 years (1 year data repeated 10 times)
-- CESM data for Barrow, window average (average all Jan 1 across 10 years, for all days)
+- weather stations aroudn Barrow, window average (average all Jan 1 across 10 years, for all days)
+- 2 meter wind speed reference height
 
-NOTE: Check with Adam on wind speed height for this data set!
+

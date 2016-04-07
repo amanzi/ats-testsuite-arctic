@@ -114,11 +114,13 @@
   <ParameterList name="visualization" type="ParameterList">
     <Parameter name="file name base" type="string" value="visdump" />
     <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,2629800.0,-1.0}" />
+    <Parameter name="cycles start period stop 0" type="Array(int)" value="{0,100,1000}" />
   </ParameterList>
 
   <ParameterList name="visualization surface" type="ParameterList">
     <Parameter name="file name base" type="string" value="visdump_surface" />
     <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,2629800.0,-1.0}" />
+    <Parameter name="cycles start period stop 0" type="Array(int)" value="{0,100,1000}" />
   </ParameterList>
   <ParameterList name="PKs" type="ParameterList">
 
@@ -159,11 +161,11 @@
               <Parameter name="diverged tolerance" type="double" value="1000000.0" />
               <Parameter name="limit iterations" type="int" value="21" />
               <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="low" />
+                <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
             </ParameterList>
             <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="low" />
+              <Parameter name="Verbosity Level" type="string" value="high" />
             </ParameterList>
             <ParameterList name="timestep controller smarter parameters" type="ParameterList">
               <Parameter name="max iterations" type="int" value="18" />
@@ -183,7 +185,7 @@
 
           <ParameterList name="Diffusion PC" type="ParameterList">
             <Parameter name="MFD method" type="string" value="fv: default" />
-            <Parameter name="newton correction" type="string" value="true jacobian" />
+<!--            <Parameter name="newton correction" type="string" value="true jacobian" />-->
           </ParameterList>
 
           <ParameterList name="preconditioner" type="ParameterList">
@@ -208,7 +210,7 @@
           </ParameterList>
 
           <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="low" />
+            <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
@@ -243,15 +245,15 @@
               <Parameter name="last backtrack iteration" type="int" value="20" />
               <Parameter name="backtrack factor" type="double" value="0.25" />
               <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-              <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
+              <Parameter name="nonlinear tolerance" type="double" value="1e-05" />
               <Parameter name="diverged tolerance" type="double" value="1000000.0" />
               <Parameter name="limit iterations" type="int" value="21" />
               <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="low" />
+                <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
             </ParameterList>
             <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="low" />
+              <Parameter name="Verbosity Level" type="string" value="high" />
             </ParameterList>
             <ParameterList name="timestep controller smarter parameters" type="ParameterList">
               <Parameter name="max iterations" type="int" value="18" />
@@ -266,7 +268,7 @@
           </ParameterList>
 
           <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="low" />
+            <Parameter name="Verbosity Level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="PKs" type="ParameterList">
@@ -275,12 +277,16 @@
               <Parameter name="PK type" type="string" value="surface balance implicit" />
               <Parameter name="primary variable" type="string" value="snow_depth" />
               <Parameter name="conserved quantity key" type="string" value="snow_depth" />
-              <Parameter name="initial time step" type="double" value="86400.0" />
               <Parameter name="domain name" type="string" value="surface" />
+
+              <Parameter name="initial time step" type="double" value="86400.0" />
               <Parameter name="max time step" type="double" value="86400.0" />
-              <Parameter name="wind speed reference height [m]" type="double" value="10.0" />
+
+              <Parameter name="snow-ground transitional depth" type="double" value="0.05" />
+              <Parameter name="wind speed reference height [m]" type="double" value="2.0" />
+
               <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="low" />
+                <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
@@ -304,34 +310,35 @@
               <Parameter name="PKs order" type="Array(string)" value="{subsurface flow, subsurface energy, surface flow, surface energy}" />
 
               <Parameter name="preconditioner type" type="string" value="picard" />
-              <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
+              <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true" />
               <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
-              <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="false" />
+              <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true" />
 
               <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="low" />
+                <Parameter name="Verbosity Level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="ewc delegate" type="ParameterList">
                 <Parameter name="predictor type" type="string" value="smart ewc" />
                 <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="low" />
+                  <Parameter name="Verbosity Level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
               <ParameterList name="surface ewc delegate" type="ParameterList">
                 <Parameter name="predictor type" type="string" value="none" />
                 <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="low" />
+                  <Parameter name="Verbosity Level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
               <ParameterList name="water delegate" type="ParameterList">
                 <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
                 <Parameter name="damp and cap the water spurt" type="bool" value="true" />
+                <Parameter name="damp and cap the saturated spurt" type="bool" value="true" />
                 <Parameter name="cap over atmospheric" type="double" value="0.1" />
                 <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="low" />
+                  <Parameter name="Verbosity Level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
@@ -339,23 +346,24 @@
                 <Parameter name="preconditioner type" type="string" value="boomer amg" />
                 <ParameterList name="boomer amg parameters" type="ParameterList">
                   <Parameter name="cycle applications" type="int" value="1" />
-                  <Parameter name="smoother sweeps" type="int" value="2" />
-                  <Parameter name="strong threshold" type="double" value="0.25" />
+                  <Parameter name="smoother sweeps" type="int" value="4" />
+                  <Parameter name="strong threshold" type="double" value="0.85" />
                   <Parameter name="tolerance" type="double" value="0.0" />
                   <Parameter name="number of functions" type="int" value="2" />
                 </ParameterList>
               </ParameterList>
-              
-              <ParameterList name="linear operator" type="ParameterList">
-                <Parameter name="iterative method" type="string" value="nka" />
-                <ParameterList name="nka parameters" type="ParameterList">
-                  <Parameter name="error tolerance" type="double" value="1e-06" />
-                  <Parameter name="maximum number of iterations" type="int" value="10" />
+
+	          <ParameterList name="linear solver" type="ParameterList">
+                <Parameter name="iterative method" type="string" value="gmres" />
+                <ParameterList name="gmres parameters" type="ParameterList">
                   <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="medium" />
+		            <Parameter name="Verbosity Level" type="string" value="extreme" />
                   </ParameterList>
+                  <Parameter name="preconditioning strategy" type="string" value="left" />
+                  <Parameter name="error tolerance" type="double" value="1e-08" />
+                  <Parameter name="maximum number of iterations" type="int" value="20" />
                 </ParameterList>
-              </ParameterList>
+	          </ParameterList>
 
               <ParameterList name="PKs" type="ParameterList">
 
@@ -366,10 +374,10 @@
 <!--                  <Parameter name="modify predictor with consistent faces" type="bool" value="true" />-->
 
                   <Parameter name="source term" type="bool" value="true" />
-                  <Parameter name="clobber surface rel perm" type="bool" value="false" />
-                  <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
+                  <Parameter name="clobber surface rel perm" type="bool" value="true" />
+<!--                  <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />-->
 
-                  <Parameter name="limit correction to pressure change [Pa]" type="double" value="40000.0" />
+                  <Parameter name="limit correction to pressure change [Pa]" type="double" value="400000.0" />
                   <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
                   <Parameter name="max valid change in ice saturation in a time step [-]" type="double" value="0.1" />
 
@@ -377,19 +385,45 @@
                   <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
                   <Parameter name="permeability rescaling" type="double" value="10000000.0" />
 
+                  <Parameter name="debug cells" type="Array(int)" value="{3423}" />
                   <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="low" />
+                    <Parameter name="Verbosity Level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
-                    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
+                    <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
+                    <ParameterList name="consistent faces">
+                      <ParameterList name="preconditioner" type="ParameterList">
+                        <Parameter name="preconditioner type" type="string" value="boomer amg" />
+                        <ParameterList name="boomer amg parameters" type="ParameterList">
+                          <Parameter name="cycle applications" type="int" value="1" />
+                          <Parameter name="smoother sweeps" type="int" value="4" />
+                          <Parameter name="strong threshold" type="double" value="0.65" />
+                          <Parameter name="tolerance" type="double" value="0.0" />
+                        </ParameterList>
+                      </ParameterList>
+                      <ParameterList name="linear solver" type="ParameterList">
+                        <Parameter name="iterative method" type="string" value="nka" />
+                        <ParameterList name="nka parameters">
+                          <Parameter name="error tolerance" type="double" value="1e-15" />
+                          <Parameter name="maximum number of iterations" type="int" value="10" />
+                          <ParameterList name="VerboseObject" type="ParameterList">
+                            <Parameter name="Verbosity Level" type="string" value="medium" />
+                          </ParameterList>
+                        </ParameterList>
+                      </ParameterList>
+                    </ParameterList>
+                  </ParameterList>
+
+                  <ParameterList name="Diffusion PC" type="ParameterList">
+	                <Parameter name="newton correction" type="string" value="approximate jacobian" />
                   </ParameterList>
 
                   <ParameterList name="boundary conditions" type="ParameterList">
                   </ParameterList>
 
                   <ParameterList name="initial condition" type="ParameterList">
-                    <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint04000.h5" />
+                    <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression/checkpoint03806.h5" />
                   </ParameterList>
 
 <!--
@@ -430,25 +464,27 @@
                       <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
                       <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
                     </ParameterList>
-                    <ParameterList name="VerboseObject" type="ParameterList">
-                      <Parameter name="Verbosity Level" type="string" value="low" />
-                    </ParameterList>
                   </ParameterList>
                 </ParameterList>
 
                 <ParameterList name="surface flow" type="ParameterList">
                   <Parameter name="PK type" type="string" value="overland flow with ice" />
                   <Parameter name="primary variable" type="string" value="surface-pressure" />
+
                   <Parameter name="domain name" type="string" value="surface" />
                   <Parameter name="source term" type="bool" value="true" />
                   <Parameter name="initial time step" type="double" value="86400.0" />
 
                   <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="low" />
+                    <Parameter name="Verbosity Level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
                     <Parameter name="discretization primary" type="string" value="fv: default" />
+                  </ParameterList>
+
+                  <ParameterList name="Diffusion PC" type="ParameterList">
+	                <Parameter name="newton correction" type="string" value="true jacobian" />
                   </ParameterList>
 
                   <ParameterList name="boundary conditions" type="ParameterList">
@@ -469,7 +505,7 @@
                   </ParameterList>
 
                   <ParameterList name="overland conductivity evaluator" type="ParameterList">
-<!--                    <Parameter name="height key" type="string" value="manning_depth" />-->
+                    <Parameter name="height key" type="string" value="manning_depth" />
                     <ParameterList name="overland conductivity model" type="ParameterList">
                       <Parameter name="Manning exponent" type="double" value="0.666666666667" />
                       <Parameter name="slope regularization epsilon" type="double" value="0.01" />
@@ -481,18 +517,42 @@
                 <ParameterList name="subsurface energy" type="ParameterList">
                   <Parameter name="PK type" type="string" value="three-phase energy" />
                   <Parameter name="primary variable" type="string" value="temperature" />
+
                   <Parameter name="source term" type="bool" value="false" />
-<!--                  <Parameter name="modify predictor with consistent faces" type="bool" value="true" />-->
-                  <Parameter name="initial time step" type="double" value="86400.0" />
                   <Parameter name="supress advective terms in preconditioner" type="bool" value="true" />
                   <Parameter name="limit correction to temperature change [K]" type="double" value="1.0" />
+<!--                  <Parameter name="modify predictor with consistent faces" type="bool" value="true" />-->
 
+                  <Parameter name="initial time step" type="double" value="86400.0" />
+
+                  <Parameter name="debug cells" type="Array(int)" value="{3423}" />
                   <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="low" />
+                    <Parameter name="Verbosity Level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
-                    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
+                    <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
+                    <ParameterList name="consistent faces">
+                      <ParameterList name="preconditioner" type="ParameterList">
+                        <Parameter name="preconditioner type" type="string" value="boomer amg" />
+                        <ParameterList name="boomer amg parameters" type="ParameterList">
+                          <Parameter name="cycle applications" type="int" value="1" />
+                          <Parameter name="smoother sweeps" type="int" value="4" />
+                          <Parameter name="strong threshold" type="double" value="0.65" />
+                          <Parameter name="tolerance" type="double" value="0.0" />
+                        </ParameterList>
+                      </ParameterList>
+                      <ParameterList name="linear solver" type="ParameterList">
+                        <Parameter name="iterative method" type="string" value="nka" />
+                        <ParameterList name="nka parameters">
+                          <Parameter name="error tolerance" type="double" value="1e-15" />
+                          <Parameter name="maximum number of iterations" type="int" value="10" />
+                          <ParameterList name="VerboseObject" type="ParameterList">
+                            <Parameter name="Verbosity Level" type="string" value="medium" />
+                          </ParameterList>
+                        </ParameterList>
+                      </ParameterList>
+                    </ParameterList>
                   </ParameterList>
 
                   <ParameterList name="boundary conditions" type="ParameterList">
@@ -509,7 +569,7 @@
                   </ParameterList>
 
                   <ParameterList name="initial condition" type="ParameterList">
-                    <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint04000.h5" />
+                    <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression/checkpoint03806.h5" />
                   </ParameterList>
 
 <!--
@@ -544,9 +604,6 @@
                         <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
                       </ParameterList>
                     </ParameterList>
-                    <ParameterList name="VerboseObject" type="ParameterList">
-                      <Parameter name="Verbosity Level" type="string" value="low" />
-                    </ParameterList>
                   </ParameterList>
 
                   <ParameterList name="enthalpy evaluator" type="ParameterList">
@@ -558,15 +615,17 @@
                 <ParameterList name="surface energy" type="ParameterList">
                   <Parameter name="PK type" type="string" value="surface energy" />
                   <Parameter name="primary variable" type="string" value="surface-temperature" />
+
                   <Parameter name="domain name" type="string" value="surface" />
                   <Parameter name="source term" type="bool" value="true" />
                   <Parameter name="flux key" type="string" value="surface-mass_flux" />
+
                   <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
                   <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
                   <Parameter name="initial time step" type="double" value="86400.0" />
 
                   <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="low" />
+                    <Parameter name="Verbosity Level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
@@ -638,9 +697,6 @@
         <Parameter name="external enthalpy key" type="string" value="surface-mass_source_enthalpy" />
         <Parameter name="internal density key" type="string" value="surface-molar_density_liquid" />
         <Parameter name="external density key" type="string" value="surface-source_molar_density" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="surface-mass_source_enthalpy" type="ParameterList">
@@ -649,9 +705,6 @@
         <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
         <Parameter name="internal energy key" type="string" value="surface-source_internal_energy" />
         <Parameter name="include work term" type="bool" value="false" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="surface-source_molar_density" type="ParameterList">
@@ -663,9 +716,6 @@
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="surface-source_internal_energy" type="ParameterList">
@@ -675,9 +725,6 @@
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear" />
           <Parameter name="heat capacity [J/mol-K]" type="double" value="76.0" />
-        </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -706,7 +753,6 @@
         <Parameter name="field evaluator type" type="string" value="unfrozen effective depth" />
       </ParameterList>
 
-<!--
       <ParameterList name="manning_depth" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="effective height" />
         <Parameter name="height key" type="string" value="unfrozen_effective_depth" />
@@ -714,8 +760,6 @@
           <Parameter name="smoothing width [m]" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
--->
-
 
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
@@ -896,9 +940,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="snow_skin_potential" type="ParameterList">
@@ -943,9 +984,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="porosity" type="ParameterList">
@@ -984,9 +1022,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="density_rock" type="ParameterList">
@@ -1010,9 +1045,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -1045,9 +1077,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="incoming_longwave_radiation" type="ParameterList">
@@ -1064,9 +1093,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -1085,9 +1111,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="relative_humidity" type="ParameterList">
@@ -1104,9 +1127,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -1125,9 +1145,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="precipitation_rain" type="ParameterList">
@@ -1144,9 +1161,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
