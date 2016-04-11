@@ -201,7 +201,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test0/test0-ii.regression2/checkpoint00001.h5" />
+            <Parameter name="restart file" type="string" value="../../test0/test0-ii.regression.gold/checkpoint00001.h5" />
           </ParameterList>
 
           <ParameterList name="water retention evaluator" type="ParameterList">

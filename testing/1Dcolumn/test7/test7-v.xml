@@ -133,9 +133,7 @@
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
         <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
-          <Parameter name="nka lag iterations" type="int" value="2" />
-          <Parameter name="max backtrack steps" type="int" value="10" />
-          <Parameter name="backtrack lag" type="int" value="0" />
+          <Parameter name="backtrack max steps" type="int" value="10" />
           <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
@@ -273,7 +271,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint08377.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint00935.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -401,7 +399,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint08377.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint00935.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
