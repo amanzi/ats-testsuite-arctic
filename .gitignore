@@ -1,0 +1,12 @@
+syntax: glob
+*.xmf
+*.h5
+schur_0.txt
+dependency_graph.txt
+*.log
+*.pyc
+doc/_build/*
+testing/LOGS
+*.regression
+*.regression.gold
+*.regression.gold.old

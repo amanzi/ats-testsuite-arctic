@@ -1,10 +1,6 @@
 <ParameterList name="Main" type="ParameterList">
   <Parameter name="Native Unstructured Input" type="bool" value="true" />
   <Parameter name="grid_option" type="string" value="Unstructured" />
-  <ParameterList name="Domain" type="ParameterList">
-    <Parameter name="Spatial Dimension" type="int" value="3" />
-  </ParameterList>
-
   <ParameterList name="coordinator" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
@@ -91,7 +87,7 @@
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
           <Parameter name="time step increase factor" type="double" value="1.5" />
-          <Parameter name="max time step" type="double" value="1.e8" />
+          <Parameter name="max time step" type="double" value="100000000.0" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -486,21 +482,21 @@
 
     </ParameterList>
   </ParameterList>
-  <ParameterList name="Regions" type="ParameterList">
+  <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
-      <ParameterList name="Region: Box" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e+20,-1e+20,-1e+20}" />
         <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20,1e+20}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
-      <ParameterList name="Region: Box" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e+20,-1e+20}" />
         <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain peat" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="10000" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -508,7 +504,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain upper mineral" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="20000" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -516,7 +512,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -524,7 +520,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -532,7 +528,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="east" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="3" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -540,7 +536,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="south" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="4" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -548,7 +544,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="west" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="5" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -556,7 +552,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="north" type="ParameterList">
-      <ParameterList name="Region: Labeled Set" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="6" />
         <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
         <Parameter name="format" type="string" value="Exodus II" />
@@ -565,9 +561,9 @@
     </ParameterList>
   </ParameterList>
 
-  <ParameterList name="Mesh" type="ParameterList">
+  <ParameterList name="mesh" type="ParameterList">
     <Parameter isUsed="true" name="framework" type="string" value="MSTK" />
-    <ParameterList name="Read Mesh File" type="ParameterList">
+    <ParameterList name="read mesh file" type="ParameterList">
       <Parameter name="file" type="string" value="../../mesh/4/arctic_siteb_2d.par" />
       <Parameter name="format" type="string" value="Exodus II" />
     </ParameterList>
