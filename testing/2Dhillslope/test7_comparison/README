@@ -1,0 +1,56 @@
+comparison suite
+----------------
+
+comparison 0: physics of the freeze-thaw front
+Comparison of the parameter for smoothing both above and belowground freeze-thaw curves
+
+
+comparison 1: physics of the surface water flow
+Comparison of Manning's coefficient
+
+comparison 2: discretization
+MFD vs TPFA
+
+comparison 3: Jacobian terms
+Available Jacobian terms include:
+none) base terms i.e. Jones and Woodward style PC
+a) dkr / dp
+b) dKappa / dT
+c) dcond_s / dp_s (NOT WORKING!)
+d) dKappa_s / dT_s (likely not working too, but surely this is not helpful) 
+e) d(q_adv) / dT
+f) d(q_adv_s) / dT_s
+g) dkr / dT
+h) dKappa / dp
+i) dadv / d (p,T)  (cannot be used with e, as this should include e and more)
+
+comparison 4: boomer amg/pc options
+i) ilu
+b1) boomer amg, crazy lightweight
+b2) boomer amg, middleweidght, strong threshold = 0.85
+b2a) middleweight with 0.25 strong threshold
+b2b) middleweight with 0.5 strong threshold
+b2c) middleweight with 0.95 strong threshold
+b3) boomer amg, heavyweight (limit of linear solver), also includes tighter linear tolerance!
+
+comparison 5: globalization part 1
+Looking at with and without limiters, and magnitude of limiter
+a) control, no limiters
+b1) no temp limiter, pressure limiter = 40k
+b2) no temp limiter, pressure limiter = 400k
+b3) no temp limiter, pressure limiter = 4000k
+c1) no pressure limiter, temp limiter = 0.1
+c2) no pressure limiter, temp limiter = 1
+c3) no pressure limiter, temp limiter = 10
+d) pressure limiter = 400k, temp limiter = 1
+
+
+comparison 6: predictors
+a) no prediction
+b) linear extrapolation
+c) extrap + spurt 
+d1) extrap + EWC as is
+d2) extrap + EWC with 0 trans widths
+d3) extrap + EWC with 0.1 trans widths
+d4) extrap + EWC with 0.4 trans widths (same as smoothing)
+d5) extrap + EWC with 1 trans widths
