@@ -17,6 +17,7 @@
       </ParameterList>
     </ParameterList>
 
+<!--    
     <ParameterList name="organic" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1001" />
@@ -41,6 +42,8 @@
         <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
     </ParameterList>
+-->
+
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
@@ -165,31 +168,14 @@
         <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
         <Parameter name="permeability rescaling" type="double" value="10000000.0" />
         <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="organic" type="ParameterList">
-            <Parameter name="region" type="string" value="organic" />
+          <ParameterList name="mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="2.93e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.212" />
+            <Parameter name="van Genuchten alpha" type="double" value="5.1e-4" />
+            <Parameter name="van Genuchten m" type="double" value="0.19" />
             <Parameter name="residual saturation" type="double" value="0." />
             <Parameter name="smoothing interval width" type="double" value="100.0" />
           </ParameterList>
-          <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="mineral" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.1909" />
-            <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
-          </ParameterList>
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.1909" />
-            <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
-          </ParameterList>
-
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
@@ -268,30 +254,12 @@
       <ParameterList name="base_porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.25" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="mineral" />
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.45" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="organic" type="ParameterList">
-            <Parameter name="region" type="string" value="organic" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.55" />
+                <Parameter name="value" type="double" value="0.7" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -304,17 +272,9 @@
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
-          <ParameterList name="organic" type="ParameterList">
-            <Parameter name="region" type="string" value="organic" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
-          </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
-          </ParameterList>
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -322,30 +282,12 @@
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="organic" type="ParameterList">
-            <Parameter name="region" type="string" value="organic" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1e-12" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="mineral" />
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="2e-13" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1e-15" />
+                <Parameter name="value" type="double" value="1.1e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
