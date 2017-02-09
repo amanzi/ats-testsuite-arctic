@@ -78,7 +78,6 @@
     <ParameterList name="required times" type="ParameterList">
       <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,86400.0,-1.0}" />
     </ParameterList>
-    <!-- <Parameter name="restart from checkpoint file" type="string" value="../../test7-met/run-1_1D-2/check_final.h5" />  -->
     <ParameterList name="PK tree">
       <ParameterList name="Top level MPC" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -159,7 +158,7 @@
       <Parameter name="upwind conductivity method" type="string" value="upwind by potential difference" />
       <ParameterList name="precipitation function" type="ParameterList">
         <ParameterList name="function-tabular" type="ParameterList">
-          <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+          <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
           <Parameter name="x header" type="string" value="time [s]" />
           <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
         </ParameterList>
@@ -1098,7 +1097,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
               </ParameterList>
@@ -1115,7 +1114,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
               </ParameterList>
@@ -1132,7 +1131,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
@@ -1149,7 +1148,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="relative humidity [-]" />
               </ParameterList>
@@ -1166,7 +1165,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
               </ParameterList>
@@ -1183,7 +1182,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Barrow_2010-2013.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/Barrow-2010_2013.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
               </ParameterList>
