@@ -121,23 +121,23 @@
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
       <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true" />
       <Parameter name="dump preconditioner" type="bool" value="false" />
-      <ParameterList name="VerboseObject" type="ParameterList">
-        <Parameter name="Verbosity Level" type="string" value="high" />
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
 
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <Parameter name="debug cells" type="Array(int)" value="{1}" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="high" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="none" />
         <Parameter name="debug cells" type="Array(int)" value="{0}" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="high" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
@@ -145,8 +145,8 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="high" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
@@ -165,8 +165,8 @@
         <Parameter name="iterative method" type="string" value="nka" />
         <Parameter name="tolerance" type="double" value="1e-06" />
         <Parameter name="max iterations" type="int" value="10" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="medium" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -183,12 +183,12 @@
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="extreme" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="extreme" />
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="extreme" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="extreme" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -212,8 +212,8 @@
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
           <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
@@ -285,8 +285,8 @@
               <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
               <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
             </ParameterList>
-            <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="low" />
+            <ParameterList name="verbose object" type="ParameterList">
+              <Parameter name="verbosity level" type="string" value="low" />
             </ParameterList>
           </ParameterList>
 
@@ -299,8 +299,8 @@
           <Parameter name="source term" type="bool" value="true" />
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
@@ -330,8 +330,8 @@
           <Parameter name="initial time step" type="double" value="86400.0" />
           <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
@@ -424,8 +424,8 @@
           <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
           <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="Diffusion" type="ParameterList">
@@ -533,8 +533,8 @@
         <Parameter name="external enthalpy key" type="string" value="surface-mass_source_enthalpy" />
         <Parameter name="internal density key" type="string" value="surface-molar_density_liquid" />
         <Parameter name="external density key" type="string" value="surface-source_molar_density" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -544,8 +544,8 @@
         <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
         <Parameter name="internal energy key" type="string" value="surface-source_internal_energy" />
         <Parameter name="include work term" type="bool" value="false" />
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -558,8 +558,8 @@
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -571,8 +571,8 @@
           <Parameter name="IEM type" type="string" value="linear" />
           <Parameter name="heat capacity [J/mol-K]" type="double" value="76.0" />
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -784,8 +784,8 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="VerboseObject" type="ParameterList">
-          <Parameter name="Verbosity Level" type="string" value="low" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 

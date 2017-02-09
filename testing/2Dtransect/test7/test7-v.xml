@@ -133,7 +133,7 @@
           <Parameter name="upwind conductivity method" type="string" value="upwind by potential difference" />
           <ParameterList name="precipitation function" type="ParameterList">
             <ParameterList name="function-tabular" type="ParameterList">
-              <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-heavystart.h5" />
+              <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr-snowJan1.h5" />
               <Parameter name="x header" type="string" value="time [s]" />
               <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
             </ParameterList>
@@ -154,12 +154,12 @@
               <Parameter name="nonlinear tolerance" type="double" value="0.01" />
               <Parameter name="diverged tolerance" type="double" value="1000000.0" />
               <Parameter name="limit iterations" type="int" value="21" />
-              <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="high" />
+              <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
             </ParameterList>
-            <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="high" />
+            <ParameterList name="verbose object" type="ParameterList">
+              <Parameter name="verbosity level" type="string" value="high" />
             </ParameterList>
             <ParameterList name="timestep controller smarter parameters" type="ParameterList">
               <Parameter name="max iterations" type="int" value="18" />
@@ -196,14 +196,14 @@
             <ParameterList name="nka parameters" type="ParameterList">
               <Parameter name="error tolerance" type="double" value="1e-06" />
               <Parameter name="maximum number of iterations" type="int" value="10" />
-              <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="medium" />
+              <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="medium" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
 
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
@@ -240,12 +240,12 @@
               <Parameter name="nonlinear tolerance" type="double" value="1e-05" />
               <Parameter name="diverged tolerance" type="double" value="1000000.0" />
               <Parameter name="limit iterations" type="int" value="21" />
-              <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="high" />
+              <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
             </ParameterList>
-            <ParameterList name="VerboseObject" type="ParameterList">
-              <Parameter name="Verbosity Level" type="string" value="high" />
+            <ParameterList name="verbose object" type="ParameterList">
+              <Parameter name="verbosity level" type="string" value="high" />
             </ParameterList>
             <ParameterList name="timestep controller smarter parameters" type="ParameterList">
               <Parameter name="max iterations" type="int" value="18" />
@@ -259,8 +259,8 @@
             </ParameterList>
           </ParameterList>
 
-          <ParameterList name="VerboseObject" type="ParameterList">
-            <Parameter name="Verbosity Level" type="string" value="high" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="PKs" type="ParameterList">
@@ -274,8 +274,8 @@
               <Parameter name="max time step" type="double" value="86400.0" />
               <Parameter name="snow-ground transitional depth" type="double" value="0.05" />
               <Parameter name="wind speed reference height [m]" type="double" value="2.0" />
-              <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="high" />
+              <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
@@ -301,21 +301,21 @@
               <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true" />
               <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
               <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="true" />
-              <ParameterList name="VerboseObject" type="ParameterList">
-                <Parameter name="Verbosity Level" type="string" value="high" />
+              <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="ewc delegate" type="ParameterList">
                 <Parameter name="predictor type" type="string" value="smart ewc" />
-                <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="high" />
+                <ParameterList name="verbose object" type="ParameterList">
+                  <Parameter name="verbosity level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
               <ParameterList name="surface ewc delegate" type="ParameterList">
                 <Parameter name="predictor type" type="string" value="none" />
-                <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="high" />
+                <ParameterList name="verbose object" type="ParameterList">
+                  <Parameter name="verbosity level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
@@ -324,8 +324,8 @@
                 <Parameter name="damp and cap the water spurt" type="bool" value="true" />
                 <Parameter name="damp and cap the saturated spurt" type="bool" value="true" />
                 <Parameter name="cap over atmospheric" type="double" value="0.1" />
-                <ParameterList name="VerboseObject" type="ParameterList">
-                  <Parameter name="Verbosity Level" type="string" value="high" />
+                <ParameterList name="verbose object" type="ParameterList">
+                  <Parameter name="verbosity level" type="string" value="high" />
                 </ParameterList>
               </ParameterList>
 
@@ -346,8 +346,8 @@
                   <Parameter name="preconditioning strategy" type="string" value="left" />
                   <Parameter name="error tolerance" type="double" value="1e-08" />
                   <Parameter name="maximum number of iterations" type="int" value="20" />
-                  <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="extreme" />
+                  <ParameterList name="verbose object" type="ParameterList">
+                    <Parameter name="verbosity level" type="string" value="extreme" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -366,8 +366,8 @@
                   <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
                   <Parameter name="permeability rescaling" type="double" value="10000000.0" />
                   <Parameter name="debug cells" type="Array(int)" value="{3423}" />
-                  <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="high" />
+                  <ParameterList name="verbose object" type="ParameterList">
+                    <Parameter name="verbosity level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
@@ -387,8 +387,8 @@
                         <ParameterList name="nka parameters" type="ParameterList">
                           <Parameter name="error tolerance" type="double" value="1e-15" />
                           <Parameter name="maximum number of iterations" type="int" value="10" />
-                          <ParameterList name="VerboseObject" type="ParameterList">
-                            <Parameter name="Verbosity Level" type="string" value="medium" />
+                          <ParameterList name="verbose object" type="ParameterList">
+                            <Parameter name="verbosity level" type="string" value="medium" />
                           </ParameterList>
                         </ParameterList>
                       </ParameterList>
@@ -441,8 +441,8 @@
                   <Parameter name="domain name" type="string" value="surface" />
                   <Parameter name="source term" type="bool" value="true" />
                   <Parameter name="initial time step" type="double" value="86400.0" />
-                  <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="high" />
+                  <ParameterList name="verbose object" type="ParameterList">
+                    <Parameter name="verbosity level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
@@ -488,8 +488,8 @@
                   <Parameter name="limit correction to temperature change [K]" type="double" value="1.0" />
                   <Parameter name="initial time step" type="double" value="86400.0" />
                   <Parameter name="debug cells" type="Array(int)" value="{3423}" />
-                  <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="high" />
+                  <ParameterList name="verbose object" type="ParameterList">
+                    <Parameter name="verbosity level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
@@ -509,8 +509,8 @@
                         <ParameterList name="nka parameters" type="ParameterList">
                           <Parameter name="error tolerance" type="double" value="1e-15" />
                           <Parameter name="maximum number of iterations" type="int" value="10" />
-                          <ParameterList name="VerboseObject" type="ParameterList">
-                            <Parameter name="Verbosity Level" type="string" value="medium" />
+                          <ParameterList name="verbose object" type="ParameterList">
+                            <Parameter name="verbosity level" type="string" value="medium" />
                           </ParameterList>
                         </ParameterList>
                       </ParameterList>
@@ -570,8 +570,8 @@
                   <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
                   <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
                   <Parameter name="initial time step" type="double" value="86400.0" />
-                  <ParameterList name="VerboseObject" type="ParameterList">
-                    <Parameter name="Verbosity Level" type="string" value="high" />
+                  <ParameterList name="verbose object" type="ParameterList">
+                    <Parameter name="verbosity level" type="string" value="high" />
                   </ParameterList>
 
                   <ParameterList name="Diffusion" type="ParameterList">
@@ -1014,7 +1014,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
               </ParameterList>
@@ -1031,7 +1031,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
               </ParameterList>
@@ -1048,7 +1048,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
@@ -1065,7 +1065,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="relative humidity [-]" />
               </ParameterList>
@@ -1082,7 +1082,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
               </ParameterList>
@@ -1099,7 +1099,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Barrow_Alaska/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
               </ParameterList>

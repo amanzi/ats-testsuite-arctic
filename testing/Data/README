@@ -4,13 +4,59 @@ Datasets provided here:
 Met Data:
 ===================
 
+All Met data should provide the following fields:
 
-10yr-MORESNOW.h5:
+- "time [s]"
+- "precipitation rain [m s^-1]"
+- "precipitation snow [m SWE s^-1]"
+- "air temperature [K]"
+"relative humidity [-]"
+- "incoming shortwave radiation [W m^-2]"
+- "incoming longwave radiation [W m^-2]"  (optional!)
+- "wind speed [m s^-1]"
+- "wind speed height [m]"
+
+Note that typically "time" is daily averages, and starts with 0 with
+an interval of 86400 (seconds per day).
+
+
+Data Products:
+=================
+
+spinup-10yr.h5:
 -----------------
 
 (Joel Rowland)
 - 10 years (1 year data repeated 10 times)
 - weather stations aroudn Barrow, window average (average all Jan 1 across 10 years, for all days)
 - 2 meter wind speed reference height
+- adjusted for undercatch to increase snowpack to reasonable sizes
 
+variations:
+
+- spinup-10yr-snowJan1.h5 is the same but dumps 35 cm of snow on
+  Jan 1 of the first year to make up for the lack of most of fall's
+  snowpack.  This is necessary for 2D runs where settng 35 cm as a
+  uniform initial condition misses filtering that snowpack through the
+  snow distribution model.
+
+- spinup-10yr-T+6.h5 is a hack that simply increases the daily air
+  temperature by 6 degrees to have something to work with for Seward.
+  This will be replaced with real Seward data, and then should be
+  removed.
+
+- spinup-10yr-snowJan1-T+6.h5 does both of the above
+
+Barrow-2010_2013.h5
+---------------------
+(Anna Liljedahl, her student at UAF?, Nathan Wales, others)
+
+- Meterological data taken from various sources, includign teh Barrow
+  airport and eddy flux towers in the BEO, then corrected using
+  snowpack surveys and others.
+
+- Jan 1 2010 -- Dec 31 2013 by Anna and her student, 2014 -- 20?? by
+  Nathan Wales
+
+- daily averaged
 
