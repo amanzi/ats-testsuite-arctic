@@ -246,7 +246,7 @@
                 <Parameter name="van Genuchten alpha" type="double" value="8.2e-06" />
                 <Parameter name="van Genuchten m" type="double" value="0.473684211" />
                 <Parameter name="residual saturation" type="double" value="0.047058824" />
-                <Parameter name="smoothing interval width" type="double" value="0.0" />
+                <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
               </ParameterList>
               <ParameterList name="upper mineral" type="ParameterList">
                 <Parameter name="region" type="string" value="computational domain upper mineral" />
