@@ -197,7 +197,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
             <Parameter name="van Genuchten m" type="double" value="0.212" />
             <Parameter name="residual saturation" type="double" value="0.0" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="peat" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain peat" />
@@ -205,7 +205,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000293" />
             <Parameter name="van Genuchten m" type="double" value="0.212" />
             <Parameter name="residual saturation" type="double" value="0.0" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain upper mineral" />
@@ -213,7 +213,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
             <Parameter name="van Genuchten m" type="double" value="0.190938511" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="lower organic" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain lower organic" />
@@ -221,7 +221,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
             <Parameter name="van Genuchten m" type="double" value="0.190938511" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="lower mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain lower mineral" />
@@ -229,7 +229,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
             <Parameter name="van Genuchten m" type="double" value="0.190938511" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="deep mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain deep mineral" />
@@ -237,7 +237,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
             <Parameter name="van Genuchten m" type="double" value="0.190938511" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">

@@ -252,8 +252,7 @@
               <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
               <Parameter name="permeability rescaling" type="double" value="10000000.0" />
               <Parameter name="limit correction to pressure change [Pa]" type="double" value="10000.0" />
-              <Parameter name="clobber surface rel perm" type="bool" value="false" />
-              <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
+              <Parameter name="clobber surface rel perm" type="bool" value="true" />
               <Parameter name="debug cells" type="Array(int)" value="{1}" />
               <ParameterList name="verbose object" type="ParameterList">
                 <Parameter name="verbosity level" type="string" value="high" />
@@ -280,7 +279,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.00235" />
                     <Parameter name="van Genuchten m" type="double" value="0.275362319" />
                     <Parameter name="residual saturation" type="double" value="0.055555556" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                   <ParameterList name="peat" type="ParameterList">
                     <Parameter name="region" type="string" value="computational domain peat" />
@@ -288,7 +287,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.0006" />
                     <Parameter name="van Genuchten m" type="double" value="0.275" />
                     <Parameter name="residual saturation" type="double" value="0.05" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                   <ParameterList name="upper mineral" type="ParameterList">
                     <Parameter name="region" type="string" value="computational domain upper mineral" />
@@ -296,7 +295,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
                     <Parameter name="van Genuchten m" type="double" value="0.190938511" />
                     <Parameter name="residual saturation" type="double" value="0.1" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                   <ParameterList name="lower organic" type="ParameterList">
                     <Parameter name="region" type="string" value="computational domain lower organic" />
@@ -304,7 +303,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
                     <Parameter name="van Genuchten m" type="double" value="0.190938511" />
                     <Parameter name="residual saturation" type="double" value="0.1" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                   <ParameterList name="lower mineral" type="ParameterList">
                     <Parameter name="region" type="string" value="computational domain lower mineral" />
@@ -312,7 +311,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
                     <Parameter name="van Genuchten m" type="double" value="0.190938511" />
                     <Parameter name="residual saturation" type="double" value="0.1" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                   <ParameterList name="deep mineral" type="ParameterList">
                     <Parameter name="region" type="string" value="computational domain deep mineral" />
@@ -320,7 +319,7 @@
                     <Parameter name="van Genuchten alpha" type="double" value="0.000545" />
                     <Parameter name="van Genuchten m" type="double" value="0.190938511" />
                     <Parameter name="residual saturation" type="double" value="0.1" />
-                    <Parameter name="smoothing interval width" type="double" value="100.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
                   </ParameterList>
                 </ParameterList>
                 <ParameterList name="permafrost model parameters" type="ParameterList">

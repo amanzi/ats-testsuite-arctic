@@ -22,7 +22,6 @@
         <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20,1e+20}" />
       </ParameterList>
     </ParameterList>
-    
     <ParameterList name="organic" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1001" />
@@ -71,23 +70,22 @@
     </ParameterList>
     <ParameterList name="east" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{1.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{1, 0}"/>
+        <Parameter name="point" type="Array(double)" value="{1.0,0.0}" />
+        <Parameter name="normal" type="Array(double)" value="{1.0,0.0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="west" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{-1, 0}"/>
+        <Parameter name="point" type="Array(double)" value="{0.0,0.0}" />
+        <Parameter name="normal" type="Array(double)" value="{-1.0,0.0}" />
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
 
   <ParameterList name="coordinator" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="100.0" />
+    <Parameter name="end time" type="double" value="10.0" />
     <Parameter name="end time units" type="string" value="yr" />
     <ParameterList name="required times" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
@@ -103,9 +101,8 @@
     <Parameter name="file name base" type="string" value="visdump_surface" />
     <Parameter name="times start period stop" type="Array(double)" value="{0.0,2628000.0,-1.0}" />
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,31536000.,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,31536000.0,-1.0}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -114,7 +111,7 @@
       <Parameter name="PK type" type="string" value="strong MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{SEB,permafrost surface and subsurface}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="medium" />
+        <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
@@ -129,11 +126,11 @@
           <Parameter name="diverged tolerance" type="double" value="1000000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="medium" />
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -156,7 +153,7 @@
           <Parameter name="domain name" type="string" value="surface" />
           <Parameter name="debug cells" type="Array(int)" value="{0}" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="medium" />
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
@@ -184,7 +181,7 @@
           <Parameter name="supress Jacobian terms: div hq / dp,T" type="bool" value="false" />
           <Parameter name="dump preconditioner" type="bool" value="false" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="medium" />
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
 
           <ParameterList name="ewc delegate" type="ParameterList">
@@ -199,7 +196,7 @@
             <Parameter name="predictor type" type="string" value="none" />
             <Parameter name="debug cells" type="Array(int)" value="{0}" />
             <ParameterList name="verbose object" type="ParameterList">
-              <Parameter name="verbosity level" type="string" value="medium" />
+              <Parameter name="verbosity level" type="string" value="high" />
             </ParameterList>
           </ParameterList>
 
@@ -245,11 +242,10 @@
               <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
               <Parameter name="permeability rescaling" type="double" value="10000000.0" />
               <Parameter name="limit correction to pressure change [Pa]" type="double" value="10000.0" />
-              <Parameter name="clobber surface rel perm" type="bool" value="false" />
-              <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
+              <Parameter name="clobber surface rel perm" type="bool" value="true" />
               <Parameter name="debug cells" type="Array(int)" value="{1}" />
               <ParameterList name="verbose object" type="ParameterList">
-                <Parameter name="verbosity level" type="string" value="medium" />
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="Diffusion" type="ParameterList">
@@ -260,39 +256,37 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint03222.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03257.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
                 <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
                 <Parameter name="use surface rel perm" type="bool" value="true" />
                 <ParameterList name="WRM parameters" type="ParameterList">
-                  
-		  <ParameterList name="organic" type="ParameterList">
-		    <Parameter name="region" type="string" value="organic" />
-		    <Parameter name="WRM Type" type="string" value="van Genuchten" />
-		    <Parameter name="van Genuchten alpha" type="double" value="2.93e-4" />
-		    <Parameter name="van Genuchten m" type="double" value="0.212" />
-		    <Parameter name="residual saturation" type="double" value="0." />
-		    <Parameter name="smoothing interval width" type="double" value="100.0" />
-		  </ParameterList>
-		  <ParameterList name="mineral" type="ParameterList">
-		    <Parameter name="region" type="string" value="mineral" />
-		    <Parameter name="WRM Type" type="string" value="van Genuchten" />
-		    <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-		    <Parameter name="van Genuchten m" type="double" value="0.1909" />
-		    <Parameter name="residual saturation" type="double" value="0.1" />
-		    <Parameter name="smoothing interval width" type="double" value="100.0" />
-		  </ParameterList>
-		  <ParameterList name="bedrock" type="ParameterList">
-		    <Parameter name="region" type="string" value="bedrock" />
-		    <Parameter name="WRM Type" type="string" value="van Genuchten" />
-		    <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-		    <Parameter name="van Genuchten m" type="double" value="0.1909" />
-		    <Parameter name="residual saturation" type="double" value="0.1" />
-		    <Parameter name="smoothing interval width" type="double" value="100.0" />
-		  </ParameterList>
-
+                  <ParameterList name="organic" type="ParameterList">
+                    <Parameter name="region" type="string" value="organic" />
+                    <Parameter name="WRM Type" type="string" value="van Genuchten" />
+                    <Parameter name="van Genuchten alpha" type="double" value="0.0002" />
+                    <Parameter name="van Genuchten m" type="double" value="0.41" />
+                    <Parameter name="residual saturation" type="double" value="0.17" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+                  </ParameterList>
+                  <ParameterList name="mineral" type="ParameterList">
+                    <Parameter name="region" type="string" value="mineral" />
+                    <Parameter name="WRM Type" type="string" value="van Genuchten" />
+                    <Parameter name="van Genuchten alpha" type="double" value="0.00051" />
+                    <Parameter name="van Genuchten m" type="double" value="0.19" />
+                    <Parameter name="residual saturation" type="double" value="0.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+                  </ParameterList>
+                  <ParameterList name="bedrock" type="ParameterList">
+                    <Parameter name="region" type="string" value="bedrock" />
+                    <Parameter name="WRM Type" type="string" value="van Genuchten" />
+                    <Parameter name="van Genuchten alpha" type="double" value="0.00051" />
+                    <Parameter name="van Genuchten m" type="double" value="0.19" />
+                    <Parameter name="residual saturation" type="double" value="0.0" />
+                    <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+                  </ParameterList>
                 </ParameterList>
                 <ParameterList name="permafrost model parameters" type="ParameterList">
                   <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
@@ -313,7 +307,7 @@
               <Parameter name="initial time step" type="double" value="86400.0" />
               <Parameter name="debug cells" type="Array(int)" value="{0}" />
               <ParameterList name="verbose object" type="ParameterList">
-                <Parameter name="verbosity level" type="string" value="medium" />
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="Diffusion" type="ParameterList">
@@ -355,58 +349,56 @@
               <Parameter name="limit correction to temperature change [K]" type="double" value="1.0" />
               <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
               <ParameterList name="verbose object" type="ParameterList">
-                <Parameter name="verbosity level" type="string" value="medium" />
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="Diffusion" type="ParameterList">
                 <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
               </ParameterList>
 
-	      <ParameterList name="boundary conditions" type="ParameterList">
-		<ParameterList name="enthalpy flux" type="ParameterList">
-		  <ParameterList name="bottom" type="ParameterList">
-		    <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-		    <ParameterList name="outward enthalpy flux" type="ParameterList">
-		      <ParameterList name="function-constant" type="ParameterList">
-			<Parameter name="value" type="double" value="-1e-07" />
-		      </ParameterList>
-		    </ParameterList>
-		  </ParameterList>
-		</ParameterList>
-	      </ParameterList>
+              <ParameterList name="boundary conditions" type="ParameterList">
+                <ParameterList name="enthalpy flux" type="ParameterList">
+                  <ParameterList name="bottom" type="ParameterList">
+                    <Parameter name="regions" type="Array(string)" value="{bottom face}" />
+                    <ParameterList name="outward enthalpy flux" type="ParameterList">
+                      <ParameterList name="function-constant" type="ParameterList">
+                        <Parameter name="value" type="double" value="-1e-07" />
+                      </ParameterList>
+                    </ParameterList>
+                  </ParameterList>
+                </ParameterList>
+              </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-iii.regression.gold/checkpoint03222.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03257.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
                 <ParameterList name="thermal conductivity parameters" type="ParameterList">
-                  
-		  <ParameterList name="organic" type="ParameterList">
+                  <ParameterList name="organic" type="ParameterList">
                     <Parameter name="region" type="string" value="organic" />
                     <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
                     <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="0.67" />
                     <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.07" />
                     <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
                     <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-		  </ParameterList>
-		  <ParameterList name="mineral" type="ParameterList">
+                  </ParameterList>
+                  <ParameterList name="mineral" type="ParameterList">
                     <Parameter name="region" type="string" value="mineral" />
                     <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
                     <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
                     <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
                     <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
                     <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-		  </ParameterList>
-		  <ParameterList name="bedrock" type="ParameterList">
+                  </ParameterList>
+                  <ParameterList name="bedrock" type="ParameterList">
                     <Parameter name="region" type="string" value="bedrock" />
                     <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
                     <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
                     <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.33" />
                     <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
                     <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-		  </ParameterList>
-                  
+                  </ParameterList>
                 </ParameterList>
               </ParameterList>
 
@@ -427,7 +419,7 @@
               <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
               <Parameter name="debug cells" type="Array(int)" value="{0}" />
               <ParameterList name="verbose object" type="ParameterList">
-                <Parameter name="verbosity level" type="string" value="medium" />
+                <Parameter name="verbosity level" type="string" value="high" />
               </ParameterList>
 
               <ParameterList name="Diffusion" type="ParameterList">
@@ -544,7 +536,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
-          <Parameter name="smoothing width [K]" type="double" value="0.4" />
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />
@@ -721,7 +713,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="15." />
+                <Parameter name="value" type="double" value="15.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -731,24 +723,6 @@
       <ParameterList name="base_porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.45" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="mineral" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.55" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
           <ParameterList name="organic" type="ParameterList">
             <Parameter name="region" type="string" value="organic" />
             <Parameter name="component" type="string" value="cell" />
@@ -758,12 +732,30 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
+          <ParameterList name="mineral" type="ParameterList">
+            <Parameter name="region" type="string" value="mineral" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.7" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="bedrock" type="ParameterList">
+            <Parameter name="region" type="string" value="bedrock" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.35" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
@@ -773,16 +765,15 @@
           </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
           <ParameterList name="bedrock" type="ParameterList">
             <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="pore compressibility" type="double" value="1e-09" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-      
+
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -791,7 +782,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="5e-12" />
+                <Parameter name="value" type="double" value="1.78e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -800,7 +791,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="2e-13" />
+                <Parameter name="value" type="double" value="1.1e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -809,7 +800,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1e-15" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -818,7 +809,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-      
 
       <ParameterList name="density_rock" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -874,21 +864,11 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
-		  </ParameterList>
-		</ParameterList>
-	      </ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
+              </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -904,20 +884,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -934,20 +904,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="air temperature [K]" />
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -964,20 +924,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="relative humidity [-]" />
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="relative humidity [-]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -994,20 +944,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1024,20 +964,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1054,29 +984,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-		<ParameterList name="function2" type="ParameterList">
-		  <ParameterList name="function-standard-math" type="ParameterList">
-                    <Parameter name="operator" type="string" value="mod" />
-                    <Parameter name="parameter" type="double" value="315360000.0" />
-		  </ParameterList>
-		</ParameterList>
-		<ParameterList name="function1" type="ParameterList">
-		  <ParameterList name="function-multiplicative" type="ParameterList">
-		    <ParameterList name="function1" type="ParameterList">
-		      <ParameterList name="function-tabular" type="ParameterList">
-			<Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
-			<Parameter name="x header" type="string" value="time [s]" />
-			<Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
-		      </ParameterList>
-		    </ParameterList>
-		    <ParameterList name="function2" type="ParameterList">
-		      <ParameterList name="function-constant" type="ParameterList">
-			<Parameter name="value" type="double" value="2.0" />
-		      </ParameterList>
-		    </ParameterList>
-		  </ParameterList>
-		</ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>

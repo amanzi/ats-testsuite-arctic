@@ -16,7 +16,6 @@
         <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20,1e+20}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="organic" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1001" />
@@ -58,7 +57,7 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  
+
   <ParameterList name="coordinator" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
@@ -137,7 +136,7 @@
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="boundary pressure" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="523325.0" />
+                <Parameter name="value" type="double" value="538325.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -168,28 +167,27 @@
           <ParameterList name="organic" type="ParameterList">
             <Parameter name="region" type="string" value="organic" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="2.93e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.212" />
-            <Parameter name="residual saturation" type="double" value="0." />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.0002" />
+            <Parameter name="van Genuchten m" type="double" value="0.41" />
+            <Parameter name="residual saturation" type="double" value="0.17" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="mineral" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.1909" />
-            <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.00051" />
+            <Parameter name="van Genuchten m" type="double" value="0.19" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="bedrock" type="ParameterList">
             <Parameter name="region" type="string" value="bedrock" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
-            <Parameter name="van Genuchten m" type="double" value="0.1909" />
-            <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.00051" />
+            <Parameter name="van Genuchten m" type="double" value="0.19" />
+            <Parameter name="residual saturation" type="double" value="0.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
-
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
@@ -243,7 +241,7 @@
         </ParameterList>
       </ParameterList>
 
-	  <ParameterList name="viscosity_liquid" type="ParameterList">
+      <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
@@ -268,12 +266,12 @@
       <ParameterList name="base_porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="bedrock" />
+          <ParameterList name="organic" type="ParameterList">
+            <Parameter name="region" type="string" value="organic" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.25" />
+                <Parameter name="value" type="double" value="0.85" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -282,16 +280,16 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.45" />
+                <Parameter name="value" type="double" value="0.7" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="organic" type="ParameterList">
-            <Parameter name="region" type="string" value="organic" />
+          <ParameterList name="bedrock" type="ParameterList">
+            <Parameter name="region" type="string" value="bedrock" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.55" />
+                <Parameter name="value" type="double" value="0.35" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -306,15 +304,15 @@
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
           <ParameterList name="organic" type="ParameterList">
             <Parameter name="region" type="string" value="organic" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
           <ParameterList name="bedrock" type="ParameterList">
             <Parameter name="region" type="string" value="bedrock" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="pore compressibility" type="double" value="1e-07" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -327,7 +325,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1e-12" />
+                <Parameter name="value" type="double" value="1.78e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -336,7 +334,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="2e-13" />
+                <Parameter name="value" type="double" value="1.1e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -345,7 +343,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1e-15" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -354,7 +352,7 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">

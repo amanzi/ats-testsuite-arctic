@@ -171,7 +171,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="2.93e-4" />
             <Parameter name="van Genuchten m" type="double" value="0.212" />
             <Parameter name="residual saturation" type="double" value="0." />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="mineral" />
@@ -179,7 +179,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
             <Parameter name="van Genuchten m" type="double" value="0.1909" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
           <ParameterList name="bedrock" type="ParameterList">
             <Parameter name="region" type="string" value="bedrock" />
@@ -187,7 +187,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="5.45e-4" />
             <Parameter name="van Genuchten m" type="double" value="0.1909" />
             <Parameter name="residual saturation" type="double" value="0.1" />
-            <Parameter name="smoothing interval width" type="double" value="100.0" />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
 
         </ParameterList>
