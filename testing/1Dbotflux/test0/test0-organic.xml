@@ -16,6 +16,30 @@
         <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20,1e+20}" />
       </ParameterList>
     </ParameterList>
+    <ParameterList name="organic" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="1001" />
+        <Parameter name="file" type="string" value="../../mesh/hillslope_column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="mineral" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="1002" />
+        <Parameter name="file" type="string" value="../../mesh/hillslope_column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="bedrock" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="101" />
+        <Parameter name="file" type="string" value="../../mesh/hillslope_column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Cell" />
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
@@ -112,7 +136,7 @@
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="boundary pressure" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="523325.0" />
+                <Parameter name="value" type="double" value="538325.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -265,7 +289,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.7" />
+                <Parameter name="value" type="double" value="0.35" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -319,7 +343,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.1e-12" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>

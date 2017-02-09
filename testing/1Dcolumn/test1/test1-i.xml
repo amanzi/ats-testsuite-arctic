@@ -209,7 +209,7 @@
           <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
           <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
           <Parameter name="permeability rescaling" type="double" value="10000000.0" />
-          <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
+          <Parameter name="clobber surface rel perm" type="bool" value="true" />
           <Parameter name="debug cells" type="Array(int)" value="{1}" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="extreme" />

@@ -178,7 +178,7 @@
                 <Parameter name="regions" type="Array(string)" value="{bottom face}" />
                 <ParameterList name="boundary pressure" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="523325.0" />
+                    <Parameter name="value" type="double" value="538325.0" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -261,7 +261,7 @@
                 <ParameterList name="boundary temperature" type="ParameterList">
                   <ParameterList name="function-tabular" type="ParameterList">
                     <Parameter name="x values" type="Array(double)" value="{0.0,31536000000.0}" />
-                    <Parameter name="y values" type="Array(double)" value="{276.65,271.15}" />
+                    <Parameter name="y values" type="Array(double)" value="{276.65,272.15}" />
                     <Parameter name="forms" type="Array(string)" value="{linear}" />
                   </ParameterList>
                 </ParameterList>
@@ -305,7 +305,7 @@
                 <Parameter name="region" type="string" value="bedrock" />
                 <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
                 <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
-                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.33" />
                 <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
                 <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
               </ParameterList>
@@ -345,7 +345,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
-          <Parameter name="smoothing width [K]" type="double" value="0.4" />
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />
@@ -483,7 +483,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.7" />
+                <Parameter name="value" type="double" value="0.35" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -537,7 +537,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.1e-12" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -573,7 +573,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1770.0" />
+                <Parameter name="value" type="double" value="2170.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>

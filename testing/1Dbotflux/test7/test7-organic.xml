@@ -242,8 +242,7 @@
               <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
               <Parameter name="permeability rescaling" type="double" value="10000000.0" />
               <Parameter name="limit correction to pressure change [Pa]" type="double" value="10000.0" />
-              <Parameter name="clobber surface rel perm" type="bool" value="false" />
-              <Parameter name="clobber boundary flux direction for upwinding" type="bool" value="true" />
+              <Parameter name="clobber surface rel perm" type="bool" value="true" />
               <Parameter name="debug cells" type="Array(int)" value="{1}" />
               <ParameterList name="verbose object" type="ParameterList">
                 <Parameter name="verbosity level" type="string" value="high" />
@@ -257,7 +256,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03222.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03257.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -371,7 +370,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03222.h5" />
+                <Parameter name="restart file" type="string" value="../../test2/test2-organic.regression.gold/checkpoint03257.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -396,7 +395,7 @@
                     <Parameter name="region" type="string" value="bedrock" />
                     <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
                     <Parameter name="thermal conductivity, saturated (unfrozen) [W/(m-K)]" type="double" value="1.0" />
-                    <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.29" />
+                    <Parameter name="thermal conductivity, dry [W/(m-K)]" type="double" value="0.33" />
                     <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0" />
                     <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
                   </ParameterList>
@@ -537,7 +536,7 @@
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
-          <Parameter name="smoothing width [K]" type="double" value="0.4" />
+          <Parameter name="smoothing width [K]" type="double" value="0.2" />
           <Parameter name="interfacial tension ice-water" type="double" value="33.1" />
           <Parameter name="interfacial tension air-water" type="double" value="72.7" />
           <Parameter name="heat of fusion of water [J/kg]" type="double" value="334000.0" />
@@ -747,7 +746,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.7" />
+                <Parameter name="value" type="double" value="0.35" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -801,7 +800,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.1e-12" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -837,7 +836,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1770.0" />
+                <Parameter name="value" type="double" value="2170.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -866,7 +865,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
               </ParameterList>
@@ -886,7 +885,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
               </ParameterList>
@@ -906,7 +905,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
@@ -926,7 +925,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="relative humidity [-]" />
               </ParameterList>
@@ -946,7 +945,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
               </ParameterList>
@@ -966,7 +965,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
               </ParameterList>
@@ -986,7 +985,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/10yr-MORESNOW-T+6.h5" />
+                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
               </ParameterList>
