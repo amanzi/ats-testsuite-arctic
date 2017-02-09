@@ -1,0 +1,383 @@
+ ======================> dumping parameter list <======================
+ <ParameterList name="ANONYMOUS">
+   <Parameter docString="" id="0" isDefault="false" isUsed="true" name="Native Unstructured Input" type="bool" value="true"/>
+   <Parameter docString="" id="1" isDefault="false" isUsed="true" name="grid_option" type="string" value="Unstructured"/>
+   <ParameterList id="10" name="cycle driver">
+     <Parameter docString="" id="2" isDefault="false" isUsed="true" name="end cycle" type="int" value="1"/>
+     <Parameter docString="" id="3" isDefault="false" isUsed="true" name="start time" type="double" value="0.00000000000000000e+00"/>
+     <Parameter docString="" id="4" isDefault="false" isUsed="true" name="start time units" type="string" value="s"/>
+     <Parameter docString="" id="5" isDefault="false" isUsed="true" name="end time" type="double" value="1.00000000000000000e+00"/>
+     <Parameter docString="" id="6" isDefault="false" isUsed="true" name="end time units" type="string" value="s"/>
+     <ParameterList id="9" name="PK tree">
+       <ParameterList id="8" name="Richards">
+         <Parameter docString="" id="7" isDefault="false" isUsed="true" name="PK type" type="string" value="richards steady state"/>
+       </ParameterList>
+     </ParameterList>
+   </ParameterList>
+   <ParameterList id="13" name="visualization">
+     <Parameter docString="" id="11" isDefault="false" isUsed="true" name="file name base" type="string" value="visdump"/>
+     <Parameter docString="" id="12" isDefault="false" isUsed="true" name="times start period stop" type="Array(double)" value="{0.00000000000000000e+00, 1.00000000000000000e+00, -1.00000000000000000e+00}"/>
+   </ParameterList>
+   <ParameterList id="14" name="checkpoint"/>
+   <ParameterList id="94" name="PKs">
+     <ParameterList id="93" name="Richards">
+       <Parameter docString="" id="15" isDefault="false" isUsed="true" name="PK type" type="string" value="richards steady state"/>
+       <Parameter docString="" id="16" isDefault="false" isUsed="true" name="primary variable" type="string" value="pressure"/>
+       <Parameter docString="" id="17" isDefault="false" isUsed="true" name="initial time step" type="double" value="1.00000000000000000e+00"/>
+       <Parameter docString="" id="18" isDefault="false" isUsed="true" name="relative permeability method" type="string" value="upwind with Darcy flux"/>
+       <Parameter docString="" id="19" isDefault="false" isUsed="true" name="permeability rescaling" type="double" value="1.00000000000000000e+07"/>
+       <ParameterList id="21" name="VerboseObject">
+         <Parameter docString="" id="20" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="high"/>
+       </ParameterList>
+       <ParameterList id="45" name="time integrator">
+         <Parameter docString="" id="22" isDefault="false" isUsed="true" name="extrapolate initial guess" type="bool" value="true"/>
+         <Parameter docString="" id="23" isDefault="false" isUsed="true" name="solver type" type="string" value="nka"/>
+         <Parameter docString="" id="24" isDefault="false" isUsed="true" name="timestep controller type" type="string" value="smarter"/>
+         <ParameterList id="33" name="nka parameters">
+           <Parameter docString="" id="25" isDefault="false" isUsed="true" name="max error growth factor" type="double" value="1.00000000000000000e+03"/>
+           <Parameter docString="" id="26" isDefault="false" isUsed="true" name="modify correction" type="bool" value="true"/>
+           <Parameter docString="" id="27" isDefault="false" isUsed="true" name="monitor" type="string" value="monitor residual"/>
+           <Parameter docString="" id="28" isDefault="false" isUsed="true" name="nonlinear tolerance" type="double" value="4.99999999999999990e-13"/>
+           <Parameter docString="" id="29" isDefault="false" isUsed="true" name="diverged tolerance" type="double" value="1.00000000000000000e+03"/>
+           <Parameter docString="" id="30" isDefault="false" isUsed="true" name="limit iterations" type="int" value="51"/>
+           <ParameterList id="32" name="VerboseObject">
+             <Parameter docString="" id="31" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="high"/>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="35" name="VerboseObject">
+           <Parameter docString="" id="34" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="high"/>
+         </ParameterList>
+         <ParameterList id="44" name="timestep controller smarter parameters">
+           <Parameter docString="" id="36" isDefault="false" isUsed="true" name="max iterations" type="int" value="18"/>
+           <Parameter docString="" id="37" isDefault="false" isUsed="true" name="min iterations" type="int" value="10"/>
+           <Parameter docString="" id="38" isDefault="false" isUsed="true" name="time step reduction factor" type="double" value="7.50000000000000000e-01"/>
+           <Parameter docString="" id="39" isDefault="false" isUsed="true" name="time step increase factor" type="double" value="1.25000000000000000e+00"/>
+           <Parameter docString="" id="40" isDefault="false" isUsed="true" name="max time step" type="double" value="1.00000000000000000e+10"/>
+           <Parameter docString="" id="41" isDefault="false" isUsed="true" name="min time step" type="double" value="1.00000000000000000e+00"/>
+           <Parameter docString="" id="42" isDefault="false" isUsed="true" name="growth wait after fail" type="int" value="2"/>
+           <Parameter docString="" id="43" isDefault="false" isUsed="true" name="count before increasing increase factor" type="int" value="2"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="47" name="Diffusion">
+         <Parameter docString="" id="46" isDefault="false" isUsed="true" name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
+       </ParameterList>
+       <ParameterList id="54" name="preconditioner">
+         <Parameter docString="" id="48" isDefault="false" isUsed="true" name="preconditioner type" type="string" value="boomer amg"/>
+         <ParameterList id="53" name="boomer amg parameters">
+           <Parameter docString="" id="49" isDefault="false" isUsed="true" name="cycle applications" type="int" value="1"/>
+           <Parameter docString="" id="50" isDefault="false" isUsed="true" name="smoother sweeps" type="int" value="3"/>
+           <Parameter docString="" id="51" isDefault="false" isUsed="true" name="strong threshold" type="double" value="2.50000000000000000e-01"/>
+           <Parameter docString="" id="52" isDefault="false" isUsed="true" name="tolerance" type="double" value="0.00000000000000000e+00"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="61" name="boundary conditions">
+         <ParameterList id="60" name="pressure">
+           <ParameterList id="59" name="surface">
+             <Parameter docString="" id="55" isDefault="false" isUsed="true" name="regions" type="Array(string)" value="{bottom face}"/>
+             <ParameterList id="58" name="boundary pressure">
+               <ParameterList id="57" name="function-constant">
+                 <Parameter docString="" id="56" isDefault="false" isUsed="true" name="value" type="double" value="5.20000000000000000e+05"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="72" name="initial condition">
+         <Parameter docString="" id="62" isDefault="false" isUsed="true" name="initialize faces from cells" type="bool" value="true"/>
+         <ParameterList id="71" name="function">
+           <ParameterList id="70" name="initial pressure cells">
+             <Parameter docString="" id="63" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+             <Parameter docString="" id="64" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+             <ParameterList id="69" name="function">
+               <ParameterList id="68" name="function-linear">
+                 <Parameter docString="" id="65" isDefault="false" isUsed="true" name="x0" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00, -4.50000000000000000e+01}"/>
+                 <Parameter docString="" id="66" isDefault="false" isUsed="true" name="y0" type="double" value="5.47250000000000000e+05"/>
+                 <Parameter docString="" id="67" isDefault="false" isUsed="true" name="gradient" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00, -9.80664999999999964e+03}"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="92" name="water retention evaluator">
+         <Parameter docString="" id="73" isDefault="false" isUsed="true" name="minimum rel perm cutoff" type="double" value="0.00000000000000000e+00"/>
+         <Parameter docString="" id="74" isDefault="false" isUsed="true" name="permeability rescaling" type="double" value="1.00000000000000000e+07"/>
+         <ParameterList id="89" name="WRM parameters">
+           <ParameterList id="81" name="peat">
+             <Parameter docString="" id="75" isDefault="false" isUsed="true" name="region" type="string" value="computational domain peat"/>
+             <Parameter docString="" id="76" isDefault="false" isUsed="true" name="WRM Type" type="string" value="van Genuchten"/>
+             <Parameter docString="" id="77" isDefault="false" isUsed="true" name="van Genuchten alpha" type="double" value="2.93000000000000020e-04"/>
+             <Parameter docString="" id="78" isDefault="false" isUsed="true" name="van Genuchten m" type="double" value="2.11999999999999994e-01"/>
+             <Parameter docString="" id="79" isDefault="false" isUsed="true" name="residual saturation" type="double" value="0.00000000000000000e+00"/>
+             <Parameter docString="" id="80" isDefault="false" isUsed="true" name="smoothing interval width" type="double" value="1.00000000000000000e+02"/>
+           </ParameterList>
+           <ParameterList id="88" name="upper mineral">
+             <Parameter docString="" id="82" isDefault="false" isUsed="true" name="region" type="string" value="computational domain upper mineral"/>
+             <Parameter docString="" id="83" isDefault="false" isUsed="true" name="WRM Type" type="string" value="van Genuchten"/>
+             <Parameter docString="" id="84" isDefault="false" isUsed="true" name="van Genuchten alpha" type="double" value="5.45000000000000020e-04"/>
+             <Parameter docString="" id="85" isDefault="false" isUsed="true" name="van Genuchten m" type="double" value="1.90938511000000005e-01"/>
+             <Parameter docString="" id="86" isDefault="false" isUsed="true" name="residual saturation" type="double" value="1.00000000000000006e-01"/>
+             <Parameter docString="" id="87" isDefault="false" isUsed="true" name="smoothing interval width" type="double" value="1.00000000000000000e+02"/>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="91" name="VerboseObject">
+           <Parameter docString="" id="90" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="high"/>
+         </ParameterList>
+       </ParameterList>
+     </ParameterList>
+   </ParameterList>
+   <ParameterList id="199" name="state">
+     <ParameterList id="193" name="field evaluators">
+       <ParameterList id="97" name="water_content">
+         <Parameter docString="" id="95" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="richards water content"/>
+         <Parameter docString="" id="96" isDefault="false" isUsed="true" name="include water vapor" type="bool" value="true"/>
+       </ParameterList>
+       <ParameterList id="101" name="capillary_pressure_gas_liq">
+         <Parameter docString="" id="98" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid"/>
+         <ParameterList id="100" name="VerboseObject">
+           <Parameter docString="" id="99" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="110" name="molar_density_liquid">
+         <Parameter docString="" id="102" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="eos"/>
+         <Parameter docString="" id="103" isDefault="false" isUsed="true" name="EOS basis" type="string" value="both"/>
+         <Parameter docString="" id="104" isDefault="false" isUsed="true" name="molar density key" type="string" value="molar_density_liquid"/>
+         <Parameter docString="" id="105" isDefault="false" isUsed="true" name="mass density key" type="string" value="mass_density_liquid"/>
+         <ParameterList id="107" name="EOS parameters">
+           <Parameter docString="" id="106" isDefault="false" isUsed="true" name="EOS type" type="string" value="liquid water"/>
+         </ParameterList>
+         <ParameterList id="109" name="VerboseObject">
+           <Parameter docString="" id="108" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="117" name="viscosity_liquid">
+         <Parameter docString="" id="111" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="viscosity"/>
+         <Parameter docString="" id="112" isDefault="false" isUsed="true" name="viscosity key" type="string" value="viscosity_liquid"/>
+         <ParameterList id="114" name="viscosity model parameters">
+           <Parameter docString="" id="113" isDefault="false" isUsed="true" name="viscosity relation type" type="string" value="liquid water"/>
+         </ParameterList>
+         <ParameterList id="116" name="VerboseObject">
+           <Parameter docString="" id="115" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="127" name="molar_density_gas">
+         <Parameter docString="" id="118" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="eos"/>
+         <Parameter docString="" id="119" isDefault="false" isUsed="true" name="EOS basis" type="string" value="molar"/>
+         <Parameter docString="" id="120" isDefault="false" isUsed="true" name="molar density key" type="string" value="molar_density_gas"/>
+         <ParameterList id="124" name="EOS parameters">
+           <Parameter docString="" id="121" isDefault="false" isUsed="true" name="EOS type" type="string" value="vapor in gas"/>
+           <ParameterList id="123" name="gas EOS parameters">
+             <Parameter docString="" id="122" isDefault="false" isUsed="true" name="EOS type" type="string" value="ideal gas"/>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="126" name="VerboseObject">
+           <Parameter docString="" id="125" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="134" name="mol_frac_gas">
+         <Parameter docString="" id="128" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="molar fraction gas"/>
+         <Parameter docString="" id="129" isDefault="false" isUsed="true" name="molar fraction key" type="string" value="mol_frac_gas"/>
+         <ParameterList id="131" name="vapor pressure model parameters">
+           <Parameter docString="" id="130" isDefault="false" isUsed="true" name="vapor pressure model type" type="string" value="water vapor over water/ice"/>
+         </ParameterList>
+         <ParameterList id="133" name="VerboseObject">
+           <Parameter docString="" id="132" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="151" name="base_porosity">
+         <Parameter docString="" id="135" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="independent variable"/>
+         <ParameterList id="148" name="function">
+           <ParameterList id="141" name="rest domain">
+             <Parameter docString="" id="136" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+             <Parameter docString="" id="137" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+             <ParameterList id="140" name="function">
+               <ParameterList id="139" name="function-constant">
+                 <Parameter docString="" id="138" isDefault="false" isUsed="true" name="value" type="double" value="5.00000000000000000e-01"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+           <ParameterList id="147" name="peat">
+             <Parameter docString="" id="142" isDefault="false" isUsed="true" name="region" type="string" value="computational domain peat"/>
+             <Parameter docString="" id="143" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+             <ParameterList id="146" name="function">
+               <ParameterList id="145" name="function-constant">
+                 <Parameter docString="" id="144" isDefault="false" isUsed="true" name="value" type="double" value="8.49999999999999978e-01"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="150" name="VerboseObject">
+           <Parameter docString="" id="149" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="160" name="porosity">
+         <Parameter docString="" id="152" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="compressible porosity"/>
+         <ParameterList id="159" name="compressible porosity model parameters">
+           <ParameterList id="155" name="peat">
+             <Parameter docString="" id="153" isDefault="false" isUsed="true" name="region" type="string" value="computational domain peat"/>
+             <Parameter docString="" id="154" isDefault="false" isUsed="true" name="pore compressibility [Pa^-1]" type="double" value="9.99999999999999955e-08"/>
+           </ParameterList>
+           <ParameterList id="158" name="upper mineral">
+             <Parameter docString="" id="156" isDefault="false" isUsed="true" name="region" type="string" value="computational domain upper mineral"/>
+             <Parameter docString="" id="157" isDefault="false" isUsed="true" name="pore compressibility [Pa^-1]" type="double" value="1.00000000000000002e-08"/>
+           </ParameterList>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="177" name="permeability">
+         <Parameter docString="" id="161" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="independent variable"/>
+         <ParameterList id="174" name="function">
+           <ParameterList id="167" name="rest domain">
+             <Parameter docString="" id="162" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+             <Parameter docString="" id="163" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+             <ParameterList id="166" name="function">
+               <ParameterList id="165" name="function-constant">
+                 <Parameter docString="" id="164" isDefault="false" isUsed="true" name="value" type="double" value="2.00000000000000006e-13"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+           <ParameterList id="173" name="peat">
+             <Parameter docString="" id="168" isDefault="false" isUsed="true" name="region" type="string" value="computational domain peat"/>
+             <Parameter docString="" id="169" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+             <ParameterList id="172" name="function">
+               <ParameterList id="171" name="function-constant">
+                 <Parameter docString="" id="170" isDefault="false" isUsed="true" name="value" type="double" value="4.99999999999999970e-12"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="176" name="VerboseObject">
+           <Parameter docString="" id="175" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="188" name="temperature">
+         <Parameter docString="" id="178" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="independent variable"/>
+         <ParameterList id="185" name="function">
+           <ParameterList id="184" name="temp on cells">
+             <Parameter docString="" id="179" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+             <Parameter docString="" id="180" isDefault="false" isUsed="true" name="components" type="Array(string)" value="{cell, boundary_face}"/>
+             <ParameterList id="183" name="function">
+               <ParameterList id="182" name="function-constant">
+                 <Parameter docString="" id="181" isDefault="false" isUsed="true" name="value" type="double" value="2.73649999999999977e+02"/>
+               </ParameterList>
+             </ParameterList>
+           </ParameterList>
+         </ParameterList>
+         <ParameterList id="187" name="VerboseObject">
+           <Parameter docString="" id="186" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+       <ParameterList id="192" name="effective_pressure">
+         <Parameter docString="" id="189" isDefault="false" isUsed="true" name="field evaluator type" type="string" value="effective_pressure"/>
+         <ParameterList id="191" name="VerboseObject">
+           <Parameter docString="" id="190" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="low"/>
+         </ParameterList>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="198" name="initial conditions">
+       <ParameterList id="195" name="atmospheric_pressure">
+         <Parameter docString="" id="194" isDefault="false" isUsed="true" name="value" type="double" value="1.01325000000000000e+05"/>
+       </ParameterList>
+       <ParameterList id="197" name="gravity">
+         <Parameter docString="" id="196" isDefault="false" isUsed="true" name="value" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, -9.80664999999999942e+00}"/>
+       </ParameterList>
+     </ParameterList>
+   </ParameterList>
+   <ParameterList id="202" name="VerboseObject">
+     <Parameter docString="" id="200" isDefault="false" isUsed="true" name="Output File" type="string" value="none"/>
+     <Parameter docString="" id="201" isDefault="false" isUsed="true" name="Verbosity Level" type="string" value="default"/>
+   </ParameterList>
+   <ParameterList id="227" name="regions">
+     <ParameterList id="206" name="computational domain">
+       <ParameterList id="205" name="region: box">
+         <Parameter docString="" id="203" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20, -1.00000000000000000e+20}"/>
+         <Parameter docString="" id="204" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20, 1.00000000000000000e+20}"/>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="210" name="surface domain">
+       <ParameterList id="209" name="region: box">
+         <Parameter docString="" id="207" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20}"/>
+         <Parameter docString="" id="208" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20}"/>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="214" name="computational domain peat">
+       <ParameterList id="213" name="region: box">
+         <Parameter docString="" id="211" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20, -5.00000000000000000e-01}"/>
+         <Parameter docString="" id="212" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20, 0.00000000000000000e+00}"/>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="218" name="computational domain upper mineral">
+       <ParameterList id="217" name="region: box">
+         <Parameter docString="" id="215" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20, -5.00000000000000000e+01}"/>
+         <Parameter docString="" id="216" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20, -5.00000000000000000e-01}"/>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="222" name="bottom face">
+       <ParameterList id="221" name="region: box">
+         <Parameter docString="" id="219" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20, -5.00000000000000000e+01}"/>
+         <Parameter docString="" id="220" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20, -5.00000000000000000e+01}"/>
+       </ParameterList>
+     </ParameterList>
+     <ParameterList id="226" name="surface">
+       <ParameterList id="225" name="region: box">
+         <Parameter docString="" id="223" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{-1.00000000000000000e+20, -1.00000000000000000e+20, -0.00000000000000000e+00}"/>
+         <Parameter docString="" id="224" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+20, 1.00000000000000000e+20, -0.00000000000000000e+00}"/>
+       </ParameterList>
+     </ParameterList>
+   </ParameterList>
+   <ParameterList id="235" name="mesh">
+     <Parameter docString="" id="228" isDefault="false" isUsed="true" name="framework" type="string" value="MSTK"/>
+     <ParameterList id="232" name="generate mesh">
+       <Parameter docString="" id="229" isDefault="false" isUsed="true" name="domain low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, -5.00000000000000000e+01}"/>
+       <Parameter docString="" id="230" isDefault="false" isUsed="true" name="domain high coordinate" type="Array(double)" value="{1.00000000000000000e+01, 1.00000000000000000e+00, 0.00000000000000000e+00}"/>
+       <Parameter docString="" id="231" isDefault="false" isUsed="true" name="number of cells" type="Array(int)" value="{1, 1, 1000}"/>
+     </ParameterList>
+     <ParameterList id="234" name="expert">
+       <Parameter docString="" id="233" isDefault="false" isUsed="true" name="verify mesh" type="bool" value="true"/>
+     </ParameterList>
+   </ParameterList>
+   <Validators/>
+ </ParameterList>
+ 
+ ======================> done dumping parameter list. <================
+================================================================================
+
+                      TimeMonitor results over 1 processor
+
+Timer Name    Global time (num calls)    
+================================================================================
+PK type = richards steady state
+
+Coordinator      |   ======================================================================
+Coordinator      |   
+Coordinator      |   Cycle = 0,  Time [days] = 0,  dt [days] = 1.15740740740741e-05
+Coordinator      |   ----------------------------------------------------------------------
+Richards         |      ENorm (Infnorm) of: water_content: 
+Richards         |        ENorm (cell) = 0.0125534048489688[0] (193.219489622543)
+Richards         |        ENorm (face) = 4.9401685674579[4000] (76038.08375)
+Richards         |      ENorm (Infnorm) of: water_content: 
+Richards         |        ENorm (cell) = 1.20818975268281e-09[854] (1.84522588788649e-05)
+Richards         |        ENorm (face) = 6.24937329861867e-12[4854] (9.54444893119799e-08)
+Richards         |      ENorm (Infnorm) of: water_content: 
+Richards         |        ENorm (cell) = 7.57692799094776e-14[854] (1.15719767102007e-09)
+Richards         |        ENorm (face) = 1.43433524768226e-12[4507] (2.19755322827808e-08)
+Richards         |      ENorm (Infnorm) of: water_content: 
+Richards         |        ENorm (cell) = 1.44382545106928e-16[142] (2.21944621351814e-12)
+Richards         |        ENorm (face) = 1.36553879284846e-14[4507] (2.09214978674765e-10)
+Coordinator      |   ======================================================================
+Coordinator      |   All meshes combined have 1000 cells.
+Coordinator      |   Memory usage (high water mark):
+Coordinator      |     Maximum per core:      41.9 MBytes,  maximum per cell: 43888.6 Bytes
+Coordinator      |     Minumum per core:      41.9 MBytes,  minimum per cell: 43888.6 Bytes
+Coordinator      |     Total:                 41.9 MBytes,  total per cell:   43888.6 Bytes
+Coordinator      |   Doubles allocated in state fields 
+Coordinator      |     Maximum per core:       0.6 MBytes
+Coordinator      |     Minimum per core:       0.6 MBytes
+Coordinator      |     Total:                  0.6 MBytes
+           |  ================================================================================
+           |  
+           |                        TimeMonitor results over 1 processor
+           |  
+           |  Timer Name    Global time (num calls)    
+           |  --------------------------------------------------------------------------------
+           |  cycle         0.4305 (1)                 
+           |  setup         0.2307 (1)                 
+           |  ================================================================================
