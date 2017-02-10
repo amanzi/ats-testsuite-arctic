@@ -78,7 +78,6 @@
     <ParameterList name="required times" type="ParameterList">
       <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,86400.0,-1.0}" />
     </ParameterList>
-    <!-- <Parameter name="restart from checkpoint file" type="string" value="checkpoint01370.h5" /> -->
     <ParameterList name="PK tree">
       <ParameterList name="Top level MPC" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -245,12 +244,13 @@
     <ParameterList name="coupled SEB and permafrost" type="ParameterList">
       <Parameter name="PK type" type="string" value="strong MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{SEB, permafrost surface and subsurface}" />
+
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
         <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
-          <Parameter name="nka lag iterations" type="int" value="2" />
+          <Parameter name="nka lag iterations" type="int" value="" />
           <Parameter name="max backtrack steps" type="int" value="10" />
           <Parameter name="max total backtrack steps" type="int" value="20" />
           <Parameter name="backtrack lag" type="int" value="0" />
@@ -427,7 +427,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="restart file" type="string" value="../../restarts/test2-iii.final.h5" />
+        <Parameter name="restart file" type="string" value="../../restarts/test2.uni.final.h5" />
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
@@ -555,7 +555,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="restart file" type="string" value="../../restarts/test2-iii.final.h5" />
+        <Parameter name="restart file" type="string" value="../../restarts/test2.uni.final.h5" />
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
