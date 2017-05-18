@@ -78,10 +78,17 @@
         <Parameter name="normal" type="Array(double)" value="{1, 0}"/>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="west" type="ParameterList">
+	<ParameterList name="west" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{0.0, 0.0}"/>
         <Parameter name="normal" type="Array(double)" value="{-1, 0}"/>
+      </ParameterList>
+    </ParameterList>
+    
+        <ParameterList name="east face seepage" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{1000.0,0.0,-1e10}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0,1.0,1e10}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -213,7 +220,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-                <Parameter name="restart file" type="string" value="../../test7_1yr_Nome_SS/test7-v.regression.gold/checkpoint01730.h5" />
+                <Parameter name="restart file" type="string" value="../../init/checkpoint_35yrs_1spin.h5" />
               </ParameterList>
 
             </ParameterList>
@@ -295,15 +302,33 @@
                     <Parameter name="verbosity level" type="string" value="high" />
 		  </ParameterList>
 
-		  <ParameterList name="Diffusion" type="ParameterList">
-                    <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
-		  </ParameterList>
+              <ParameterList name="Diffusion" type="ParameterList">
+                <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
+              </ParameterList>
 
+<!--
+              <ParameterList name="Diffusion PC" type="ParameterList">
+                <Parameter name="Newton correction" type="string" value="approximate Jacobian" />
+              </ParameterList>
+-->
+<!--              <ParameterList name="boundary conditions" type="ParameterList">
+              </ParameterList>
+-->
 		  <ParameterList name="boundary conditions" type="ParameterList">
+			<ParameterList name="seepage face" type="ParameterList">
+			  <ParameterList name="seepage" type="ParameterList">
+				<Parameter name="regions" type="Array(string)" value="{east face seepage}" />
+				<ParameterList name="boundary pressure" type="ParameterList">
+				  <ParameterList name="function-constant" type="ParameterList">
+					<Parameter name="value" type="double" value="101325.0" />
+				  </ParameterList>
+				</ParameterList>
+			  </ParameterList>
+			</ParameterList>
 		  </ParameterList>
 
 		  <ParameterList name="initial condition" type="ParameterList">
-                    <Parameter name="restart file" type="string" value="../../test7_1yr_Nome_SS/test7-v.regression.gold/checkpoint01730.h5" />
+                    <Parameter name="restart file" type="string" value="../../init/checkpoint_35yrs_1spin.h5" />
 		  </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -346,22 +371,33 @@
 
             </ParameterList>
 
-		<ParameterList name="surface flow" type="ParameterList">
-		  <Parameter name="PK type" type="string" value="overland flow with ice" />
-		  <Parameter name="primary variable" type="string" value="surface-pressure" />
-		  <Parameter name="domain name" type="string" value="surface" />
-		  <Parameter name="source term" type="bool" value="true" />
-		  <Parameter name="initial time step" type="double" value="86400.0" />
-		  <Parameter name="debug cells" type="Array(int)" value="{0}" />
-		  <ParameterList name="verbose object" type="ParameterList">
-                    <Parameter name="verbosity level" type="string" value="high" />
-		  </ParameterList>
+            <ParameterList name="surface flow" type="ParameterList">
+              <Parameter name="PK type" type="string" value="overland flow with ice" />
+              <Parameter name="primary variable" type="string" value="surface-pressure" />
+              <Parameter name="domain name" type="string" value="surface" />
+              <Parameter name="source term" type="bool" value="true" />
+              <Parameter name="initial time step" type="double" value="86400.0" />
 
-		  <ParameterList name="Diffusion" type="ParameterList">
-                    <Parameter name="discretization primary" type="string" value="fv: default" />
-		  </ParameterList>
+<!--              <Parameter name="debug cells" type="Array(int)" value="{99}" />-->
+		      <ParameterList name="verbose object" type="ParameterList">
+                <Parameter name="verbosity level" type="string" value="high" />
+              </ParameterList>
+
+              <ParameterList name="Diffusion" type="ParameterList">
+                <Parameter name="discretization primary" type="string" value="fv: default" />
+              </ParameterList>
 
 		  <ParameterList name="boundary conditions" type="ParameterList">
+		        <ParameterList name="seepage face pressure" type="ParameterList">
+                  <ParameterList name="surface boundary" type="ParameterList">
+                    <Parameter name="regions" type="Array(string)" value="{east,west}" />
+                    <ParameterList name="boundary pressure" type="ParameterList">
+                      <ParameterList name="function-constant" type="ParameterList">
+                        <Parameter name="value" type="double" value="101325" />
+                      </ParameterList>
+                    </ParameterList>
+                  </ParameterList>
+                </ParameterList>
 		  </ParameterList>
 
 		  <ParameterList name="initial condition" type="ParameterList">
@@ -393,21 +429,21 @@
                     <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
 		  </ParameterList>
 
-		  <ParameterList name="boundary conditions" type="ParameterList">
-                    <ParameterList name="temperature" type="ParameterList">
-                      <ParameterList name="bottom" type="ParameterList">
-			<Parameter name="regions" type="Array(string)" value="{bottom face}" />
-			<ParameterList name="boundary temperature" type="ParameterList">
-			  <ParameterList name="function-constant" type="ParameterList">
-                            <Parameter name="value" type="double" value="263.45" />
-			  </ParameterList>
-			</ParameterList>
+              <ParameterList name="boundary conditions" type="ParameterList">
+                <ParameterList name="temperature" type="ParameterList">
+                  <ParameterList name="bottom" type="ParameterList">
+                    <Parameter name="regions" type="Array(string)" value="{bottom face}" />
+                    <ParameterList name="boundary temperature" type="ParameterList">
+                      <ParameterList name="function-constant" type="ParameterList">
+                        <Parameter name="value" type="double" value="275.15" />
                       </ParameterList>
                     </ParameterList>
-		  </ParameterList>
+                  </ParameterList>
+                </ParameterList>
+              </ParameterList>
 
 		  <ParameterList name="initial condition" type="ParameterList">
-                    <Parameter name="restart file" type="string" value="../../test7_1yr_Nome_SS/test7-v.regression.gold/checkpoint01730.h5" />
+                    <Parameter name="restart file" type="string" value="../../init/checkpoint_35yrs_1spin.h5" />
 		  </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -467,8 +503,18 @@
                     <Parameter name="initialize surface temperature from subsurface" type="bool" value="true" />
 		  </ParameterList>
 
-		  <ParameterList name="boundary conditions" type="ParameterList">
-		  </ParameterList>
+              <ParameterList name="boundary conditions" type="ParameterList">
+                <ParameterList name="diffusive flux" type="ParameterList">
+                  <ParameterList name="surface boundary" type="ParameterList">
+                    <Parameter name="regions" type="Array(string)" value="{east,west}" />
+                    <ParameterList name="outward diffusive flux" type="ParameterList">
+                      <ParameterList name="function-constant" type="ParameterList">
+                        <Parameter name="value" type="double" value="0" />
+                      </ParameterList>
+                    </ParameterList>
+                  </ParameterList>
+                </ParameterList>
+              </ParameterList>
 
 		  <ParameterList name="thermal conductivity evaluator" type="ParameterList">
                     <ParameterList name="thermal conductivity parameters" type="ParameterList">
