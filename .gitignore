@@ -10,3 +10,4 @@ testing/LOGS
 *.regression
 *.regression.gold
 *.regression.gold.old
+*~
