@@ -10,8 +10,8 @@ Running the tests:
 To run the testsuite for the first time:
 
 ```
-sh run_test_0_2_7.sh
+sh run_all_tests.sh
 ```
 
-To display the results use ipython notebook (see `1D_column_bot_flux.ipynb`).
+To display the results use ipython notebook (see `1D_column_bot_flux.ipynb` and `plot_tests78.ipynb`).
 
