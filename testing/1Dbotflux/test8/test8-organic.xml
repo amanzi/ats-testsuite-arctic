@@ -162,7 +162,7 @@
           </ParameterList>
 
           <ParameterList name="initial condition" type="ParameterList">
-            <Parameter name="restart file" type="string" value="../../test7/test7-organic.regression.gold/checkpoint16806.h5" />
+            <Parameter name="restart file" type="string" value="../../restarts/test7_checkpoint.h5" />
           </ParameterList>
 
         </ParameterList>
@@ -251,7 +251,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-		<Parameter name="restart file" type="string" value="../../test7/test7-organic.regression.gold/checkpoint16806.h5" />
+		<Parameter name="restart file" type="string" value="../../restarts/test7_checkpoint.h5" />
               </ParameterList>
 
               <ParameterList name="water retention evaluator" type="ParameterList">
@@ -323,7 +323,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-		<Parameter name="restart file" type="string" value="../../test7/test7-organic.regression.gold/checkpoint16806.h5" />
+		<Parameter name="restart file" type="string" value="../../restarts/test7_checkpoint.h5" />
               </ParameterList>
 
               <ParameterList name="overland conductivity evaluator" type="ParameterList">
@@ -365,7 +365,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-		<Parameter name="restart file" type="string" value="../../test7/test7-organic.regression.gold/checkpoint16806.h5" />
+		<Parameter name="restart file" type="string" value="../../restarts/test7_checkpoint.h5" />
               </ParameterList>
 
               <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -422,7 +422,7 @@
               </ParameterList>
 
               <ParameterList name="initial condition" type="ParameterList">
-		<Parameter name="restart file" type="string" value="../../test7/test7-organic.regression.gold/checkpoint16806.h5" />
+		<Parameter name="restart file" type="string" value="../../restarts/test7_checkpoint.h5" />
               </ParameterList>
 
               <ParameterList name="boundary conditions" type="ParameterList">
