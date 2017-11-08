@@ -261,7 +261,7 @@
                 <ParameterList name="boundary temperature" type="ParameterList">
                   <ParameterList name="function-tabular" type="ParameterList">
                     <Parameter name="x values" type="Array(double)" value="{0.0,31536000000.0}" />
-                    <Parameter name="y values" type="Array(double)" value="{276.65,272.15}" />
+                    <Parameter name="y values" type="Array(double)" value="{276.65,270.5}" />
                     <Parameter name="forms" type="Array(string)" value="{linear}" />
                   </ParameterList>
                 </ParameterList>

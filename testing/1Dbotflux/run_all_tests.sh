@@ -41,16 +41,16 @@ python regression_tests.py -e $ATS_DIR/bin/ats -n $dir/test2/test2.cfg
 
 copy_last_checkpoint_2_restart $test2 test2
 
-echo "Running test7.. "
-python regression_tests.py -m `which mpiexec` -e $ATS_DIR/bin/ats -n $dir/test7/test7.cfg
+#echo "Running test7.. "
+#python regression_tests.py -m `which mpiexec` -e $ATS_DIR/bin/ats -n $dir/test7/test7.cfg
 
-copy_last_checkpoint_2_restart $test7 test7
+#copy_last_checkpoint_2_restart $test7 test7
 
-echo "Running test8.. "
-cd $dir/test8
-mkdir test8.regression
-cd test8.regression
-$ATS_DIR/bin/ats --xml_file='../test8-organic.xml' > teststd.out
+#echo "Running test8.. "
+#cd $dir/test8
+#mkdir test8.regression
+#cd test8.regression
+#$ATS_DIR/bin/ats --xml_file='../test8-organic.xml' > teststd.out
 
 cd $dir
 #exit 1
