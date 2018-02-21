@@ -4,8 +4,8 @@
 cur_dir=`pwd`
 cd $ATS_SRC_DIR/tools/utils/
 rm -rf *.h5
-cp $ATS_BASE/testing/ats-testsuite-arctic2/testing/2Dhillslope/test2/test2-iii.regression.gold/visdump_data.h5 .
-cp $ATS_BASE/testing/ats-testsuite-arctic2/testing/2Dhillslope/test2/test2-iii.regression.gold/visdump_mesh.h5 .
+cp $ATS_BASE/testing/ats-testsuite-arctic/testing/2Dhillslope/test2/test2-iii.regression.gold/visdump_data.h5 .
+cp $ATS_BASE/testing/ats-testsuite-arctic/testing/2Dhillslope/test2/test2-iii.regression.gold/visdump_mesh.h5 .
 python column_data.py -t 0
 cd $cur_dir
 cp $ATS_SRC_DIR/tools/utils/column_data.h5 exp1_column_data.h5
