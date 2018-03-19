@@ -11,3 +11,5 @@ testing/LOGS
 *.regression.gold
 *.regression.gold.old
 *~
+*.DS_Store
+*.ipynb_checkpoints
