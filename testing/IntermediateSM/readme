@@ -1,0 +1,13 @@
+Runs on four polygons.
+
+test0: simple four columns run (no subgrid, no subsidence)
+
+test1: four columns run with subgrid model only (no subsidence)
+
+test2: four columns run with subsidence only (no subgrid model)
+
+test3: four columns run with subsidence and subgrid model (subgrid parameters fixed)
+
+test4: four columns run with dynamic subgrid model (dynamic subgrid model + subsidence)
+	a) test4.xml : ice rich zone 34 cm deep
+	b) test4a.xml: ice rich zone 2 cm deep
