@@ -1,16 +1,19 @@
 <ParameterList name="Main" type="ParameterList">
-  <Parameter name="Native Unstructured Input" type="bool" value="true" />
-  <Parameter name="grid_option" type="string" value="Unstructured" />
   <ParameterList name="mesh" type="ParameterList">
-    <Parameter name="framework" type="string" value="MSTK" />
-    <ParameterList name="read mesh file" type="ParameterList">
-      <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
-      <Parameter name="format" type="string" value="Exodus II" />
-    </ParameterList>
-    <ParameterList name="surface mesh" type="ParameterList">
-      <Parameter name="surface sideset name" type="string" value="surface" />
+    <ParameterList name="surface" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="surface" />
       <ParameterList name="expert" type="ParameterList">
         <Parameter name="verify mesh" type="bool" value="false" />
+      </ParameterList>
+      <ParameterList name="surface parameters" type="ParameterList">
+        <Parameter name="surface sideset name" type="string" value="surface" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="read mesh file" />
+      <ParameterList name="read mesh file parameters" type="ParameterList">
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -110,27 +113,16 @@
     </ParameterList>
   </ParameterList>
 
-  <ParameterList name="coordinator" type="ParameterList">
+  <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="11.0" />
-    <Parameter name="end time units" type="string" value="yr" />
-  </ParameterList>
-
-  <ParameterList name="visualization" type="ParameterList">
-    <Parameter name="file name base" type="string" value="visdump" />
-    <Parameter name="times start period stop 0" type="Array(double)" value="{31557600.0,86400.0,63115200.0}" />
-    <Parameter name="times start period stop 1" type="Array(double)" value="{315576000.0,86400.0,347133600.0}" />
-    <Parameter name="times start period stop 2" type="Array(double)" value="{3155760000.0,86400.0,3187317600.0}" />
-    <Parameter name="times start period stop 3" type="Array(double)" value="{31557600000.0,86400.0,31589157600.0}" />
-  </ParameterList>
-
-  <ParameterList name="visualization surface" type="ParameterList">
-    <Parameter name="file name base" type="string" value="visdump_surface" />
-    <Parameter name="times start period stop 0" type="Array(double)" value="{31557600.0,86400.0,63115200.0}" />
-    <Parameter name="times start period stop 1" type="Array(double)" value="{315576000.0,86400.0,347133600.0}" />
-    <Parameter name="times start period stop 2" type="Array(double)" value="{3155760000.0,86400.0,3187317600.0}" />
-    <Parameter name="times start period stop 3" type="Array(double)" value="{31557600000.0,86400.0,31589157600.0}" />
+    <Parameter name="end time units" type="string" value="y" />
+    <ParameterList name="PK tree" type="ParameterList">
+      <ParameterList name="carbon" type="ParameterList">
+        <Parameter name="PK type" type="string" value="BGC simple" />
+      </ParameterList>
+    </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
   </ParameterList>
@@ -139,7 +131,7 @@
 
     <ParameterList name="carbon" type="ParameterList">
       <Parameter name="PK type" type="string" value="BGC simple" />
-      <Parameter name="primary variable" type="string" value="carbon" />
+      <Parameter name="primary variable key" type="string" value="carbon" />
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="soil partition name" type="string" value="all" />
       <Parameter name="cryoturbation mixing coefficient [cm^2/yr]" type="double" value="5.0" />
@@ -209,7 +201,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="incoming_shortwave_radiation" type="ParameterList">
+      <ParameterList name="surface-incoming_shortwave_radiation" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -239,7 +231,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="air_temperature" type="ParameterList">
+      <ParameterList name="surface-air_temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -269,7 +261,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="relative_humidity" type="ParameterList">
+      <ParameterList name="surface-relative_humidity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -299,7 +291,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="wind_speed" type="ParameterList">
+      <ParameterList name="surface-wind_speed" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -358,6 +350,22 @@
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
       </ParameterList>
 
+    </ParameterList>
+  </ParameterList>
+  <ParameterList name="visualization" type="ParameterList">
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="file name base" type="string" value="visdump" />
+      <Parameter name="times start period stop 0" type="Array(double)" value="{31557600.0,86400.0,63115200.0}" />
+      <Parameter name="times start period stop 1" type="Array(double)" value="{315576000.0,86400.0,347133600.0}" />
+      <Parameter name="times start period stop 2" type="Array(double)" value="{3155760000.0,86400.0,3187317600.0}" />
+      <Parameter name="times start period stop 3" type="Array(double)" value="{31557600000.0,86400.0,31589157600.0}" />
+    </ParameterList>
+    <ParameterList name="surface" type="ParameterList">
+      <Parameter name="file name base" type="string" value="visdump_surface" />
+      <Parameter name="times start period stop 0" type="Array(double)" value="{31557600.0,86400.0,63115200.0}" />
+      <Parameter name="times start period stop 1" type="Array(double)" value="{315576000.0,86400.0,347133600.0}" />
+      <Parameter name="times start period stop 2" type="Array(double)" value="{3155760000.0,86400.0,3187317600.0}" />
+      <Parameter name="times start period stop 3" type="Array(double)" value="{31557600000.0,86400.0,31589157600.0}" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

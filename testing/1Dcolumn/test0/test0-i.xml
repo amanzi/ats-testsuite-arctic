@@ -1,11 +1,11 @@
 <ParameterList name="Main" type="ParameterList">
-  <Parameter name="Native Unstructured Input" type="bool" value="true" />
-  <Parameter name="grid_option" type="string" value="Unstructured" />
   <ParameterList name="mesh" type="ParameterList">
-    <Parameter name="framework" type="string" value="MSTK" />
-    <ParameterList name="read mesh file" type="ParameterList">
-      <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
-      <Parameter name="format" type="string" value="Exodus II" />
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="read mesh file" />
+      <ParameterList name="read mesh file parameters" type="ParameterList">
+        <Parameter name="file" type="string" value="../../mesh/mesh_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+      </ParameterList>
     </ParameterList>
   </ParameterList>
 
@@ -82,18 +82,17 @@
     </ParameterList>
   </ParameterList>
 
-  <ParameterList name="coordinator" type="ParameterList">
+  <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="1.0" />
     <Parameter name="end time units" type="string" value="s" />
+    <ParameterList name="PK tree" type="ParameterList">
+      <ParameterList name="Richards" type="ParameterList">
+        <Parameter name="PK type" type="string" value="richards steady state" />
+      </ParameterList>
+    </ParameterList>
   </ParameterList>
-
-  <ParameterList name="visualization" type="ParameterList">
-    <Parameter name="file name base" type="string" value="visdump" />
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,1.0,-1.0}" />
-  </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
   </ParameterList>
 
@@ -101,7 +100,7 @@
 
     <ParameterList name="Richards" type="ParameterList">
       <Parameter name="PK type" type="string" value="richards steady state" />
-      <Parameter name="primary variable" type="string" value="pressure" />
+      <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="absolute error tolerance" type="double" value="1.0" />
       <Parameter name="relative error tolerance" type="double" value="1.0" />
       <Parameter name="initial time step" type="double" value="1.0" />
@@ -142,7 +141,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="Diffusion" type="ParameterList">
+      <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
       </ParameterList>
 
@@ -350,27 +349,27 @@
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
           <ParameterList name="moss" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="pore compressibility" type="double" value="5e-07" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5e-07" />
           </ParameterList>
           <ParameterList name="peat" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="pore compressibility" type="double" value="1e-07" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-07" />
           </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain upper mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-08" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-08" />
           </ParameterList>
           <ParameterList name="lower organic" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain lower organic" />
-            <Parameter name="pore compressibility" type="double" value="1e-09" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-09" />
           </ParameterList>
           <ParameterList name="lower mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain lower mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-09" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-09" />
           </ParameterList>
           <ParameterList name="deep mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain deep mineral" />
-            <Parameter name="pore compressibility" type="double" value="1e-09" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-09" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -434,5 +433,11 @@
   <ParameterList name="verbose object" type="ParameterList">
     <Parameter name="Output File" type="string" value="none" />
     <Parameter name="verbosity level" type="string" value="default" />
+  </ParameterList>
+  <ParameterList name="visualization" type="ParameterList">
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="file name base" type="string" value="visdump" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,1.0,-1.0}" />
+    </ParameterList>
   </ParameterList>
 </ParameterList>
