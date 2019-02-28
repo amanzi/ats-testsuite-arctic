@@ -10,4 +10,4 @@ This test is devoted to the simplified hillslope exmaple that can be generilized
 6. <strong>test0</strong> sets the water table depth that can be maupulted by changing the lower boundary pressure (Richards only). Navigate to 1D folder, create a folder "test0.regression", cd into that folder and run ATS: $ATS_DIR/bin/ats --xml_file="../test0_0.88.xml"
 7. <strong>test2</strong> runs coupled hydrothermal condition. Here the temperature boundary conditions can be manipulated. In addition, freezing conditions force water table to move up (i.e. re-establishing water table). Note, that initial conditions come from test0.  
 8. <strong>test7</strong> runs coupled hydrothermal condition with surface energy balance (SEB). Again, initial conditions come from test2. 
-
+9. Once test7 is finished use the conversion script 1D/make-column-for-2D.sh to create a 1D column file. Created 1D column stored in 2D/init. 
