@@ -256,7 +256,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="restart file" type="string" value="../../test2/test2.default.regression/checkpoint03871.h5" />
+        <Parameter name="restart file" type="string" value="../../test2/test2.ice_const.regression/checkpoint03324.h5" />
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
@@ -375,7 +375,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="restart file" type="string" value="../../test2/test2.default.regression/checkpoint03871.h5" />
+        <Parameter name="restart file" type="string" value="../../test2/test2.ice_const.regression/checkpoint03324.h5" />
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -622,10 +622,22 @@
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
         <Parameter name="molar density key" type="string" value="molar_density_ice" />
+        <Parameter name="mass density key" type="string" value="mass_density_ice" />
+        <ParameterList name="EOS parameters" type="ParameterList">
+          <Parameter name="EOS type" type="string" value="constant" />
+          <Parameter name="density [mol/m^3]" type="double" value="55500.0"/>
+          <Parameter name="molar mass [kg/mol]" type="double" value="0.0180153"/>
+        </ParameterList>
+      </ParameterList>
+
+      <!--ParameterList name="molar_density_ice" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="EOS basis" type="string" value="molar" />
+        <Parameter name="molar density key" type="string" value="molar_density_ice" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="ice" />
         </ParameterList>
-      </ParameterList>
+      </ParameterList-->
 
       <ParameterList name="surface-mass_density_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
