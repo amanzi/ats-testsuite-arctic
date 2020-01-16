@@ -1,4 +1,5 @@
 <ParameterList name="Main" type="ParameterList">
+
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="surface" />
@@ -12,7 +13,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="read mesh file" />
       <ParameterList name="read mesh file parameters" type="ParameterList">
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
       </ParameterList>
     </ParameterList>
@@ -34,7 +35,7 @@
     <ParameterList name="organic" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1001" />
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
@@ -42,7 +43,7 @@
     <ParameterList name="mineral" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1002" />
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
@@ -50,7 +51,7 @@
     <ParameterList name="bedrock" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="101" />
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Cell" />
       </ParameterList>
@@ -64,7 +65,7 @@
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
@@ -72,7 +73,7 @@
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1" />
-        <Parameter name="file" type="string" value="../../mesh/4/hillslope.par" />
+        <Parameter name="file" type="string" value="../../../mesh/4/hillslope_2D.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
@@ -262,7 +263,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
         <ParameterList name="initialize from 1D column" type="ParameterList">
-          <Parameter name="file" type="string" value="../../init/test7.default.h5" />
+          <Parameter name="file" type="string" value="../../../1D/test7/test7_default.regression/column_data.h5" />
           <Parameter name="z header" type="string" value="/z" />
           <Parameter name="f header" type="string" value="/pressure" />
           <Parameter name="coordinate orientation" type="string" value="depth" />
@@ -624,7 +625,8 @@
         <Parameter name="field evaluator type" type="string" value="surface rel perm" />
         <ParameterList name="surface rel perm model" type="ParameterList">
           <Parameter name="surface rel perm model type" type="string" value="unfrozen fraction rel perm, limit one" />
-          <Parameter name="unfrozen rel perm cutoff height" type="double" value="0.001" />
+          <Parameter name="unfrozen rel perm cutoff pressure [Pa]" type="double" value="0.001" />
+          <!--Parameter name="unfrozen rel perm cutoff height" type="double" value="0.001" /-->
         </ParameterList>
       </ParameterList>
 
@@ -891,7 +893,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
               </ParameterList>
@@ -911,7 +913,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming longwave radiation [W m^-2]" />
               </ParameterList>
@@ -931,7 +933,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
@@ -951,7 +953,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="relative humidity [-]" />
               </ParameterList>
@@ -971,7 +973,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
               </ParameterList>
@@ -991,7 +993,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
               </ParameterList>
@@ -1013,7 +1015,7 @@
               <ParameterList name="function-separable" type="ParameterList">
                 <ParameterList name="function1" type="ParameterList">
                   <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../../../Data/Nome_Alaska/spinup-100yr.h5" />
+                    <Parameter name="file" type="string" value="../../../../Data/Nome_Alaska/spinup-100yr.h5" />
                     <Parameter name="x header" type="string" value="time [s]" />
                     <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
                   </ParameterList>
